@@ -3,370 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encocktail - Kokteyl Bar</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.css">
+    <title>ENCOCKTAIL | Teklifiniz Hazır</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* TEMEL STİLLER */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .baslik {
+            color: #4A4A4A; 
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .tebrik-mesaji {
+            color: #B4C699; 
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+        
+        .teklif-ozeti {
+            text-align: left;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .fiyat-gosterim div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .toplam {
+            font-size: 1.5em;
+            color: #D9534F; 
+            font-weight: bold;
+            padding-top: 15px;
+            border-top: 2px solid #D9534F;
+            margin-top: 15px;
+        }
+        
+        h3 {
+            color: #4A4A4A;
+            margin-top: 30px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .supply-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        
+        .supply-list li {
+            background-color: #f7f7f7;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+        }
+
+        .supply-list strong {
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+        
+        .geri-don-link {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #795548;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="hero-section">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>ENCOCKTAIL</h1>
-            <p>Kokteyl Bar / Kokteyl Atölye</p>
+    <div class="container">
+        <h1 class="baslik">✅ TEKLİFİNİZ HAZIR!</h1>
+        <p class="tebrik-mesaji">Talebiniz başarıyla alınmıştır. Ön teklifiniz aşağıdadır. En kısa sürede size geri dönüş yapacağız.</p>
+
+        <section id="teklifOzeti" class="teklif-ozeti">
+            <h2>💸 ÖN TEKLİF ÖZETİ</h2>
+
+            <div class="fiyat-gosterim">
+                <div>Hizmet (Barmen, Kurulum, Süre): <span id="hizmetFiyat" class="fiyat">0.00 TL</span></div>
+                <div>**Miks Malzeme (ENCOCKTAIL - Zorunlu):** <span id="miksFiyat" class="fiyat">0.00 TL</span></div>
+                <div>Opsiyonel Tedarik (Müşteri Alkollü İçecek Bedeli Tahmini): <span id="opsiyonelFiyat" class="fiyat">0.00 TL</span></div>
+            </div>
             
-            <div>
-                <a href="#paketler" class="cta-button">Hizmetleri Gör</a>
-                </div>
-        </div>
-    </header>
-
-    <section class="section-why-us">
-        <h2>Fark Yaratan Detaylar</h2>
-        <div class="why-us-grid">
-            <div class="why-us-item">
-                <i class="fas fa-cocktail"></i>
-                <h3>Kişiselleştirilmiş Kokteyl Deneyimi</h3>
-                <p>Mevsimlik ve taze malzemelerle hazırlanan, etkinliğinizin konseptine özel imza kokteyller.</p>
+            <hr>
+            <div class="toplam">
+                <span style="font-size: 0.8em; margin-right: 10px;">Tahmini Toplam Maliyet:</span>
+                <span id="toplamFiyat" class="buyuk-fiyat">0.00 TL</span>
             </div>
-            <div class="why-us-item">
-                <i class="fas fa-trophy"></i>
-                <h3>Deneyimli ve Lisanslı Bar Ekibi</h3>
-                <p>Uluslararası standartlarda eğitimli, güler yüzlü ve profesyonel barmen ekibi.</p>
-            </div>
-            <div class="why-us-item">
-                <i class="fas fa-gem"></i>
-                <h3>Premium Mobil Bar Kurulumu</h3>
-                <p>Etkinlik alanınıza estetik katacak, özel tasarım ve tam donanımlı mobil bar setleri.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="paketler" class="section-paketler">
-        <h2>Etkinlik Paketlerimiz</h2>
-        <div class="paket-container">
+        
             
-            <a href="#kokteyller-bar" class="paket-link" data-paket="bar">
-                <div class="paket-card seckin">
-                    <div class="paket-header">
-                        <h3><i class="fas fa-medal"></i> Kokteyl Bar Hizmeti</h3>
-                        <p class="subtitle">VIP DAVETLER, BUTİK DÜĞÜNLER & LANSMAN ETKİNLİKLERİ</p>
-                    </div>
-                    <ul>
-                        <li>**Her Şey Dahil (All-Inclusive)** Premium Bar Kurulumu</li>
-                        <li>150 Misafire kadar</li>
-                        <li>Profesyonel barmen hizmeti</li>
-                        <li>Exclusive kokteyl menüsü (**4 kokteyl**)</li>
-                        <li>Tüm bar ekipmanları, dekor ve premium aksesuarlar</li>
-                        <li>Özelleştirilebilir içecek menüsü tabelası</li>
-                        <li>Kurulum ve toplama</li>
-                        <li>Etkinliğe özel alışveriş listesi danışmanlığı</li>
-                        <li>Garnitür istasyonu dahildir</li>
-                    </ul>
-                    <p class="minimum-info">Tüm içerikler ve süre her zaman **kişiselleştirilebilir**.</p>
-                </div>
-            </a>
+            <h3>Detaylı Hesaplama Bilgileri</h3>
+            <p>Tahmini Kokteyl Adedi (Tüm Etkinlik Boyunca): <strong id="kokteylAdedi">0 adet</strong></p>
+            <p>Kokteyl Başına Ortalama Miks Malzeme Maliyeti: <strong id="ortalamaMaliyet">0.00 TL</strong></p>
 
-            <a href="#atolyeler" class="paket-link" data-paket="atolye">
-                <div class="paket-card atolye">
-                    <div class="paket-header">
-                        <h3><i class="fas fa-flask"></i> Kokteyl Atölyesi</h3>
-                        <p class="subtitle">KURUMSAL EĞLENCELER, DOĞUM GÜNÜ & ARKADAŞ BULUŞMALARI</p>
-                    </div>
-                    <ul>
-                        <li>**Periyodik Açık Atölyeler:** Belirli tarihlerde düzenlediğimiz etkinliklere katılım.</li>
-                        <li>**Özel Mekan Atölyeleri:** Size özel bir tarih, mekan ve konsepte göre atölye.</li>
-                        <li>Kokteyl yapımının sırları, teknikleri ve hikayeleri.</li>
-                        <li>Katılımcıların kendi imzalarını taşıyan kokteylleri hazırlaması.</li>
-                        <li>Tüm premium malzeme ve ekipmanlar tarafımızdan temin edilir.</li>
-                        <li>Bireysel veya 10-50 kişilik gruplara özel tasarlanabilir.</li>
-                        <li>Etkinliğinize özel temalar (Tekila, Viski, Aperatifler vb.) belirlenebilir.</li>
-                    </ul>
-                    <p class="minimum-info">Bu paket, tamamen size özel olarak **kişiselleştirilebilir**.</p>
-                </div>
-            </a>
             
-        </div>
-    </section>
+            <h3>🍹 Zorunlu ENCOCKTAIL Miks Malzemeler Listesi</h3>
+            <p style="font-size: 0.9em; color: #555;">(Seçtiğiniz kokteyllere ve tahmini tüketime göre hesaplanan miktarlar)</p>
+            <div id="encocktailTedarikListesi" class="tedarik-listesi">
+                <p>Hesaplanıyor...</p>
+            </div>
 
-    <section id="kokteyller-bar" class="section-kokteyller">
-        <div class="menu-title-container">
-            <h2 class="kokteyl-baslik">Kokteyl Bar Hizmeti Menüsü</h2>
-            <div class="menu-header-controls">
-                <a href="#bar-form-modal" class="cta-button cta-small open-modal">Teklif Alın</a> 
-                <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
-            </div>
-        </div>
-        <p class="menu-intro">Bar hizmetimiz için seçebileceğiniz özel kokteyl menüsü seçenekleri. (Tüm kokteyllerimiz burada listelenmektedir.)</p>
-        <div class="menu-grid">
-            </div>
-    </section>
+        </section>
+
+        <a href="index.html" class="geri-don-link">Ana Sayfaya Geri Dön</a>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const teklifDetaylariJSON = localStorage.getItem('teklifDetaylari');
     
-    <section id="atolyeler" class="section-atolyeler">
-        <div class="menu-title-container">
-            <h2 class="kokteyl-baslik">Kokteyl Atölyesi Detayları</h2>
-            <div class="menu-header-controls">
-                <a href="#atolye-form-modal" class="cta-button cta-small open-modal">Bilgi ve Teklif Alın</a>
-                <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
-            </div>
-        </div>
-        <div class="atolye-detay">
+    if (teklifDetaylariJSON) {
+        const detaylar = JSON.parse(teklifDetaylariJSON);
+        
+        // Ana Fiyatları Yaz
+        document.getElementById('hizmetFiyat').textContent = detaylar.hizmetFiyat + ' TL';
+        document.getElementById('miksFiyat').textContent = detaylar.miksFiyat + ' TL';
+        document.getElementById('opsiyonelFiyat').textContent = detaylar.opsiyonelFiyat + ' TL';
+        document.getElementById('toplamFiyat').textContent = detaylar.toplamFiyat + ' TL';
+
+        // Yeni Detayları Yaz
+        document.getElementById('kokteylAdedi').textContent = detaylar.kokteylAdedi + ' adet';
+        document.getElementById('ortalamaMaliyet').textContent = detaylar.ortalamaMaliyet + ' TL';
+
+        // Miks Malzeme Tedarik Listesini Oluştur
+        const miksKapsayici = document.getElementById('encocktailTedarikListesi');
+        miksKapsayici.innerHTML = ''; // İçeriği temizle
+        
+        if (detaylar.miksMalzemeTedarikListesi && detaylar.miksMalzemeTedarikListesi.length > 0) {
+            const ul = document.createElement('ul');
+            ul.className = 'supply-list';
             
-            <div class="atolye-item">
-                <h3><i class="fas fa-calendar-alt"></i> Periyodik Açık Atölyeler</h3>
-                <p>Belirli tarihlerde, farklı temalarla herkesin katılımına açık olarak düzenlediğimiz atölyelerdir. Hem bireysel hem de küçük gruplar için harika bir deneyim sunar. Güncel program ve yer bilgisi için bizimle iletişime geçebilirsiniz.</p>
-                
-            </div>
-            
-            <div class="atolye-item">
-                <h3><i class="fas fa-map-marker-alt"></i> Size Özel Mekan Atölyeleri</h3>
-                <p>Düğün öncesi eğlencesi, kurumsal ekip etkinlikleri, özel kutlamalar veya doğum günleri için mükemmel bir seçenek. Sizin belirlediğiniz mekanda, konsepte ve katılımcı sayısına göre tamamen **kişiselleştirilmiş** bir atölye içeriği hazırlıyoruz. Kokteyl kültürünü eğlenceli ve uygulamalı bir şekilde keşfedin!</p>
-            </div>
-            
-            <p class="atolye-uyari">Paket içeriği, kokteyl reçeteleri ve süre gibi tüm detaylar isteğinize göre özelleştirilebilir.</p>
-        </div>
-    </section>
-
-
-    <section id="bar-form-modal" class="modal-form-overlay">
-        <div class="modal-form-container">
-            <a href="#" class="close-modal">&times;</a>
-            <h2 id="bar-modal-title">Bar Hizmeti Teklif Formu</h2>
-            <p class="form-intro">Etkinliğiniz için detaylı teklif almak üzere formu doldurunuz. En kısa sürede size ulaşacağız.</p>
-            
-            <form name="barContact" class="contact-form" method="POST">
-                
-                <input type="hidden" name="Hizmet_Turu" value="BAR HİZMETİ">
-
-                <div class="form-group">
-                    <label for="bar_adsoyad">Ad Soyad *</label>
-                    <input type="text" id="bar_adsoyad" name="Ad_Soyad" required>
-                </div>
-                <div class="form-group">
-                    <label for="bar_telefon">Telefon *</label>
-                    <input type="tel" id="bar_telefon" name="Telefon" required>
-                </div>
-                <div class="form-group">
-                    <label for="bar_email">E-posta *</label>
-                    <input type="email" id="bar_email" name="Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="bar_misafir">Misafir Sayısı *</label>
-                    <input type="number" id="bar_misafir" name="Misafir_Sayisi" min="1" required>
-                </div>
-                <div class="form-group full-width">
-                    <label for="bar_tarih">Etkinlik Tarihi *</label>
-                    <input type="date" id="bar_tarih" name="Etkinlik_Tarihi" required>
-                </div>
-                <div class="form-group full-width">
-                    <label for="bar_lokasyon">Etkinlik Lokasyonu (Şehir/Mekan) *</label>
-                    <input type="text" id="bar_lokasyon" name="Etkinlik_Lokasyonu" required>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="bar_servisSaati">Servis Saati (Minimum 3 saat) *</label>
-                    <input type="number" id="bar_servisSaati" name="Servis_Saati" min="3" value="3" required>
-                </div>
-                <div class="form-group full-width kokteyl-secim-container">
-                    <label>Kokteyl Seçimi (Maksimum 4 çeşit seçiniz)</label>
-                    <div class="checkbox-list" id="barKokteylSecim">
-                        </div>
-                </div>
-                
-                <div class="form-group full-width">
-                    <label for="bar_not">Ekstra Notlar / Detaylar (Konsept, Kokteyl tercihleri vb.)</label>
-                    <textarea id="bar_not" name="Ekstra_Notlar" rows="4"></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button">Teklif Al</button>
-                <div id="barLoader" style="display: none;">Gönderiliyor...</div>
-            </form>
-        </div>
-    </section>
-
-    <section id="atolye-form-modal" class="modal-form-overlay">
-        <div class="modal-form-container">
-            <a href="#" class="close-modal">&times;</a>
-            <h2 id="atolye-modal-title">Kokteyl Atölyesi Bilgi ve Teklif Formu</h2>
-            <p class="form-intro">Atölye seçeneklerimiz hakkında detaylı bilgi almak veya kişiye özel teklif istemek için formu doldurunuz.</p>
-            
-            <form name="atolyeContact" class="contact-form" method="POST">
-                
-                <input type="hidden" name="Hizmet_Turu" value="ATÖLYE HİZMETİ">
-
-                <div class="form-group">
-                    <label for="atolye_adsoyad">Ad Soyad *</label>
-                    <input type="text" id="atolye_adsoyad" name="Ad_Soyad" required>
-                </div>
-                <div class="form-group">
-                    <label for="atolye_telefon">Telefon *</label>
-                    <input type="tel" id="atolye_telefon" name="Telefon" required>
-                </div>
-                <div class="form-group full-width">
-                    <label for="atolye_email">E-posta *</label>
-                    <input type="email" id="atolye_email" name="Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="atolye_kisi">Tahmini Kişi Sayısı</label>
-                    <input type="number" id="atolye_kisi" name="Tahmini_Kisi_Sayisi" min="1">
-                </div>
-                <div class="form-group">
-                    <label for="atolye_tarih">İstenilen Tarih (Opsiyonel)</label>
-                    <input type="date" id="atolye_tarih" name="Istenilen_Tarih">
-                </div>
-                <div class="form-group full-width">
-                    <label for="atolye_tur">Atölye Türü *</label>
-                    <select id="atolye_tur" name="Atolye_Turu" required>
-                        <option value="" disabled selected>Lütfen bir seçenek seçin</option>
-                        <option value="Periyodik_Açık_Atölye">Periyodik Açık Atölyeler (Bilgi Almak İstiyorum)</option>
-                        <option value="Size_Ozel_Mekan">Size Özel Mekan Atölyesi (Teklif Almak İstiyorum)</option>
-                        <option value="Kurumsal_Etkinlik">Kurumsal Etkinlik (Teklif Almak İstiyorum)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group full-width">
-                    <label for="atolye_not">Ekstra Notlar / Sorularınız</label>
-                    <textarea id="atolye_not" name="Ekstra_Notlar" rows="4"></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button">Bilgi ve Teklif Al</button>
-                <div id="atolyeLoader" style="display: none;">Gönderiliyor...</div>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 ENcocktail. Tüm Hakları Saklıdır.</p>
-        <div class="footer-contact">
-            <p>
-                <i class="fas fa-envelope"></i> <a href="mailto:encocktail@gmail.com" class="footer-link">encocktail@gmail.com</a>
-            </p>
-            <p>
-                <i class="fab fa-instagram"></i> <a href="https://www.instagram.com/encocktail/" target="_blank" class="footer-link">@encocktail</a>
-            </p>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
-    <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js"></script>
-    <script src="script.js"></script>
-    
-    <script>
-        // Galeri yükleme fonksiyonu (Önceki Adımlardan Korundu)
-        function yukleVeGaleriBaslat() {
-            const menuConfigs = [
-                { id: '#kokteyller-bar', galleryName: 'bar-tumu' } 
-            ];
-            
-            const $barKokteylSecimDiv = $('#barKokteylSecim'); // Bar formu için kokteyl listesi
-
-            $.getJSON('kokteyller.json')
-                .done(function(data) {
-                    
-                    const allCocktailsForGallery = [].concat(
-                        data['keyifli-menu'] || [], 
-                        data['ozel-menu'] || [], 
-                        data['seckin-menu'] || []
-                    );
-                    
-                    // 1. KOKTEYLLERİ BAR MODALI İÇİNE DOLDUR (TEKRARSIZ LİSTE)
-                    let kokteylSecimHTML = '';
-                    const uniqueCocktailTitles = new Set();
-                    
-                    allCocktailsForGallery.forEach(cocktail => {
-                        if (!uniqueCocktailTitles.has(cocktail.ad)) {
-                            uniqueCocktailTitles.add(cocktail.ad);
-                            kokteylSecimHTML += `
-                                <label>
-                                    <input type="checkbox" name="Kokteyl_Secimi" value="${cocktail.ad}">
-                                    ${cocktail.ad}
-                                </label>
-                            `;
-                        }
-                    });
-                    $barKokteylSecimDiv.html(kokteylSecimHTML);
-                    
-                    // 2. FORM GÖNDERİMİNDE KONTROL (SADECE BAR FORMU İÇİN)
-                    $('form[name="barContact"]').on('submit', function(e) {
-                        const maxAllowed = 4; // Yeni kural: Maksimum 4 çeşit
-                        const totalSelected = $('input[name="Kokteyl_Secimi"]:checked').length;
-                        
-                        if (totalSelected > maxAllowed) {
-                            alert(`Maksimum ${maxAllowed} çeşit kokteyl seçebilirsiniz. Lütfen seçiminizi azaltın.`);
-                            e.preventDefault();
-                            return;
-                        }
-
-                        if (totalSelected < maxAllowed && totalSelected > 0) {
-                            const remaining = maxAllowed - totalSelected;
-                            const message = `Maksimum ${maxAllowed} adet kokteyl seçme hakkınız varken ${totalSelected} adet seçtiniz. Kalan ${remaining} hakkınızı kullanmak istemediğinize emin misiniz?`;
-                            
-                            if (!confirm(message)) {
-                                e.preventDefault();
-                                return;
-                            }
-                        }
-                    });
-                    
-                    // 3. GALERİYİ VE MENU GÖRÜNÜMÜNÜ DOLDUR (ESKİ FONKSİYON)
-                    menuConfigs.forEach(config => {
-                        const $container = $(config.id).find('.menu-grid'); 
-                        $container.empty(); 
-                        
-                        const cocktails = allCocktailsForGallery; 
-                        let htmlContent = '';
-                        const uniqueGalleryTitles = new Set(); 
-
-                        cocktails.forEach(cocktail => {
-                            if (!uniqueGalleryTitles.has(cocktail.ad)) {
-                                uniqueGalleryTitles.add(cocktail.ad);
-                                 // Kokteyl HTML yapısı
-                                htmlContent += `
-                                    <div class="cocktail-item">
-                                        <a href="${cocktail.gorsel_buyuk}" 
-                                        class="lightbox-trigger" 
-                                        data-featherlight="image" 
-                                        data-title="${cocktail.ad}" 
-                                        data-description="${cocktail.aciklama.replace(/\n/g, '<br>')}" 
-                                        data-featherlight-gallery="${config.galleryName}">
-                                            <img src="${cocktail.gorsel_thumb}" alt="${cocktail.ad}">
-                                        </a>
-                                        <h4>${cocktail.ad}</h4>
-                                        <p>${cocktail.aciklama.replace(/\n/g, '<br>')}</p>
-                                    </div>
-                                `;
-                            }
-                        });
-                        $container.html(htmlContent); 
-                    });
-
-                    menuConfigs.forEach(menu => {
-                        const $links = $(menu.id).find('a.lightbox-trigger');
-                        $links.attr('data-featherlight-filter', 'a[data-featherlight-gallery=\"' + menu.galleryName + '\"]');
-                        $links.featherlightGallery({
-                            previousIcon: '&#9664;',     
-                            nextIcon: '&#9654;',         
-                            closeIcon: 'X',              
-                            galleryFadeIn: 300,
-                            galleryFadeOut: 300
-                        });
-                    });
-
-                })
-                .fail(function() {
-                    console.error("Hata: kokteyller.json dosyası yüklenemedi veya hatalı.");
-                });
+            detaylar.miksMalzemeTedarikListesi.forEach(item => {
+                const li = document.createElement('li');
+                // Miktarı 1 ondalık basamakla göster
+                const miktarGosterim = item.miktar < 1 ? item.miktar.toFixed(2) : item.miktar.toFixed(1); 
+                li.innerHTML = `
+                    <span>${item.isim}</span>
+                    <strong>${miktarGosterim} ${item.birim}</strong>
+                `;
+                ul.appendChild(li);
+            });
+            miksKapsayici.appendChild(ul);
+        } else {
+             miksKapsayici.innerHTML = '<p>Seçilen kokteyl ve misafir sayısına göre hesaplanan zorunlu miks malzeme bulunmamaktadır.</p>';
         }
 
-        // --- Sayfa Yüklendiğinde Başlat ---
-        $(document).ready(function() {
-            yukleVeGaleriBaslat(); 
-        });
-    </script>
+        // Başarıyla gösterildikten sonra localStorage'ı temizle (isteğe bağlı)
+        // localStorage.removeItem('teklifDetaylari'); 
+
+    } else {
+        // Eğer veri yoksa kullanıcıya bir hata mesajı gösterilebilir
+        document.querySelector('.teklif-ozeti').innerHTML = '<h2>Hata</h2><p>Teklif detayları bulunamadı. Lütfen formu ana sayfadan tekrar doldurmayı deneyin.</p>';
+    }
+});
+</script>
+
 </body>
 </html>
