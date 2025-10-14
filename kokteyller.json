@@ -3,8 +3,8 @@
     {
       "ad": "Mojito",
       "aciklama": "Rom\nLime suyu\nNane şurubu\nSoda\nNane dalı\nLime Dilimi",
-      "gorsel_thumb": "Mojito.jpg",
-      "gorsel_buyuk": "Mojito.jpg"
+      "gorsel_thumb": "mojito.jpg",
+      "gorsel_buyuk": "mojito.jpg"
     },
     {
       "ad": "Whiskey Sour",
@@ -104,8 +104,8 @@
     {
       "ad": "Lemonade",
       "aciklama": "Limon\nŞeker\nPortakal",
-      "gorsel_thumb": "Lemonade.jpg",
-      "gorsel_buyuk": "Lemonade.jpg"
+      "gorsel_thumb": "lemonade.jpg",
+      "gorsel_buyuk": "lemonade.jpg"
     }
 	,
     {
