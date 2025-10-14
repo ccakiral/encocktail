@@ -1,6 +1,6 @@
 // Google Apps Script URL'si buraya sabitlendi!
 // En son ve çalışan URL budur.
-const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwjFdPfwjnKqpAzQaoHTFP6Abj_NfHj8VNI2yyOXnlqCLPg4CtETjhmVvuBczyfewjP/exec"; 
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPJd7fi_pIO87Ls5FAUZBhEwVeLmglPad3cegkWdaJ1q4BWdDWxP5Yqwp3ZmtjRDEr/exec"; 
 
 // B. DOM Elementleri 
 const barForm = document.forms['barContact'];
