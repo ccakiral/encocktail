@@ -769,3 +769,170 @@ footer {
     color: #f7f5f0; /* İkon rengini link rengiyle eşleştir */
     font-size: 1em; 
 }
+/* --- YENİ FORM STİLLERİ (MODAL) --- */
+/* Modalı gizleyen ve tüm ekranı kaplayan katman */
+.modal-form-overlay {
+    display: none; /* Varsayılan olarak gizli*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Sayfanın geri kalanını karart */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu çıksın */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Modalın içerik kutusu */
+.modal-form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 700px; /* Daha geniş form için artırıldı */
+    width: 100%;
+    margin: auto; /* Mobil ve büyük ekranlarda ortalama */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out; /* Açılış animasyonu için */
+}
+
+/* Kapatma butonu (X) */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    font-weight: 300;
+    color: #4A4A4A;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #795548;
+}
+
+/* Form Başlıkları ve Giriş Metinleri */
+.modal-form-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.modal-form-container .form-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4A4A4A;
+    font-size: 1.05em;
+}
+
+/* Form yapısı */
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 10px); /* İki sütunlu düzen */
+    text-align: left;
+}
+
+.form-group.full-width {
+    flex-basis: 100%; /* Tam genişlik */
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #795548;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form input[type="number"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button.cta-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+/* Kokteyl Seçimi (Checkbox) Listesi */
+.checkbox-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 sütunlu düzen */
+    gap: 10px 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.checkbox-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    color: #333;
+}
+
+.checkbox-list input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+}
+
+
+/* Gönderiliyor yazısı için stil */
+#loader {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #795548;
+}
+
+/* 700px altında mobil uyumluluk */
+@media (max-width: 700px) {
+    .form-group {
+        flex-basis: 100%; /* Mobil cihazlarda tek sütun */
+    }
+    .modal-form-overlay {
+        padding: 0;
+    }
+    .modal-form-container {
+        padding: 20px;
+        border-radius: 0;
+        min-height: 100vh; /* Tam ekran kaplama */
+    }
+    .checkbox-list {
+        grid-template-columns: 1fr; /* Mobil cihazlarda tek sütun */
+    }
+}

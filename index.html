@@ -21,7 +21,8 @@
             
             <div>
                 <a href="#paketler" class="cta-button">Hizmetleri Gör</a>
-                </div>
+                <a href="#basvuru" class="cta-button cta-secondary open-modal" data-hizmet="BAR">Teklif Alın</a>
+            </div>
         </div>
     </header>
 
@@ -97,6 +98,7 @@
         <div class="menu-title-container">
             <h2 class="kokteyl-baslik">Kokteyl Bar Hizmeti Menüsü</h2>
             <div class="menu-header-controls">
+                <a href="#basvuru" class="cta-button cta-small open-modal" data-hizmet="BAR">Teklif Alın</a> 
                 <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
             </div>
         </div>
@@ -109,6 +111,7 @@
         <div class="menu-title-container">
             <h2 class="kokteyl-baslik">Kokteyl Atölyesi Detayları</h2>
             <div class="menu-header-controls">
+                <a href="#basvuru" class="cta-button cta-small open-modal" data-hizmet="ATOLYE">Bilgi ve Teklif Alın</a>
                 <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
             </div>
         </div>
@@ -130,6 +133,77 @@
     </section>
 
 
+    <section id="basvuru" class="modal-form-overlay">
+        <div class="modal-form-container">
+            <a href="#" class="close-modal">&times;</a>
+            <h2 id="modal-title">Bar Hizmeti Teklif Formu</h2>
+            <p class="form-intro">Etkinliğiniz için detaylı teklif almak üzere formu doldurunuz. En kısa sürede size ulaşacağız.</p>
+            
+            <form name="contact" class="contact-form" method="POST">
+                
+                <input type="hidden" name="Hizmet_Turu" id="hizmet_turu" value="BAR HİZMETİ">
+
+                <div class="form-group">
+                    <label for="adsoyad">Ad Soyad *</label>
+                    <input type="text" id="adsoyad" name="Ad_Soyad" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefon">Telefon *</label>
+                    <input type="tel" id="telefon" name="Telefon" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta *</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="misafir">Misafir Sayısı *</label>
+                    <input type="number" id="misafir" name="Misafir_Sayisi" min="1" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="tarih">Etkinlik Tarihi *</label>
+                    <input type="date" id="tarih" name="Etkinlik_Tarihi" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="lokasyon">Etkinlik Lokasyonu (Şehir/Mekan) *</label>
+                    <input type="text" id="lokasyon" name="Etkinlik_Lokasyonu" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="paketSecimi">Paket Seçimi *</label>
+                    <select id="paketSecimi" name="Paket_Secimi" required>
+                        <option value="" disabled selected>Lütfen bir paket seçin</option>
+                        <option value="keyifli">Keyifli Paket (4 Kokteyl)</option>
+                        <option value="ozel">Özel Paket (5 Kokteyl)</option>
+                        <option value="seckin">Seçkin Paket (6 Kokteyl)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servisSaati">Servis Saati (Minimum 3 saat) *</label>
+                    <input type="number" id="servisSaati" name="Servis_Saati" min="3" value="3" required>
+                </div>
+                <div class="form-group">
+                    <label for="garsonSayisi">Garson Sayısı (Kokteyl/Atölye Harici)</label>
+                    <input type="number" id="garsonSayisi" name="Garson_Sayisi" min="0" value="0">
+                </div>
+
+                <div class="form-group full-width kokteyl-secim-container">
+                    <label>Kokteyl Seçimi (Paketinize uygun adette seçiniz)</label>
+                    <div class="checkbox-list" id="kokteylSecim">
+                        </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="not">Ekstra Notlar / Detaylar (Konsept, Kokteyl tercihleri vb.)</label>
+                    <textarea id="not" name="Ekstra_Notlar" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button">Teklif Al</button>
+                <div id="loader" style="display: none;">Gönderiliyor...</div>
+            </form>
+        </div>
+    </section>
+
+
     <footer>
         <p>&copy; 2025 ENcocktail. Tüm Hakları Saklıdır.</p>
         <div class="footer-contact">
@@ -145,40 +219,93 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js"></script>
+    <script src="script.js"></script>
     
     <script>
-        // Formla ilişkili fonksiyonlar ve olay dinleyicileri kaldırıldı.
-        
+        // Pakete göre kaç çeşit kokteyl seçilebileceği (ESKİ YAPIDAN KORUNDU)
+        const paketLimitleri = {
+            'keyifli': { min: 4, max: 4, maxExtra: 0 },
+            'ozel': { min: 5, max: 5, maxExtra: 0 },
+            'seckin': { min: 6, max: 6, maxExtra: 0 }
+        };
+
+        // Galeri yükleme fonksiyonu (Önceki Adımlardan Korundu)
         function yukleVeGaleriBaslat() {
-            // Sadece BAR menüsü kaldı, ancak tüm kokteylleri göstermeli
             const menuConfigs = [
                 { id: '#kokteyller-bar', galleryName: 'bar-tumu' } 
             ];
+            
+            // FORM İÇİNDEKİ KOKTEYL SEÇİMİNİ DOLDURMAK İÇİN YENİ BİR BAŞLATMA
+            const $kokteylSecimDiv = $('#kokteylSecim');
+            const $paketSecimi = $('#paketSecimi');
 
-            // JSON dosyasını çek
             $.getJSON('kokteyller.json')
                 .done(function(data) {
                     
-                    // Menü İçeriğini Hazırla (Tüm Kokteylleri Birleştir)
                     const allCocktailsForGallery = [].concat(
                         data['keyifli-menu'] || [], 
                         data['ozel-menu'] || [], 
                         data['seckin-menu'] || []
                     );
+                    
+                    // 1. KOKTEYLLERİ MODAL İÇİNE DOLDUR (TEKRARSIZ LİSTE)
+                    let kokteylSecimHTML = '';
+                    const uniqueCocktailTitles = new Set();
+                    
+                    allCocktailsForGallery.forEach(cocktail => {
+                        if (!uniqueCocktailTitles.has(cocktail.ad)) {
+                            uniqueCocktailTitles.add(cocktail.ad);
+                            kokteylSecimHTML += `
+                                <label>
+                                    <input type="checkbox" name="Kokteyl_Secimi" value="${cocktail.ad}">
+                                    ${cocktail.ad}
+                                </label>
+                            `;
+                        }
+                    });
+                    $kokteylSecimDiv.html(kokteylSecimHTML);
+                    
+                    // 2. PAKET SEÇİMİ VE KOKTEYL KONTROLÜ
+                    $paketSecimi.on('change', function() {
+                        const paketValue = $(this).val();
+                        if (paketValue) {
+                            $('.kokteyl-secim-container').show();
+                        }
+                    }).trigger('change'); 
 
-                    // Galeri İçeriklerini Doldur (Sadece BAR menüsü)
+                    // 3. FORM GÖNDERİMİNDE KONTROL
+                    $('.contact-form').on('submit', function(e) {
+                        const paketValue = $paketSecimi.val();
+                        if (!paketValue) return;
+
+                        const paketInfo = paketLimitleri[paketValue];
+                        const totalSelectedMain = $('input[name="Kokteyl_Secimi"]:checked').length;
+                        const maxAllowedMain = paketInfo.max;
+
+                        if (totalSelectedMain < maxAllowedMain) {
+                            const remaining = maxAllowedMain - totalSelectedMain;
+                            const message = `Paketiniz için ${maxAllowedMain} adet kokteyl seçme hakkınız varken ${totalSelectedMain} adet seçtiniz. Kalan ${remaining} hakkınızı kullanmak istemediğinize emin misiniz?`;
+                            
+                            if (!confirm(message)) {
+                                e.preventDefault();
+                                return;
+                            }
+                        }
+                    });
+                    
+                    // 4. GALERİYİ VE MENU GÖRÜNÜMÜNÜ DOLDUR (ESKİ FONKSİYON)
                     menuConfigs.forEach(config => {
                         const $container = $(config.id).find('.menu-grid'); 
                         $container.empty(); 
                         
                         const cocktails = allCocktailsForGallery; 
                         let htmlContent = '';
-                        const uniqueCocktailTitles = new Set(); // Tekrarlanan kokteylleri galeride de engelle
+                        const uniqueGalleryTitles = new Set(); // Tekrarlanan kokteylleri galeride de engelle
 
                         cocktails.forEach(cocktail => {
-                            if (!uniqueCocktailTitles.has(cocktail.ad)) {
-                                uniqueCocktailTitles.add(cocktail.ad);
-                                 // Kokteyl HTML yapısı (açıklamadaki \n'leri <br> ile değiştirir)
+                            if (!uniqueGalleryTitles.has(cocktail.ad)) {
+                                uniqueGalleryTitles.add(cocktail.ad);
+                                 // Kokteyl HTML yapısı
                                 htmlContent += `
                                     <div class="cocktail-item">
                                         <a href="${cocktail.gorsel_buyuk}" 
@@ -198,7 +325,6 @@
                         $container.html(htmlContent); 
                     });
 
-                    // Featherlight Galeri'yi YENİ Elementler Üzerinde Başlat
                     menuConfigs.forEach(menu => {
                         const $links = $(menu.id).find('a.lightbox-trigger');
                         $links.attr('data-featherlight-filter', 'a[data-featherlight-gallery=\"' + menu.galleryName + '\"]');
@@ -213,8 +339,7 @@
 
                 })
                 .fail(function() {
-                    console.error("Hata: kokteyller.json dosyası yüklenemedi veya hatalı. Lütfen dosyanın adını ve içeriğini kontrol edin.");
-                    alert("Kokteyl menüleri yüklenemedi. Teknik bir sorun oluştu.");
+                    console.error("Hata: kokteyller.json dosyası yüklenemedi veya hatalı.");
                 });
         }
 
