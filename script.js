@@ -1,87 +1,116 @@
 // Google Apps Script URL'si buraya sabitlendi!
-// GÖNDERDİĞİNİZ DOSYADAN ALINDIĞI GİBİ KULLANILDI.
-const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwyv3q4at5UFv8A_lY7KYx2s-0bAMbATu-Bcwx-8_uhUcEy4rwM1-OhbF5KLnq9Aua/exec";
-//
+// Bu URL ARTIK DEĞİŞMEYECEK.
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8YdWe9jdMhvSJg_QoptO2EyF9PhbYsuDIN3_GL_HvHKX7fVMv_xjrtGbnK0s6NnkK/exec";
 
-const form = document.forms['contact'];
-const loader = document.getElementById('loader');
-const modalOverlay = document.getElementById('basvuru');
-const modalTitle = document.getElementById('modal-title');
-const hizmetTuruInput = document.getElementById('hizmet_turu');
+// B. DOM Elementleri
+const barForm = document.forms['barContact'];
+const atolyeForm = document.forms['atolyeContact'];
+const barLoader = document.getElementById('barLoader');
+const atolyeLoader = document.getElementById('atolyeLoader');
+const barModal = document.getElementById('bar-form-modal');
+const atolyeModal = document.getElementById('atolye-form-modal');
 
-// Form Gönderim Logiği
-form.addEventListener('submit', e => {
+
+// C. ORTAK FORM GÖNDERİM FONKSİYONU
+function handleFormSubmit(e, form, loader, successUrl) {
     e.preventDefault();
-    loader.style.display = 'block'; // Gönderiliyor... göster
+    loader.style.display = 'block'; 
     
-    // Checkbox verilerini topla (Array'den String'e çevir)
-    const kokteylSecimi = Array.from(document.querySelectorAll('input[name="Kokteyl_Secimi"]:checked'))
+    const formData = new FormData(form);
+    
+    // Sadece Bar Formu için Kokteyl Seçimi verisini topla
+    if (form.name === 'barContact') {
+         const kokteylSecimi = Array.from(document.querySelectorAll('#barKokteylSecim input[name="Kokteyl_Secimi"]:checked'))
                                  .map(cb => cb.value)
                                  .join(', ');
+        formData.set('Kokteyl_Secimi', kokteylSecimi);
+        
+        // Maksimum 4 çeşit kontrolü (Kritik kontrol)
+        const maxAllowed = 4;
+        const totalSelected = kokteylSecimi.split(',').filter(item => item.trim() !== '').length;
 
-    // Form data oluştur
-    const formData = new FormData(form);
-    // Çoklu seçimi FormData'ya tek bir alan olarak ekle
-    formData.set('Kokteyl_Secimi', kokteylSecimi);
+        if (totalSelected > maxAllowed) {
+            alert(`Maksimum ${maxAllowed} çeşit kokteyl seçebilirsiniz. Lütfen seçiminizi azaltın.`);
+            loader.style.display = 'none';
+            return;
+        }
+    }
+    
+    // Veriyi Apps Script'in beklediği URL-encoded formata dönüştür
+    const urlEncodedData = new URLSearchParams(formData).toString();
     
     fetch(GAS_WEB_APP_URL, { 
         method: 'POST', 
-        mode: 'no-cors', // CORS hatasını engeller
-        body: formData
+        mode: 'no-cors', 
+        // KRİTİK: Headers'ı doğru ayarlıyoruz
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: urlEncodedData // URL-encoded string'i gönderiyoruz
     })
-        .then(response => {
-            // Başarılı olursa (no-cors modunda response.ok kontrol edilemez)
-            loader.style.display = 'none'; // Gönderiliyor... gizle
-            form.reset(); // Formu temizle
-            
-            // Başarılı sayfasına yönlendir (success.html)
-            window.location.href = 'success.html'; 
+        .then(() => {
+            loader.style.display = 'none'; 
+            form.reset(); 
+            // Başarılı sayfaya yönlendirmeden önce 1 saniye beklemek
+            setTimeout(() => {
+                window.location.href = successUrl; 
+            }, 500);
         })
         .catch(error => {
-            console.error('Hata!', error.message);
-            loader.style.display = 'none'; // Gönderiliyor... gizle
-            alert('Gönderimde bir hata oluştu. Lütfen daha sonra tekrar deneyin veya bize doğrudan e-posta gönderin.');
+            console.error(form.name + ' Formu Hata!', error.message);
+            loader.style.display = 'none'; 
+            alert('Formunuz gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
         });
-});
+}
 
-// Modal Açma/Kapatma Logiği
+
+// D. FORMLARA EVENT LISTENERS EKLE
+barForm.addEventListener('submit', (e) => handleFormSubmit(e, barForm, barLoader, 'success.html'));
+atolyeForm.addEventListener('submit', (e) => handleFormSubmit(e, atolyeForm, atolyeLoader, 'success.html'));
+
+
+// E. MODAL AÇMA/KAPATMA LOGİĞİ (Değişmedi)
 document.addEventListener('DOMContentLoaded', () => {
     const openButtons = document.querySelectorAll('.open-modal');
-    const closeButton = document.querySelector('.close-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    
+    const modals = {
+        '#bar-form-modal': barModal,
+        '#atolye-form-modal': atolyeModal
+    };
 
-    // Açma
     openButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            // Hangi butona tıklandığına göre modal başlığını ve gizli alanı ayarla
-            const hizmetTuru = button.getAttribute('data-hizmet'); 
-            
-            if (hizmetTuru === 'ATOLYE') {
-                modalTitle.textContent = 'Kokteyl Atölyesi Bilgi ve Teklif Formu';
-                hizmetTuruInput.value = 'ATÖLYE HİZMETİ';
-            } else {
-                modalTitle.textContent = 'Bar Hizmeti Teklif Formu';
-                hizmetTuruInput.value = 'BAR HİZMETİ';
+            const targetId = button.getAttribute('href'); 
+            const targetModal = modals[targetId];
+
+            if (targetModal) {
+                targetModal.style.display = 'flex'; 
+                document.body.style.overflow = 'hidden'; 
             }
-            
-            modalOverlay.style.display = 'flex'; // Modalı göster
-            document.body.style.overflow = 'hidden'; // Sayfayı kaydırmayı engelle
         });
     });
 
-    // Kapatma (X butonu)
-    closeButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalOverlay.style.display = 'none'; // Modalı gizle
-        document.body.style.overflow = 'auto'; // Sayfa kaydırmayı geri aç
+    closeButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modal = button.closest('.modal-form-overlay');
+            if (modal) {
+                modal.style.display = 'none'; 
+                document.body.style.overflow = 'auto'; 
+            }
+        });
     });
 
-    // Kapatma (Overlay'e tıklama)
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-            modalOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
+    [barModal, atolyeModal].forEach(modal => {
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
         }
     });
 });

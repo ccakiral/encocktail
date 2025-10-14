@@ -21,8 +21,7 @@
             
             <div>
                 <a href="#paketler" class="cta-button">Hizmetleri Gör</a>
-                <a href="#basvuru" class="cta-button cta-secondary open-modal" data-hizmet="BAR">Teklif Alın</a>
-            </div>
+                </div>
         </div>
     </header>
 
@@ -98,7 +97,7 @@
         <div class="menu-title-container">
             <h2 class="kokteyl-baslik">Kokteyl Bar Hizmeti Menüsü</h2>
             <div class="menu-header-controls">
-                <a href="#basvuru" class="cta-button cta-small open-modal" data-hizmet="BAR">Teklif Alın</a> 
+                <a href="#bar-form-modal" class="cta-button cta-small open-modal">Teklif Alın</a> 
                 <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
             </div>
         </div>
@@ -111,7 +110,7 @@
         <div class="menu-title-container">
             <h2 class="kokteyl-baslik">Kokteyl Atölyesi Detayları</h2>
             <div class="menu-header-controls">
-                <a href="#basvuru" class="cta-button cta-small open-modal" data-hizmet="ATOLYE">Bilgi ve Teklif Alın</a>
+                <a href="#atolye-form-modal" class="cta-button cta-small open-modal">Bilgi ve Teklif Alın</a>
                 <a href="#paketler" class="back-to-packages">Paketlere Geri Dön</a>
             </div>
         </div>
@@ -133,76 +132,112 @@
     </section>
 
 
-    <section id="basvuru" class="modal-form-overlay">
+    <section id="bar-form-modal" class="modal-form-overlay">
         <div class="modal-form-container">
             <a href="#" class="close-modal">&times;</a>
-            <h2 id="modal-title">Bar Hizmeti Teklif Formu</h2>
+            <h2 id="bar-modal-title">Bar Hizmeti Teklif Formu</h2>
             <p class="form-intro">Etkinliğiniz için detaylı teklif almak üzere formu doldurunuz. En kısa sürede size ulaşacağız.</p>
             
-            <form name="contact" class="contact-form" method="POST">
+            <form name="barContact" class="contact-form" method="POST">
                 
-                <input type="hidden" name="Hizmet_Turu" id="hizmet_turu" value="BAR HİZMETİ">
+                <input type="hidden" name="Hizmet_Turu" value="BAR HİZMETİ">
 
                 <div class="form-group">
-                    <label for="adsoyad">Ad Soyad *</label>
-                    <input type="text" id="adsoyad" name="Ad_Soyad" required>
+                    <label for="bar_adsoyad">Ad Soyad *</label>
+                    <input type="text" id="bar_adsoyad" name="Ad_Soyad" required>
                 </div>
                 <div class="form-group">
-                    <label for="telefon">Telefon *</label>
-                    <input type="tel" id="telefon" name="Telefon" required>
+                    <label for="bar_telefon">Telefon *</label>
+                    <input type="tel" id="bar_telefon" name="Telefon" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">E-posta *</label>
-                    <input type="email" id="email" name="Email" required>
+                    <label for="bar_email">E-posta *</label>
+                    <input type="email" id="bar_email" name="Email" required>
                 </div>
                 <div class="form-group">
-                    <label for="misafir">Misafir Sayısı *</label>
-                    <input type="number" id="misafir" name="Misafir_Sayisi" min="1" required>
+                    <label for="bar_misafir">Misafir Sayısı *</label>
+                    <input type="number" id="bar_misafir" name="Misafir_Sayisi" min="1" required>
                 </div>
                 <div class="form-group full-width">
-                    <label for="tarih">Etkinlik Tarihi *</label>
-                    <input type="date" id="tarih" name="Etkinlik_Tarihi" required>
+                    <label for="bar_tarih">Etkinlik Tarihi *</label>
+                    <input type="date" id="bar_tarih" name="Etkinlik_Tarihi" required>
                 </div>
                 <div class="form-group full-width">
-                    <label for="lokasyon">Etkinlik Lokasyonu (Şehir/Mekan) *</label>
-                    <input type="text" id="lokasyon" name="Etkinlik_Lokasyonu" required>
+                    <label for="bar_lokasyon">Etkinlik Lokasyonu (Şehir/Mekan) *</label>
+                    <input type="text" id="bar_lokasyon" name="Etkinlik_Lokasyonu" required>
                 </div>
 
                 <div class="form-group full-width">
-                    <label for="paketSecimi">Paket Seçimi *</label>
-                    <select id="paketSecimi" name="Paket_Secimi" required>
-                        <option value="" disabled selected>Lütfen bir paket seçin</option>
-                        <option value="keyifli">Keyifli Paket (4 Kokteyl)</option>
-                        <option value="ozel">Özel Paket (5 Kokteyl)</option>
-                        <option value="seckin">Seçkin Paket (6 Kokteyl)</option>
-                    </select>
+                    <label for="bar_servisSaati">Servis Saati (Minimum 3 saat) *</label>
+                    <input type="number" id="bar_servisSaati" name="Servis_Saati" min="3" value="3" required>
                 </div>
-                <div class="form-group">
-                    <label for="servisSaati">Servis Saati (Minimum 3 saat) *</label>
-                    <input type="number" id="servisSaati" name="Servis_Saati" min="3" value="3" required>
-                </div>
-                <div class="form-group">
-                    <label for="garsonSayisi">Garson Sayısı (Kokteyl/Atölye Harici)</label>
-                    <input type="number" id="garsonSayisi" name="Garson_Sayisi" min="0" value="0">
-                </div>
-
                 <div class="form-group full-width kokteyl-secim-container">
-                    <label>Kokteyl Seçimi (Paketinize uygun adette seçiniz)</label>
-                    <div class="checkbox-list" id="kokteylSecim">
+                    <label>Kokteyl Seçimi (Maksimum 4 çeşit seçiniz)</label>
+                    <div class="checkbox-list" id="barKokteylSecim">
                         </div>
                 </div>
                 
                 <div class="form-group full-width">
-                    <label for="not">Ekstra Notlar / Detaylar (Konsept, Kokteyl tercihleri vb.)</label>
-                    <textarea id="not" name="Ekstra_Notlar" rows="4"></textarea>
+                    <label for="bar_not">Ekstra Notlar / Detaylar (Konsept, Kokteyl tercihleri vb.)</label>
+                    <textarea id="bar_not" name="Ekstra_Notlar" rows="4"></textarea>
                 </div>
                 
                 <button type="submit" class="cta-button">Teklif Al</button>
-                <div id="loader" style="display: none;">Gönderiliyor...</div>
+                <div id="barLoader" style="display: none;">Gönderiliyor...</div>
             </form>
         </div>
     </section>
 
+    <section id="atolye-form-modal" class="modal-form-overlay">
+        <div class="modal-form-container">
+            <a href="#" class="close-modal">&times;</a>
+            <h2 id="atolye-modal-title">Kokteyl Atölyesi Bilgi ve Teklif Formu</h2>
+            <p class="form-intro">Atölye seçeneklerimiz hakkında detaylı bilgi almak veya kişiye özel teklif istemek için formu doldurunuz.</p>
+            
+            <form name="atolyeContact" class="contact-form" method="POST">
+                
+                <input type="hidden" name="Hizmet_Turu" value="ATÖLYE HİZMETİ">
+
+                <div class="form-group">
+                    <label for="atolye_adsoyad">Ad Soyad *</label>
+                    <input type="text" id="atolye_adsoyad" name="Ad_Soyad" required>
+                </div>
+                <div class="form-group">
+                    <label for="atolye_telefon">Telefon *</label>
+                    <input type="tel" id="atolye_telefon" name="Telefon" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="atolye_email">E-posta *</label>
+                    <input type="email" id="atolye_email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="atolye_kisi">Tahmini Kişi Sayısı</label>
+                    <input type="number" id="atolye_kisi" name="Tahmini_Kisi_Sayisi" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="atolye_tarih">İstenilen Tarih (Opsiyonel)</label>
+                    <input type="date" id="atolye_tarih" name="Istenilen_Tarih">
+                </div>
+                <div class="form-group full-width">
+                    <label for="atolye_tur">Atölye Türü *</label>
+                    <select id="atolye_tur" name="Atolye_Turu" required>
+                        <option value="" disabled selected>Lütfen bir seçenek seçin</option>
+                        <option value="Periyodik_Açık_Atölye">Periyodik Açık Atölyeler (Bilgi Almak İstiyorum)</option>
+                        <option value="Size_Ozel_Mekan">Size Özel Mekan Atölyesi (Teklif Almak İstiyorum)</option>
+                        <option value="Kurumsal_Etkinlik">Kurumsal Etkinlik (Teklif Almak İstiyorum)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="atolye_not">Ekstra Notlar / Sorularınız</label>
+                    <textarea id="atolye_not" name="Ekstra_Notlar" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button">Bilgi ve Teklif Al</button>
+                <div id="atolyeLoader" style="display: none;">Gönderiliyor...</div>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 ENcocktail. Tüm Hakları Saklıdır.</p>
@@ -222,22 +257,13 @@
     <script src="script.js"></script>
     
     <script>
-        // Pakete göre kaç çeşit kokteyl seçilebileceği (ESKİ YAPIDAN KORUNDU)
-        const paketLimitleri = {
-            'keyifli': { min: 4, max: 4, maxExtra: 0 },
-            'ozel': { min: 5, max: 5, maxExtra: 0 },
-            'seckin': { min: 6, max: 6, maxExtra: 0 }
-        };
-
         // Galeri yükleme fonksiyonu (Önceki Adımlardan Korundu)
         function yukleVeGaleriBaslat() {
             const menuConfigs = [
                 { id: '#kokteyller-bar', galleryName: 'bar-tumu' } 
             ];
             
-            // FORM İÇİNDEKİ KOKTEYL SEÇİMİNİ DOLDURMAK İÇİN YENİ BİR BAŞLATMA
-            const $kokteylSecimDiv = $('#kokteylSecim');
-            const $paketSecimi = $('#paketSecimi');
+            const $barKokteylSecimDiv = $('#barKokteylSecim'); // Bar formu için kokteyl listesi
 
             $.getJSON('kokteyller.json')
                 .done(function(data) {
@@ -248,7 +274,7 @@
                         data['seckin-menu'] || []
                     );
                     
-                    // 1. KOKTEYLLERİ MODAL İÇİNE DOLDUR (TEKRARSIZ LİSTE)
+                    // 1. KOKTEYLLERİ BAR MODALI İÇİNE DOLDUR (TEKRARSIZ LİSTE)
                     let kokteylSecimHTML = '';
                     const uniqueCocktailTitles = new Set();
                     
@@ -263,28 +289,22 @@
                             `;
                         }
                     });
-                    $kokteylSecimDiv.html(kokteylSecimHTML);
+                    $barKokteylSecimDiv.html(kokteylSecimHTML);
                     
-                    // 2. PAKET SEÇİMİ VE KOKTEYL KONTROLÜ
-                    $paketSecimi.on('change', function() {
-                        const paketValue = $(this).val();
-                        if (paketValue) {
-                            $('.kokteyl-secim-container').show();
+                    // 2. FORM GÖNDERİMİNDE KONTROL (SADECE BAR FORMU İÇİN)
+                    $('form[name="barContact"]').on('submit', function(e) {
+                        const maxAllowed = 4; // Yeni kural: Maksimum 4 çeşit
+                        const totalSelected = $('input[name="Kokteyl_Secimi"]:checked').length;
+                        
+                        if (totalSelected > maxAllowed) {
+                            alert(`Maksimum ${maxAllowed} çeşit kokteyl seçebilirsiniz. Lütfen seçiminizi azaltın.`);
+                            e.preventDefault();
+                            return;
                         }
-                    }).trigger('change'); 
 
-                    // 3. FORM GÖNDERİMİNDE KONTROL
-                    $('.contact-form').on('submit', function(e) {
-                        const paketValue = $paketSecimi.val();
-                        if (!paketValue) return;
-
-                        const paketInfo = paketLimitleri[paketValue];
-                        const totalSelectedMain = $('input[name="Kokteyl_Secimi"]:checked').length;
-                        const maxAllowedMain = paketInfo.max;
-
-                        if (totalSelectedMain < maxAllowedMain) {
-                            const remaining = maxAllowedMain - totalSelectedMain;
-                            const message = `Paketiniz için ${maxAllowedMain} adet kokteyl seçme hakkınız varken ${totalSelectedMain} adet seçtiniz. Kalan ${remaining} hakkınızı kullanmak istemediğinize emin misiniz?`;
+                        if (totalSelected < maxAllowed && totalSelected > 0) {
+                            const remaining = maxAllowed - totalSelected;
+                            const message = `Maksimum ${maxAllowed} adet kokteyl seçme hakkınız varken ${totalSelected} adet seçtiniz. Kalan ${remaining} hakkınızı kullanmak istemediğinize emin misiniz?`;
                             
                             if (!confirm(message)) {
                                 e.preventDefault();
@@ -293,14 +313,14 @@
                         }
                     });
                     
-                    // 4. GALERİYİ VE MENU GÖRÜNÜMÜNÜ DOLDUR (ESKİ FONKSİYON)
+                    // 3. GALERİYİ VE MENU GÖRÜNÜMÜNÜ DOLDUR (ESKİ FONKSİYON)
                     menuConfigs.forEach(config => {
                         const $container = $(config.id).find('.menu-grid'); 
                         $container.empty(); 
                         
                         const cocktails = allCocktailsForGallery; 
                         let htmlContent = '';
-                        const uniqueGalleryTitles = new Set(); // Tekrarlanan kokteylleri galeride de engelle
+                        const uniqueGalleryTitles = new Set(); 
 
                         cocktails.forEach(cocktail => {
                             if (!uniqueGalleryTitles.has(cocktail.ad)) {
