@@ -3,64 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Başvurunuz Alındı - Encocktail</title>
+    <title>ENCOCKTAIL | Teklifiniz Hazır</title>
     <link rel="stylesheet" href="style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Bu sayfaya özel, basit bir stil eklemesi */
+        /* success.html için özel veya mevcut style.css'inizi destekleyen temel stiller */
         body {
-            /* Flexbox ile içeriği ortala */
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
-            background-color: #f7f5f0;
         }
+
         .container {
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
         }
-        h1 {
-            color: #795548;
+
+        .baslik {
+            color: #4A4A4A; /* Başlık rengi */
             font-size: 2em;
-            /* style.css'deki alt çizgi stilini bu sayfada devre dışı bırak */
-            position: relative;
-            padding-bottom: 0;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        h1::after {
-            content: none !important;
+
+        .tebrik-mesaji {
+            color: #B4C699; /* Yeşil vurgu rengi */
+            font-size: 1.2em;
+            margin-bottom: 25px;
         }
-        .cta-button {
+        
+        .teklif-ozeti {
+            text-align: left;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .fiyat-gosterim div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .fiyat-gosterim strong {
+            color: #795548; /* Kahverengi vurgu */
+        }
+
+        .toplam {
+            font-size: 1.5em;
+            color: #D9534F; /* Kırmızımsı ton */
+            font-weight: bold;
+            padding-top: 15px;
+            border-top: 2px solid #D9534F;
+            margin-top: 15px;
+        }
+        
+        h3 {
+            color: #4A4A4A;
             margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 1.1em;
-            display: inline-block;
-            /* Ana stil ile uyumlu yeşil renk */
-            background-color: #B4C699; 
-            color: #4A4A4A; 
-            border: none;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        /* Tedarik Listesi Stili */
+        .supply-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        
+        .supply-list li {
+            background-color: #f7f7f7;
+            padding: 10px 15px;
+            margin-bottom: 5px;
             border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+        }
+
+        .supply-list strong {
+            color: #4A4A4A;
             font-weight: 600;
         }
-        .cta-button:hover {
-            background-color: #9DB483; 
+        
+        .geri-don-link {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #795548;
+            text-decoration: none;
+            font-weight: 600;
         }
+        .geri-don-link:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>🎉 Başvurunuz Başarıyla Alındı!</h1>
-        <p>Teklif talebiniz ekibimize ulaştı. En kısa sürede sizinle iletişime geçeceğiz.</p>
-        <p>İlginiz için teşekkür ederiz.</p>
-        <a href="/" class="cta-button">Ana Sayfaya Geri Dön</a>
+        <h1 class="baslik">✅ TEKLİFİNİZ HAZIR!</h1>
+        <p class="tebrik-mesaji">Talebiniz başarıyla alınmıştır. Ön teklifiniz aşağıdadır. En kısa sürede size geri dönüş yapacağız.</p>
+
+        <section id="teklifOzeti" class="teklif-ozeti">
+            <h2>💸 ÖN TEKLİF ÖZETİ</h2>
+
+            <div class="fiyat-gosterim">
+                <div>Hizmet (Barmen, Kurulum, Süre): <span id="hizmetFiyat" class="fiyat">0.00 TL</span></div>
+                <div>**Miks Malzeme (ENCOCKTAIL - Zorunlu):** <span id="miksFiyat" class="fiyat">0.00 TL</span></div>
+                <div>Opsiyonel Tedarik (Müşteri Alkollü İçecek Bedeli Tahmini): <span id="opsiyonelFiyat" class="fiyat">0.00 TL</span></div>
+            </div>
+            
+            <hr>
+            <div class="toplam">
+                <span style="font-size: 0.8em; margin-right: 10px;">Tahmini Toplam Maliyet:</span>
+                <span id="toplamFiyat" class="buyuk-fiyat">0.00 TL</span>
+            </div>
+        
+            
+            <h3>Detaylı Hesaplama Bilgileri</h3>
+            <p>Tahmini Kokteyl Adedi (Tüm Etkinlik Boyunca): <strong id="kokteylAdedi">0 adet</strong></p>
+            <p>Kokteyl Başına Ortalama Miks Malzeme Maliyeti: <strong id="ortalamaMaliyet">0.00 TL</strong></p>
+
+            
+            <h3>🍹 Zorunlu ENCOCKTAIL Miks Malzemeler Listesi</h3>
+            <p style="font-size: 0.9em; color: #555;">(Seçtiğiniz kokteyllere ve tahmini tüketime göre hesaplanan miktarlar)</p>
+            <div id="encocktailTedarikListesi" class="tedarik-listesi">
+                <p>Hesaplanıyor...</p>
+            </div>
+
+        </section>
+
+        <a href="index.html" class="geri-don-link">Ana Sayfaya Geri Dön</a>
     </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const teklifDetaylariJSON = localStorage.getItem('teklifDetaylari');
+    
+    if (teklifDetaylariJSON) {
+        const detaylar = JSON.parse(teklifDetaylariJSON);
+        
+        // Ana Fiyatları Yaz
+        document.getElementById('hizmetFiyat').textContent = detaylar.hizmetFiyat + ' TL';
+        document.getElementById('miksFiyat').textContent = detaylar.miksFiyat + ' TL';
+        document.getElementById('opsiyonelFiyat').textContent = detaylar.opsiyonelFiyat + ' TL';
+        document.getElementById('toplamFiyat').textContent = detaylar.toplamFiyat + ' TL';
+
+        // Yeni Detayları Yaz
+        document.getElementById('kokteylAdedi').textContent = detaylar.kokteylAdedi + ' adet';
+        document.getElementById('ortalamaMaliyet').textContent = detaylar.ortalamaMaliyet + ' TL';
+
+        // Miks Malzeme Tedarik Listesini Oluştur
+        const miksKapsayici = document.getElementById('encocktailTedarikListesi');
+        miksKapsayici.innerHTML = ''; // İçeriği temizle
+        
+        if (detaylar.miksMalzemeTedarikListesi && detaylar.miksMalzemeTedarikListesi.length > 0) {
+            const ul = document.createElement('ul');
+            ul.className = 'supply-list';
+            
+            detaylar.miksMalzemeTedarikListesi.forEach(item => {
+                const li = document.createElement('li');
+                // Miktarı 1 ondalık basamakla göster
+                const miktarGosterim = item.miktar < 1 ? item.miktar.toFixed(2) : item.miktar.toFixed(1); 
+                li.innerHTML = `
+                    <span>${item.isim}</span>
+                    <strong>${miktarGosterim} ${item.birim}</strong>
+                `;
+                ul.appendChild(li);
+            });
+            miksKapsayici.appendChild(ul);
+        } else {
+             miksKapsayici.innerHTML = '<p>Seçilen kokteyl ve misafir sayısına göre hesaplanan zorunlu miks malzeme bulunmamaktadır.</p>';
+        }
+
+        // Başarıyla gösterildikten sonra localStorage'ı temizle (isteğe bağlı)
+        // localStorage.removeItem('teklifDetaylari'); 
+
+    } else {
+        // Eğer veri yoksa kullanıcıya bir hata mesajı gösterilebilir
+        document.querySelector('.teklif-ozeti').innerHTML = '<h2>Hata</h2><p>Teklif detayları bulunamadı. Lütfen formu ana sayfadan tekrar doldurmayı deneyin.</p>';
+    }
+});
+</script>
+
 </body>
 </html>
