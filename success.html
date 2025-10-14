@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başvurunuz Alındı - Encocktail</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Bu sayfaya özel, basit bir stil eklemesi */
+        body {
+            /* Flexbox ile içeriği ortala */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            background-color: #f7f5f0;
+        }
+        .container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            max-width: 600px;
+        }
+        h1 {
+            color: #795548;
+            font-size: 2em;
+            /* style.css'deki alt çizgi stilini bu sayfada devre dışı bırak */
+            position: relative;
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+        h1::after {
+            content: none !important;
+        }
+        .cta-button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            display: inline-block;
+            /* Ana stil ile uyumlu yeşil renk */
+            background-color: #B4C699; 
+            color: #4A4A4A; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+        .cta-button:hover {
+            background-color: #9DB483; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Başvurunuz Başarıyla Alındı!</h1>
+        <p>Teklif talebiniz ekibimize ulaştı. En kısa sürede sizinle iletişime geçeceğiz.</p>
+        <p>İlginiz için teşekkür ederiz.</p>
+        <a href="/" class="cta-button">Ana Sayfaya Geri Dön</a>
+    </div>
+</body>
+</html>

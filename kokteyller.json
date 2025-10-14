@@ -1,0 +1,132 @@
+{
+  "keyifli-menu": [
+    {
+      "ad": "Mojito",
+      "aciklama": "Rom\nLime suyu\nNane şurubu\nSoda\nNane dalı\nLime Dilimi",
+      "gorsel_thumb": "Mojito.jpg",
+      "gorsel_buyuk": "Mojito.jpg"
+    },
+    {
+      "ad": "Whiskey Sour",
+      "aciklama": "Burbon viski\nLime suyu\nŞeker şurubu\nPortakal kabuğu",
+      "gorsel_thumb": "whiskeysour.jpg",
+      "gorsel_buyuk": "whiskeysour.jpg"
+    },
+    {
+      "ad": "Margarita",
+      "aciklama": "Tekila\nLime suyu\nTriple sec\nTuzlu kenar\nLime dilimi",
+      "gorsel_thumb": "margarita.jpg",
+      "gorsel_buyuk": "margarita.jpg"
+    },
+    {
+      "ad": "Cin Tonik",
+      "aciklama": "London Dry Gin\nLime Suyu\nEv yapımı tonik şurubu\nSoda\nLime\nArdıç",
+      "gorsel_thumb": "cintonik.jpg",
+      "gorsel_buyuk": "cintonik.jpg"
+    }
+  ],
+  "ozel-menu": [
+    {
+      "ad": "Green Shade",
+      "aciklama": "Cin\nKuzukulağı\nTurunç karışımı\nElma Suyu\nBitkisel köpük yapıcı\nKurutulmuş Lime Dilimi",
+      "gorsel_thumb": "greenshade.jpg",
+      "gorsel_buyuk": "greenshade.jpg"
+    },
+    {
+      "ad": "The Berry Patch",
+      "aciklama": "Votka\nOrman meyveleri sosu\nLimon suyu\nFesleğen\nFesleğen dalı\nOrman meyvesi",
+      "gorsel_thumb": "theberrypatch.jpg",
+      "gorsel_buyuk": "theberrypatch.jpg"
+    },
+    {
+      "ad": "Hibiscus Isle",
+      "aciklama": "Rom\nHibiskus çayı\nVanilya şurubu\nAnanas püresi\nLimon suyu\nHibiskus toz kenar",
+      "gorsel_thumb": "hibiscusisle.jpg",
+      "gorsel_buyuk": "hibiscusisle.jpg"
+    },
+    {
+      "ad": "The Spicy Sunset",
+      "aciklama": "Tekila\nMango püresi\nBal şurubu\nLime suyu\nAcı biber sosu\nBiber halkası\nBiber toz kenar",
+      "gorsel_thumb": "thespicysunset.jpg",
+      "gorsel_buyuk": "thespicysunset.jpg"
+    }
+  ],
+  "seckin-menu": [
+    {
+      "ad": "Old Fashioned",
+      "aciklama": "Burbon viski\nKüp şeker\nAromatik bitter\nPortakal kabuğu",
+      "gorsel_thumb": "oldfashioned.jpg",
+      "gorsel_buyuk": "oldfashioned.jpg"
+    },
+    {
+      "ad": "Negroni",
+      "aciklama": "Cin\nCampari\nRosso vermut\nPortakal kabuğu",
+      "gorsel_thumb": "negroni.jpg",
+      "gorsel_buyuk": "negroni.jpg"
+    },
+    {
+      "ad": "Espresso Martini",
+      "aciklama": "Votka\nKahve likörü\nEspresso\nKahve çekirdeği",
+      "gorsel_thumb": "espressomartini.jpg",
+      "gorsel_buyuk": "espressomartini.jpg"
+    },
+    {
+      "ad": "Aperol Spritz",
+      "aciklama": "Aperol\nProseco\nSoda\nPortakal dilimi",
+      "gorsel_thumb": "aperol.jpg",
+      "gorsel_buyuk": "aperol.jpg"
+    },
+    {
+      "ad": "Hugo Spritz",
+      "aciklama": "Mürver çiçeği şurubu\nProseco\nSoda\nNane dalı",
+      "gorsel_thumb": "hogo.jpg",
+      "gorsel_buyuk": "hogo.jpg"
+    },
+    {
+      "ad": "French 75",
+      "aciklama": "Cin\nLimon suyu\nŞeker şurubu\nŞampanya\nLimon kabuğu",
+      "gorsel_thumb": "french75.jpg",
+      "gorsel_buyuk": "french75.jpg"
+    },
+    {
+      "ad": "Cosmopolitan",
+      "aciklama": "Limonlu votka\nPortakal likörü\nKızılcık suyu\nLime suyu\nLimon kabuğu",
+      "gorsel_thumb": "cosmopolitan.jpg",
+      "gorsel_buyuk": "cosmopolitan.jpg"
+    },
+    {
+      "ad": "Clover Club",
+      "aciklama": "Cin\nLimon suyu\nAhududu şurubu\nVegan köpük yapıcı\nAhududu",
+      "gorsel_thumb": "cloverclub.jpg",
+      "gorsel_buyuk": "cloverclub.jpg"
+    }
+	,
+    {
+      "ad": "Lemonade",
+      "aciklama": "Limon\nŞeker\nPortakal",
+      "gorsel_thumb": "Lemonade.jpg",
+      "gorsel_buyuk": "Lemonade.jpg"
+    }
+	,
+    {
+      "ad": "Cool Lime",
+      "aciklama": "Lime\nLimon\nNane\nŞeker",
+      "gorsel_thumb": "coollime.jpg",
+      "gorsel_buyuk": "coollime.jpg"
+    }
+	,
+    {
+      "ad": "Berry Hibicus",
+      "aciklama": "Berry\nHibiskus\nLime\nŞeker",
+      "gorsel_thumb": "berry.jpg",
+      "gorsel_buyuk": "berry.jpg"
+    }
+	,
+    {
+      "ad": "Mango Mule",
+      "aciklama": "Zencefil gazozu\nBal şurubu,\nMango püresi,\nLime",
+      "gorsel_thumb": "mangomule.jpg",
+      "gorsel_buyuk": "mangomule.jpg"
+    }
+  ]
+}
