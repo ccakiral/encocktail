@@ -1,0 +1,300 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    /* Çizgi kaldırıldı: border-bottom: 2px solid #eaeaea; */
+    padding-bottom: 20px;
+}
+
+/* YENİ LOGO STİLİ */
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: #7c0029; /* Marka Rengi */
+    font-weight: 700;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #4A4A4A;
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eee; /* Bölüm alt çizgileri kalıyor */
+}
+
+/* Form Stil */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.half-width {
+    width: 48%; /* İki yan yana sütun için */
+}
+
+.form-group-container {
+    display: flex;
+    gap: 4%;
+    flex-wrap: wrap;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #4A4A4A;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%; /* Tam genişlik kuralı */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #7c0029;
+    outline: none;
+    box-shadow: 0 0 5px rgba(124, 0, 41, 0.2);
+}
+
+.checkbox-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+.calculate-button {
+    background-color: #7c0029; /* Marka Rengi */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.calculate-button:hover {
+    background-color: #a02046;
+}
+
+.submit-button {
+    background-color: #7c0029;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #a02046;
+}
+
+/* Teklif Özeti ve Sonuçlar */
+.teklif-ozeti {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff8f8;
+    border-radius: 10px;
+    border: 1px solid #f0e0e0;
+}
+
+.fiyat-gosterim {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.fiyat-gosterim > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.fiyat-gosterim > div:last-of-type {
+    border-bottom: none;
+}
+
+.fiyat-gosterim hr {
+    border: 0;
+    border-top: 2px solid #7c0029;
+    margin: 10px 0;
+}
+
+.toplam {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #7c0029;
+    padding-top: 10px;
+}
+
+.buyuk-fiyat {
+    font-size: 1.3em;
+    color: #d9534f;
+}
+
+.note {
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+    padding: 10px;
+    border-left: 3px solid #7c0029;
+    background-color: #fcfcfc;
+}
+
+/* Tedarik Tablosu/Listesi */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.result-table th, .result-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.result-table th {
+    background-color: #f7f7f7;
+    color: #7c0029;
+    font-weight: 600;
+}
+
+.result-table td {
+    color: #555;
+}
+
+.price {
+    font-weight: 600;
+    color: #000;
+    text-align: right;
+}
+
+.total-row td {
+    border-top: 3px solid #7c0029;
+    font-weight: 700;
+    font-size: 1.1em;
+    background-color: #fff0f0;
+    color: #7c0029;
+}
+
+/* Tedarik Listesi */
+.supply-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eaeaea;
+}
+
+.supply-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.supply-list li {
+    background-color: #f7f7f7;
+    padding: 12px 15px;
+    border-left: 4px solid #B4C699;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.95em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.supply-list li strong {
+    color: #7c0029;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+    .form-group-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-group.half-width {
+        width: 100%;
+    }
+
+    .checkbox-list {
+        grid-template-columns: 1fr;
+    }
+}

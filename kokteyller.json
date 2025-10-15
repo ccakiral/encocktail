@@ -2,129 +2,125 @@
   "keyifli-menu": [
     {
       "ad": "Mojito",
-      "aciklama": "Rom\nLime suyu\nNane şurubu\nSoda\nNane dalı\nLime Dilimi",
+      "aciklama": "Rom, Super Juice Lime, Şeker Şurubu, Soda ve Taze Nane",
       "gorsel_thumb": "mojito.jpg",
       "gorsel_buyuk": "mojito.jpg"
     },
     {
       "ad": "Whiskey Sour",
-      "aciklama": "Burbon viski\nLime suyu\nŞeker şurubu\nPortakal kabuğu",
+      "aciklama": "Burbon Viski, Limon Suyu, Şeker Şurubu ve Vegan Köpük",
       "gorsel_thumb": "whiskeysour.jpg",
       "gorsel_buyuk": "whiskeysour.jpg"
     },
     {
       "ad": "Margarita",
-      "aciklama": "Tekila\nLime suyu\nTriple sec\nTuzlu kenar\nLime dilimi",
+      "aciklama": "Tekila, Portakal Likörü, Super Juice Lime ve Tuzlu Kenar",
       "gorsel_thumb": "margarita.jpg",
       "gorsel_buyuk": "margarita.jpg"
     },
     {
       "ad": "Cin Tonik",
-      "aciklama": "London Dry Gin\nLime Suyu\nEv yapımı tonik şurubu\nSoda\nLime\nArdıç",
+      "aciklama": "Cin, Ev Yapımı Tonik Şurubu, Soda, Lime Dilimi",
       "gorsel_thumb": "cintonik.jpg",
       "gorsel_buyuk": "cintonik.jpg"
-    }
-  ],
-  "ozel-menu": [
-    {
-      "ad": "Green Shade",
-      "aciklama": "Cin\nKuzukulağı\nTurunç karışımı\nElma Suyu\nBitkisel köpük yapıcı\nKurutulmuş Lime Dilimi",
-      "gorsel_thumb": "greenshade.jpg",
-      "gorsel_buyuk": "greenshade.jpg"
     },
-    {
-      "ad": "The Berry Patch",
-      "aciklama": "Votka\nOrman meyveleri sosu\nLimon suyu\nFesleğen\nFesleğen dalı\nOrman meyvesi",
-      "gorsel_thumb": "theberrypatch.jpg",
-      "gorsel_buyuk": "theberrypatch.jpg"
-    },
-    {
-      "ad": "Hibiscus Isle",
-      "aciklama": "Rom\nHibiskus çayı\nVanilya şurubu\nAnanas püresi\nLimon suyu\nHibiskus toz kenar",
-      "gorsel_thumb": "hibiscusisle.jpg",
-      "gorsel_buyuk": "hibiscusisle.jpg"
-    },
-    {
-      "ad": "The Spicy Sunset",
-      "aciklama": "Tekila\nMango püresi\nBal şurubu\nLime suyu\nAcı biber sosu\nBiber halkası\nBiber toz kenar",
-      "gorsel_thumb": "thespicysunset.jpg",
-      "gorsel_buyuk": "thespicysunset.jpg"
-    }
-  ],
-  "seckin-menu": [
     {
       "ad": "Old Fashioned",
-      "aciklama": "Burbon viski\nKüp şeker\nAromatik bitter\nPortakal kabuğu",
+      "aciklama": "Burbon Viski, Şeker Şurubu, Aromatik Tatlandırıcı (Bitter) ve Portakal Kabuğu",
       "gorsel_thumb": "oldfashioned.jpg",
       "gorsel_buyuk": "oldfashioned.jpg"
     },
     {
       "ad": "Negroni",
-      "aciklama": "Cin\nCampari\nRosso vermut\nPortakal kabuğu",
+      "aciklama": "Cin, Kırmızı Vermut, Campari ve Portakal Dilimi",
       "gorsel_thumb": "negroni.jpg",
       "gorsel_buyuk": "negroni.jpg"
     },
     {
       "ad": "Espresso Martini",
-      "aciklama": "Votka\nKahve likörü\nEspresso\nKahve çekirdeği",
+      "aciklama": "Votka, Kahve Likörü, Soğuk Demleme Kahve, Şeker Şurubu ve Köpük",
       "gorsel_thumb": "espressomartini.jpg",
       "gorsel_buyuk": "espressomartini.jpg"
     },
     {
       "ad": "Aperol Spritz",
-      "aciklama": "Aperol\nProseco\nSoda\nPortakal dilimi",
-      "gorsel_thumb": "aperol.jpg",
-      "gorsel_buyuk": "aperol.jpg"
+      "aciklama": "Köpüklü Şarap, Aperol, Soda ve Portakal Dilimi",
+      "gorsel_thumb": "aperolspritz.jpg",
+      "gorsel_buyuk": "aperolspritz.jpg"
     },
     {
       "ad": "Hugo Spritz",
-      "aciklama": "Mürver çiçeği şurubu\nProseco\nSoda\nNane dalı",
-      "gorsel_thumb": "hogo.jpg",
-      "gorsel_buyuk": "hogo.jpg"
+      "aciklama": "Mürver Çiçeği Şurubu, Köpüklü Şarap, Soda ve Taze Nane Dalı",
+      "gorsel_thumb": "hugo.jpg",
+      "gorsel_buyuk": "hugo.jpg"
     },
     {
       "ad": "French 75",
-      "aciklama": "Cin\nLimon suyu\nŞeker şurubu\nŞampanya\nLimon kabuğu",
+      "aciklama": "Cin, Limon Suyu, Şeker Şurubu ve Köpüklü Şarap",
       "gorsel_thumb": "french75.jpg",
       "gorsel_buyuk": "french75.jpg"
     },
     {
       "ad": "Cosmopolitan",
-      "aciklama": "Limonlu votka\nPortakal likörü\nKızılcık suyu\nLime suyu\nLimon kabuğu",
+      "aciklama": "Votka, Portakal Likörü, Kızılcık Suyu ve Super Juice Lime",
       "gorsel_thumb": "cosmopolitan.jpg",
       "gorsel_buyuk": "cosmopolitan.jpg"
     },
     {
       "ad": "Clover Club",
-      "aciklama": "Cin\nLimon suyu\nAhududu şurubu\nVegan köpük yapıcı\nAhududu",
+      "aciklama": "Cin, Ahududu Şurubu, Super Juice Lime, Köpük ve Taze Nane",
       "gorsel_thumb": "cloverclub.jpg",
       "gorsel_buyuk": "cloverclub.jpg"
     }
-	,
+  ],
+  "ozel-menu": [
+    {
+      "ad": "Green Shade",
+      "aciklama": "Cin, Kuzukulağı Sosu, Köpük ve Lime Dilimi ile yeşil bir deneyim.",
+      "gorsel_thumb": "greenshade.jpg",
+      "gorsel_buyuk": "greenshade.jpg"
+    },
+    {
+      "ad": "The Berry Patch",
+      "aciklama": "Votka, Yoğun Orman Meyveleri Sosu, Taze Fesleğen ve Orman Meyveleri.",
+      "gorsel_thumb": "berrypatch.jpg",
+      "gorsel_buyuk": "berrypatch.jpg"
+    },
+    {
+      "ad": "Hibiscus Isle",
+      "aciklama": "Rom, Hibisküs Sosu, Taze Nane ve Lime Dilimi ile tropik bir kaçış.",
+      "gorsel_thumb": "hibiscusisle.jpg",
+      "gorsel_buyuk": "hibiscusisle.jpg"
+    },
+    {
+      "ad": "The Spicy Sunset",
+      "aciklama": "Votka, Tropikal Mango Sosu ve Acı Biber Dilimi ile keskin ve baharatlı.",
+      "gorsel_thumb": "spicysunset.jpg",
+      "gorsel_buyuk": "spicysunset.jpg"
+    }
+  ],
+  "alkolsuz-menu": [
     {
       "ad": "Lemonade",
-      "aciklama": "Limon\nŞeker\nPortakal",
+      "aciklama": "Ev yapımı Limonata Suyu ve Limon Dilimi ile ferahlık.",
       "gorsel_thumb": "lemonade.jpg",
       "gorsel_buyuk": "lemonade.jpg"
-    }
-	,
+    },
     {
       "ad": "Cool Lime",
-      "aciklama": "Lime\nLimon\nNane\nŞeker",
+      "aciklama": "Serinletici Cool Lime Suyu, Nane Dalı ve Lime Dilimi.",
       "gorsel_thumb": "coollime.jpg",
       "gorsel_buyuk": "coollime.jpg"
-    }
-	,
+    },
     {
-      "ad": "Berry Hibicus",
-      "aciklama": "Berry\nHibiskus\nLime\nŞeker",
-      "gorsel_thumb": "berry.jpg",
-      "gorsel_buyuk": "berry.jpg"
-    }
-	,
+      "ad": "Berry Hibiscus",
+      "aciklama": "Yoğun Orman Meyveli Hibisküs Suyu, Meyveler ve Nane.",
+      "gorsel_thumb": "berryhibiscus.jpg",
+      "gorsel_buyuk": "berryhibiscus.jpg"
+    },
     {
       "ad": "Mango Mule",
-      "aciklama": "Zencefil gazozu\nBal şurubu,\nMango püresi,\nLime",
+      "aciklama": "Mango Mule Sosu, Zencefilli Gazoz ve Limon Dilimi ile canlandırıcı.",
       "gorsel_thumb": "mangomule.jpg",
       "gorsel_buyuk": "mangomule.jpg"
     }

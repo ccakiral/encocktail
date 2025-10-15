@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENCOCKTAIL Mobil Bar Teklif Hesaplama</title>
+    <link rel="stylesheet" href="teklif_hesaplama.css"> </head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ENCOCKTAIL Mobil Bar Teklif Hesaplama</h1>
+    </header>
+
+    <section id="inputForm">
+        <h2>1. Etkinlik Bilgilerini Girin</h2>
+
+        <div class="form-group half-width"> 
+            <label for="musteriIletisim">Müşteri/İletişim Bilgisi:</label>
+            <input type="text" id="musteriIletisim" placeholder="Ad Soyad veya Firma Adı" required>
+        </div>
+        
+        <div class="form-group half-width"> 
+            <label for="misafirSayisi">Misafir Sayısı (Min 10):</label>
+            <input type="number" id="misafirSayisi" value="50" min="10" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="servisSaati">Servis Süresi (Saat) (Min 3):</label>
+            <input type="number" id="servisSaati" value="4" min="3" required>
+        </div>
+
+        <div class="form-group">
+            <label>2. Kokteyl Seçimi (Maks. 4 Çeşit)</label>
+            <div id="kokteylSecimiKapsayici" class="cocktail-selection checkbox-grid"> 
+                </div>
+        </div>
+        
+        <button id="calculateButton">TEKLİFİ HESAPLA</button>
+        <button id="submitButton" style="margin-top: 15px;">TEKLİFİ KAYDET VE GÖNDER</button> 
+        </section>
+
+    ---
+
+    <section id="teklifOzeti" class="supply-section"> 
+        <h2>💸 TEKLİF ÖZETİ</h2>
+
+        <div class="result-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kalem</th>
+                        <th class="price">Fiyat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hizmet (Barmen, Kurulum, Süre)</td>
+                        <td class="price" id="hizmetFiyat">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>**Miks Malzeme (ENCOCKTAIL - Zorunlu)**</td>
+                        <td class="price" id="miksFiyat">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Opsiyonel Tedarik (Müşteri Alkollü İçecek Bedeli)</td>
+                        <td class="price" id="opsiyonelFiyat">$0.00</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>TOPLAM TEKLİF:</td>
+                        <td class="price" id="toplamFiyat">$0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        ---
+
+        <h3>Özet Bilgiler</h3>
+        <div class="note">
+            <p>Tahmini Kokteyl Adedi: <strong id="kokteylAdedi">0</strong> adet</p>
+            <p>Kokteyl Başına Ortalama Maliyet: <strong id="ortalamaMaliyet">$0.00</strong></p>
+        </div>
+
+        ---
+
+        <h3>🍹 Zorunlu ENCOCKTAIL Miks Malzemeler</h3>
+        <div id="encocktailTedarikListesi" class="supply-list">
+            <p>Miks malzemeler, hesaplama sonrası burada detaylı olarak listelenecektir.</p>
+        </div>
+        <p class="note">Bu listedeki tüm miks malzemeler ENCOCKTAIL tarafından tedarik edilir ve fiyatlara dahildir.</p>
+        
+        ---
+
+        <h3>🥃 Müşteri Tedarik Listesi (Alkol, Buz, Soda)</h3>
+        <ul id="musteriTedarikListesi" class="supply-list">
+            <li>Lütfen misafir sayınıza göre gerekli alkol, buz ve su miktarını hesaplamak için yukarıdaki alanları doldurunuz.</li>
+        </ul>
+        <p class="note">Bu listedeki alkol, buz ve soda gibi ürünlerin tedariği Müşteriye aittir. Yukarıdaki "Opsiyonel Tedarik" fiyatı, tahmini tedarik maliyetinizi gösterir.</p>
+
+    </section>
+</div>
+
+<script src="teklif_hesaplama.js"></script>
+
+</body>
+</html>

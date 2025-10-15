@@ -145,44 +145,41 @@ a {
     margin: 0 auto;
 }
 
-/* PAKET KART LİNK AYARLARI */
-.paket-link {
-    text-decoration: none; 
-    color: inherit; 
-    display: block;
-    cursor: pointer;
-    width: calc(50% - 15px);
-    max-width: 450px; /* **PAKET KARTLARI MAX GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.paket-link:hover .paket-card {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
+/* KART STİLLERİ */
 .paket-card {
     background-color: #fcfcfc;
     border: 1px solid #eee;
-    padding: 25px; /* **PAKET KART İÇ DOLGUSU KÜÇÜLTÜLDÜ** */
+    padding: 25px; 
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
     position: relative; 
     box-sizing: border-box; 
-    width: 100%;
+    
+    cursor: pointer;
+    width: calc(50% - 15px);
+    max-width: 450px;
+    
     height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* İçeriklerin dikeyde eşit yayılması için eklendi */
 }
+
+/* Hover stili kartın kendisine uygulandı */
+.paket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 
 /* YENİ STİL: PAKET KARTLARINA ÖZEL VURGU RENKLERİ VE İKON */
 .paket-header {
-    margin-bottom: 10px; /* Boşluk azaltıldı */
+    margin-bottom: 10px; 
 }
 .paket-header h3 {
-    font-size: 1.8em; /* Başlık boyutu küçültüldü */
+    font-size: 1.8em; 
     margin-bottom: 5px;
 }
 
@@ -222,12 +219,12 @@ a {
     list-style: none;
     padding: 0 0 0 20px; 
     text-align: left;
-    margin: 10px 0; /* Liste üst/alt boşluğu azaltıldı */
+    margin: 10px 0; 
     flex-grow: 1; 
 }
 
 .paket-card li {
-    padding: 5px 0; /* Satır içi boşluk azaltıldı */
+    padding: 5px 0; 
     border-bottom: 1px dashed #e0e0e0;
     font-size: 0.95em;
 }
@@ -250,6 +247,7 @@ a {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #eee;
+    margin-bottom: 15px; /* Buton ile araya boşluk eklendi */
 }
 
 /* Kokteyller Bölümü */
@@ -265,7 +263,7 @@ a {
 }
 
 .atolye-detay {
-    max-width: 950px; /* **ATÖLYE KAPSAYICISI GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
+    max-width: 950px; 
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -278,10 +276,10 @@ a {
 .atolye-item {
     flex: 1;
     width: calc(50% - 15px);
-    max-width: 450px; /* **ATÖLYE KARTLARI MAX GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
+    max-width: 450px; 
     text-align: left;
     background: white;
-    padding: 25px; /* **ATÖLYE KART İÇ DOLGUSU KÜÇÜLTÜLDÜ** */
+    padding: 25px; 
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
@@ -413,160 +411,7 @@ a {
     flex-grow: 1;
 }
 
-/* Ekstralar Bölümü */
-.section-ekstralar {
-    padding: 80px 20px;
-    background-color: #fcfcfc;
-}
-
-.ekstra-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.ekstra-content p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.ekstra-content ul {
-    list-style: none;
-    padding: 0 0 0 20px; 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    text-align: left;
-}
-
-.ekstra-content li {
-    font-size: 1em;
-    padding: 5px 0;
-    color: #4A4A4A;
-}
-
-/* ========================================= */
-/* KOKTEYL MENÜSÜ - TEKLİF AL BUTON STİLLERİ */
-/* ========================================= */
-
-.menu-header-controls {
-    display: flex;
-    gap: 10px; 
-    align-items: center;
-}
-
-/* TEKLİF AL butonu (Menü için) */
-.cta-button-menu {
-    padding: 8px 15px; 
-    background-color: #B4C699; 
-    color: #4A4A4A;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cta-button-menu:hover {
-    background-color: #9DB483;
-}
-
-
-/* ========================================= */
-/* MOBİL UYUMLULUK */
-/* ========================================= */
-@media (max-width: 900px) {
-    /* Başlık ve Butonlar (Kokteyl Menüsü) */
-    .menu-title-container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        padding: 0 20px;
-    }
-    
-    .section-kokteyller .kokteyl-baslik, 
-    .section-atolyeler .kokteyl-baslik {
-        text-align: center;
-    }
-    .section-kokteyller .kokteyl-baslik::after, 
-    .section-atolyeler .kokteyl-baslik::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .menu-header-controls {
-        justify-content: center;
-    }
-    /* Neden Biz */
-    .why-us-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    /* Atölye Detayları ve Paketler: 900px altında hala yan yana kalır */
-    .atolye-detay {
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-    
-    /* Paketler (Düzeltme) */
-    .paket-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px; 
-    }
-    .paket-link {
-        width: 90%; 
-        max-width: 400px; /* Mobil Kartlar Max Genişliği Küçültüldü */
-    }
-    
-    /* Mobil Atölye Kartları (Alt Alta ve Ortala) */
-    .atolye-detay {
-        flex-direction: column; 
-        padding: 0 20px;
-    }
-    .atolye-item {
-        width: 90%; 
-        max-width: 400px; /* Mobil Atölye Kartları Max Genişliği Küçültüldü */
-        margin: 0 auto; 
-    }
-    .atolye-item h3 {
-        text-align: center; 
-    }
-    .atolye-item p {
-        text-align: center;
-    }
-
-    
-    /* Kokteyl Menüleri */
-    .menu-grid {
-        gap: 20px;
-        grid-template-columns: 1fr !important;
-        padding: 0 10px; 
-    }
-    .cocktail-item {
-        max-width: 95%; 
-        margin: 0 auto;
-        width: 95% !important; 
-    }
-    
-    /* Ekstra listesi */
-    .ekstra-content ul {
-        grid-template-columns: 1fr;
-        max-width: 350px;
-        margin: 0 auto;
-    }
-}
-
-/* --- YENİ VE ESTETİK FOOTER STİLLERİ (SON VE MODERN) --- */
+/* Footer */
 
 footer {
     background-color: #1a1a1a;
@@ -644,6 +489,7 @@ footer {
     margin-right: 8px;
 }
 
+
 /* ========================================= */
 /* MASAÜSTÜ DÜZENLEME (768px ve üzeri) */
 /* ========================================= */
@@ -668,160 +514,32 @@ footer {
 }
 
 /* ========================================= */
-/* MODAL VE FORM STİLLERİ */
+/* KART İÇİ TEKLİF AL BUTONU (YENİ YER: EN ALT) */
 /* ========================================= */
-.modal-form-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
 
-.modal-form-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    position: relative;
-    max-width: 90%;
-    width: 800px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    max-height: 90vh; 
-}
+.paket-card .cta-button.paket-teklif-button {
+    /* Butonu ortala */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px; /* Minimum info ile arasına boşluk */
+    
+    /* Boyut ve görünüm */
+    width: 70%; 
+    max-width: 200px; 
+    text-align: center; 
+    padding: 10px 15px; /* Biraz daha büyütüldü */
+    font-size: 1em; 
 
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 2em;
-    color: #4A4A4A;
-    text-decoration: none;
-    line-height: 1;
-    transition: color 0.2s;
-}
-
-.close-modal:hover {
-    color: #795548;
-}
-
-.modal-form-container h2 {
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.form-intro {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #777;
-    font-size: 1em;
-}
-
-.contact-form {
-    max-width: 100%; 
-    margin: 0 auto; 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    text-align: left; 
-    background-color: #fff;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-}
-
-.form-group {
-    width: calc(50% - 10px); 
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-}
-
-.form-group.full-width {
-    width: 100%;
-}
-
-.contact-form label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #4A4A4A;
-    font-size: 0.95em;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="tel"],
-.contact-form input[type="email"],
-.contact-form input[type="number"],
-.contact-form input[type="date"],
-.contact-form select,
-.contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1em;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-.contact-form button.cta-button {
-    margin-top: 20px;
-    padding: 12px 30px;
-    border: none;
+    /* Renkler */
+    color: #fff !important; 
+    background-color: #795548; /* Kahverengi vurgu */
     font-weight: 700;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 100%;
-    transition: background-color 0.3s;
+    border-radius: 50px; /* Daha yuvarlak buton */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Kokteyl Seçimi (Checkbox) Listesi */
-.checkbox-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 20px;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #eee;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-}
-
-.checkbox-list label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 400;
-    color: #333;
-}
-
-.checkbox-list input[type="checkbox"] {
-    margin-right: 8px;
-    transform: scale(1.1);
-    accent-color: #B4C699;
-}
-
-/* Mobil için Modal Düzenlemesi */
-@media (max-width: 600px) {
-    .form-group {
-        width: 100%;
-    }
-    .modal-form-container {
-        padding: 20px;
-        margin: 10px;
-    }
-    .checkbox-list {
-        grid-template-columns: 1fr;
-    }
+.paket-card .cta-button.paket-teklif-button:hover {
+    background-color: #5D4037; /* Kahverenginin koyusu */
+    transform: scale(1.05);
 }
