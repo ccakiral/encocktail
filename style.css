@@ -577,11 +577,11 @@ a {
 footer {
     background-color: #1a1a1a; /* Koyu arka plan */
     color: #f0f0f0; 
-    padding: 60px 20px; 
+    /* KRİTİK DÜZELTME: Dikey boşluk azaltıldı. */
+    padding: 40px 20px; 
     text-align: center;
     border-top: 3px solid #795548; /* Kahverengi ayırıcı çizgi */
     position: relative;
-    /* Alttaki boşluğu engellemek için padding-bottom'u genel padding'e dahil ettik */
 }
 
 .footer-content {
@@ -590,13 +590,14 @@ footer {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    gap: 25px; 
+    /* KRİTİK DÜZELTME: Elemanlar arası boşluk azaltıldı */
+    gap: 15px; 
 }
 
 /* İletişim Butonları: En üstte (order: 1) */
 .footer-contact-new {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
     order: 1;
@@ -615,13 +616,14 @@ footer {
 .footer-logo {
     order: 3; 
     position: static; 
-    margin-top: 15px; /* Telif hakkı yazısından biraz boşluk */
-    margin-bottom: 0; /* KRİTİK: Logodan sonraki boşluğu kaldırır */
+    /* KRİTİK DÜZELTME: Telif hakkı yazısından hemen sonra başlasın */
+    margin-top: 10px; 
+    margin-bottom: 0; /* Boşluk kalmaması için 0 */
 }
 
 .footer-logo img {
-    /* KRİTİK: Logo boyutu artırıldı (Mobil ve PC için ortak) */
-    height: 90px; 
+    /* KRİTİK DÜZELTME: Logo boyutu 100px'e çıkarıldı (Mobil) */
+    height: 100px; 
     width: auto;
     border-radius: 4px;
 }
@@ -631,10 +633,10 @@ footer {
     align-items: center;
     color: #1a1a1a; 
     background-color: #B4C699; 
-    padding: 10px 20px;
+    padding: 8px 15px; /* Buton padding'i biraz azaltıldı */
     border-radius: 50px; 
     font-weight: 700;
-    font-size: 1em;
+    font-size: 0.9em;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -662,8 +664,8 @@ footer {
     }
     
     .footer-logo img {
-        /* KRİTİK: Masaüstünde daha da büyük logo */
-        height: 110px; 
+        /* KRİTİK DÜZELTME: Masaüstünde 130px'e çıkarıldı */
+        height: 130px; 
     }
     
     /* Masaüstünde de sıralama korunur: İletişim, Telif, Logo */
@@ -671,7 +673,7 @@ footer {
         margin: 0;
     }
     .footer-logo {
-        margin-top: 20px; 
+        margin-top: 15px; /* Boşluk azaltıldı */
     }
 }
 
