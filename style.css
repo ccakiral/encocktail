@@ -223,12 +223,13 @@ a {
     list-style: none;
     padding: 0 0 0 20px; 
     text-align: left;
-    margin: 20px 0;
-    flex-grow: 1; /* İçerik ne kadar olursa olsun alt bilgiye kadar uzar */
+    /* KRİTİK: Listeden önceki ve sonraki boşluk azaltıldı */
+    margin: 15px 0; 
+    flex-grow: 1; 
 }
 
 .paket-card li {
-    padding: 8px 0;
+    padding: 6px 0; /* KRİTİK: Satır içi boşluk azaltıldı */
     border-bottom: 1px dashed #e0e0e0;
     font-size: 0.95em;
 }
@@ -248,7 +249,7 @@ a {
 .minimum-info {
     font-weight: 600;
     color: #555;
-    margin-top: 20px;
+    margin-top: 15px; /* Üst boşluk azaltıldı */
     padding-top: 10px;
     border-top: 1px solid #eee;
 }
@@ -541,7 +542,7 @@ a {
         max-width: 400px;
     }
     
-    /* KRİTİK MOBİL DÜZELTME: Atölye Detayları ve Paketler (Alt Alta Sırala) */
+    /* KRİTİK MOBİL DÜZELTME: Atölye Detayları (Alt Alta ve Ortala) */
     .atolye-detay {
         flex-direction: column; 
         padding: 0 20px;
@@ -549,7 +550,18 @@ a {
     .atolye-item {
         width: 90%; 
         max-width: 400px;
+        /* KRİTİK: Mobil cihazlarda kartı ortala */
+        margin: 0 auto; 
     }
+    .atolye-item h3 {
+        /* KRİTİK: Başlık metnini ortala */
+        text-align: center; 
+    }
+    .atolye-item p {
+        /* KRİTİK: Paragraf metnini ortala */
+        text-align: center;
+    }
+
     
     /* KRİTİK DÜZELTME: Kokteyl Menüleri */
     .menu-grid {
@@ -590,7 +602,7 @@ footer {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    /* KRİTİK DÜZELTME: Elemanlar arası boşluk azaltıldı */
+    /* Elemanlar arası boşluk (footer-contact-new ile copyright) */
     gap: 15px; 
 }
 
@@ -610,19 +622,20 @@ footer {
     opacity: 0.8; 
     order: 2; 
     margin-top: 0;
+    /* KRİTİK DÜZELTME: Altındaki logoya olan boşluk ayarlandı */
+    margin-bottom: 15px; 
 }
 
-/* LOGO STİLİ: En altta, telif hakkı yazısının altında (order: 3) */
+/* LOGO STİLİ: En altta (order: 3) */
 .footer-logo {
     order: 3; 
     position: static; 
-    /* KRİTİK DÜZELTME: Telif hakkı yazısından hemen sonra başlasın */
-    margin-top: 10px; 
-    margin-bottom: 0; /* Boşluk kalmaması için 0 */
+    margin-top: 0; /* Boşluk artık copyright margin-bottom'dan gelir */
+    margin-bottom: 0; 
 }
 
 .footer-logo img {
-    /* KRİTİK DÜZELTME: Logo boyutu 100px'e çıkarıldı (Mobil) */
+    /* KRİTİK DÜZELTME: Logo boyutu (Mobil) */
     height: 100px; 
     width: auto;
     border-radius: 4px;
@@ -672,8 +685,9 @@ footer {
     .copyright, .footer-contact-new, .footer-logo {
         margin: 0;
     }
-    .footer-logo {
-        margin-top: 15px; /* Boşluk azaltıldı */
+    .copyright {
+        /* Masaüstünde logo ile arasındaki boşluk tekrar ayarlandı */
+        margin-bottom: 20px; 
     }
 }
 
