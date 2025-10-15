@@ -581,13 +581,13 @@ footer {
     text-align: center;
     border-top: 3px solid #795548; /* Kahverengi ayırıcı çizgi */
     position: relative;
+    /* Alttaki boşluğu engellemek için padding-bottom'u genel padding'e dahil ettik */
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    /* Dikey akışta kalır, elemanların sıralamasını 'order' ile kontrol edeceğiz */
     flex-direction: column; 
     align-items: center;
     gap: 25px; 
@@ -616,10 +616,12 @@ footer {
     order: 3; 
     position: static; 
     margin-top: 15px; /* Telif hakkı yazısından biraz boşluk */
+    margin-bottom: 0; /* KRİTİK: Logodan sonraki boşluğu kaldırır */
 }
 
 .footer-logo img {
-    height: 70px; /* Logo boyutu ayarlandı */
+    /* KRİTİK: Logo boyutu artırıldı (Mobil ve PC için ortak) */
+    height: 90px; 
     width: auto;
     border-radius: 4px;
 }
@@ -654,14 +656,14 @@ footer {
 /* ========================================= */
 @media (min-width: 768px) {
     .footer-content {
-        /* Dikey akış korunur, her şey merkezde */
         flex-direction: column; 
         justify-content: center;
         align-items: center; 
     }
     
     .footer-logo img {
-        height: 90px; /* Masaüstünde biraz daha büyük logo */
+        /* KRİTİK: Masaüstünde daha da büyük logo */
+        height: 110px; 
     }
     
     /* Masaüstünde de sıralama korunur: İletişim, Telif, Logo */
@@ -669,7 +671,7 @@ footer {
         margin: 0;
     }
     .footer-logo {
-        margin-top: 20px; /* Telif hakkı yazısından sonra daha fazla boşluk */
+        margin-top: 20px; 
     }
 }
 
