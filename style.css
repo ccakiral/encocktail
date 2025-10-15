@@ -40,7 +40,7 @@ a {
 
 /* Header ve Hero Bölümü */
 .hero-section {
-    background: url('hero.jpg') no-repeat center center/cover; /* Resim hero.jpg kullanılmalı */
+    background: url('hero.jpg') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -56,7 +56,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Hafif karartma */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
@@ -75,7 +75,7 @@ a {
 }
 
 .cta-button {
-    background-color: #B4C699; /* Yeşil vurgu rengi */
+    background-color: #B4C699;
     color: #4A4A4A;
     padding: 12px 25px;
     border-radius: 5px;
@@ -90,7 +90,7 @@ a {
 /* YENİ BÖLÜM: NEDEN BİZ */
 .section-why-us {
     padding: 80px 20px;
-    background-color: #f0ede8; /* Hafif bej tonu */
+    background-color: #f0ede8;
 }
 
 .why-us-grid {
@@ -112,7 +112,7 @@ a {
 
 .why-us-item i {
     font-size: 3em;
-    color: #795548; /* Kahverengi vurgu */
+    color: #795548;
     margin-bottom: 15px;
 }
 
@@ -137,12 +137,11 @@ a {
 
 /* PAKET KAPSAYICISININ GENİŞLİĞİ AYARLANDI */
 .paket-container {
-    /* KRİTİK DÜZELTME: Kartların yan yana gelmesini ve ortalanmasını sağlar */
     display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap; 
-    max-width: 1100px; 
+    max-width: 950px; /* **PAKET KARTLARI GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
     margin: 0 auto;
 }
 
@@ -152,8 +151,8 @@ a {
     color: inherit; 
     display: block;
     cursor: pointer;
-    width: calc(50% - 15px); /* Her linkin genişliği ayarlandı */
-    max-width: 500px;
+    width: calc(50% - 15px);
+    max-width: 450px; /* **PAKET KARTLARI MAX GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -165,14 +164,14 @@ a {
 .paket-card {
     background-color: #fcfcfc;
     border: 1px solid #eee;
-    padding: 30px;
+    padding: 25px; /* **PAKET KART İÇ DOLGUSU KÜÇÜLTÜLDÜ** */
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
     position: relative; 
     box-sizing: border-box; 
-    width: 100%; /* .paket-link genişliğini alır */
-    height: 100%; /* Yükseklikleri eşitlemek için */
+    width: 100%;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -180,10 +179,10 @@ a {
 
 /* YENİ STİL: PAKET KARTLARINA ÖZEL VURGU RENKLERİ VE İKON */
 .paket-header {
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Boşluk azaltıldı */
 }
 .paket-header h3 {
-    font-size: 2em;
+    font-size: 1.8em; /* Başlık boyutu küçültüldü */
     margin-bottom: 5px;
 }
 
@@ -207,7 +206,7 @@ a {
 
 /* KOKTEYL ATÖLYESİ STİLİ */
 .paket-card.atolye {
-    border: 3px solid #B4C699; /* Yeşil Çerçeve */
+    border: 3px solid #B4C699;
     background-color: #fcf8f5; 
     box-shadow: 0 4px 15px rgba(180, 198, 153, 0.2); 
 }
@@ -215,7 +214,7 @@ a {
     color: #4A4A4A; 
 }
 .paket-card.atolye .paket-header i {
-    color: #B4C699; /* Yeşil ikon */
+    color: #B4C699;
 }
 
 
@@ -223,33 +222,32 @@ a {
     list-style: none;
     padding: 0 0 0 20px; 
     text-align: left;
-    /* KRİTİK: Listeden önceki ve sonraki boşluk azaltıldı */
-    margin: 15px 0; 
+    margin: 10px 0; /* Liste üst/alt boşluğu azaltıldı */
     flex-grow: 1; 
 }
 
 .paket-card li {
-    padding: 6px 0; /* KRİTİK: Satır içi boşluk azaltıldı */
+    padding: 5px 0; /* Satır içi boşluk azaltıldı */
     border-bottom: 1px dashed #e0e0e0;
     font-size: 0.95em;
 }
 
 /* UL içerisindeki madde işaretleri (ikon eklendi) */
 .paket-card ul li::before {
-    content: "\f00c"; /* Font Awesome check mark */
+    content: "\f00c";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     margin-right: 10px;
-    color: #B4C699; /* Varsayılan yeşil ikon */
+    color: #B4C699;
 }
 .paket-card.seckin ul li::before {
-    color: #FFD700; /* Seçkin paket için altın rengi ikon */
+    color: #FFD700;
 }
 
 .minimum-info {
     font-weight: 600;
     color: #555;
-    margin-top: 15px; /* Üst boşluk azaltıldı */
+    margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #eee;
 }
@@ -266,33 +264,27 @@ a {
     text-align: center;
 }
 
-/* KRİTİK DÜZELTME: Etkinlik Paketleri ile aynı yapı */
 .atolye-detay {
-    /* Paketler bölümündeki .paket-container ile aynı genişlik ve ortalama kuralları */
-    max-width: 1100px;
+    max-width: 950px; /* **ATÖLYE KAPSAYICISI GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
     margin: 0 auto;
     display: flex;
-    justify-content: center; /* Ortala */
+    justify-content: center;
     gap: 30px;
-    padding: 0 20px; /* Geniş ekranlarda kenar boşluğu */
+    padding: 0 20px;
     margin-top: 40px;
-    flex-wrap: wrap; /* Gerekirse alt satıra geçsin */
+    flex-wrap: wrap;
 }
 
 .atolye-item {
-    /* .paket-link ile aynı genişlik kuralı */
     flex: 1;
-    width: calc(50% - 15px); /* İki kart yan yana */
-    max-width: 500px;
-    
+    width: calc(50% - 15px);
+    max-width: 450px; /* **ATÖLYE KARTLARI MAX GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
     text-align: left;
     background: white;
-    padding: 30px;
+    padding: 25px; /* **ATÖLYE KART İÇ DOLGUSU KÜÇÜLTÜLDÜ** */
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-    
-    /* Yükseklik eşitleme için flex yapısı */
     display: flex;
     flex-direction: column;
 }
@@ -307,21 +299,21 @@ a {
 }
 
 .atolye-item h3 i {
-    color: #B4C699; /* Yeşil ikon */
+    color: #B4C699;
     margin-right: 10px;
 }
 
 .atolye-item p {
     color: #555;
-    flex-grow: 1; /* İçerik boşluğunu doldurur */
+    flex-grow: 1;
 }
 
 .atolye-uyari {
     font-style: italic;
     color: #888;
-    margin-top: 20px; /* Üstteki p'den ayrılması için */
+    margin-top: 20px;
     font-size: 0.95em;
-    border-top: 1px solid #eee; /* Alt bilgi çizgisi */
+    border-top: 1px solid #eee;
     padding-top: 15px;
 }
 
@@ -330,8 +322,7 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    /* Butonlar kalktığı için ortalama kolaylaştı */
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 0 20px; 
     margin-bottom: 30px; 
@@ -341,17 +332,16 @@ a {
 /* Başlık */
 .section-kokteyller .kokteyl-baslik,
 .section-atolyeler .kokteyl-baslik {
-    margin: 0 auto; /* Başlığı ortala */
+    margin: 0 auto;
     padding-bottom: 10px;
     font-size: 2.5em; 
-    text-align: center; /* Başlık metnini ortala */
+    text-align: center;
 }
 
 
 /* Başlık altındaki çizginin ortalanması */
 .section-kokteyller .kokteyl-baslik::after,
 .section-atolyeler .kokteyl-baslik::after {
-    /* Çizgiyi ortala */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -366,18 +356,17 @@ a {
     margin-right: auto;
 }
 
-/* KRİTİK DÜZELTME: Menü Grid Yerleşim Sorunu Çözümü (4 Sütun) */
+/* Kokteyl Menüsü Grid Yerleşimi */
 .menu-grid {
     display: grid;
-    /* 4 sütuna sığması için minmax değeri 230px'e düşürüldü */
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
     gap: 30px; 
-    max-width: 1200px; /* Maksimum genişlik */
-    margin: 0 auto 60px; /* Ortala */
+    max-width: 1200px;
+    margin: 0 auto 60px;
     padding: 0 20px;
 }
 
-/* KRİTİK DÜZELTME: Kokteyl Kart İçerik Hizalaması */
+/* Kokteyl Kart İçerik Hizalaması */
 .cocktail-item {
     background-color: #fff;
     border-radius: 8px;
@@ -386,10 +375,8 @@ a {
     text-align: center;
     transition: box-shadow 0.3s;
     width: 100%; 
-    
-    /* YENİ EKLENEN KRİTİK KURAL */
     display: flex;
-    flex-direction: column; /* İçeriği dikey olarak düzenle */
+    flex-direction: column;
 }
 
 .cocktail-item:hover {
@@ -413,18 +400,17 @@ a {
     font-family: 'Playfair Display', serif;
     font-size: 1.5em;
     color: #4A4A4A;
-    margin: 15px 0 5px; /* Üstten 15px, alttan 5px boşluk */
+    margin: 15px 0 5px;
 }
 
-/* KRİTİK DÜZELTME: Açıklamayı üste yasla */
+/* Açıklamayı üste yasla */
 .cocktail-item p {
     font-size: 0.9em;
     color: #777;
     line-height: 1.2; 
     padding: 0 15px 15px; 
     margin: 0;
-    
-    flex-grow: 1; /* Bu, açıklamaların altındaki boşluğu doldurarak hepsinin üste yaslanmasını sağlar */
+    flex-grow: 1;
 }
 
 /* Ekstralar Bölümü */
@@ -539,34 +525,30 @@ a {
     }
     .paket-link {
         width: 90%; 
-        max-width: 400px;
+        max-width: 400px; /* Mobil Kartlar Max Genişliği Küçültüldü */
     }
     
-    /* KRİTİK MOBİL DÜZELTME: Atölye Detayları (Alt Alta ve Ortala) */
+    /* Mobil Atölye Kartları (Alt Alta ve Ortala) */
     .atolye-detay {
         flex-direction: column; 
         padding: 0 20px;
     }
     .atolye-item {
         width: 90%; 
-        max-width: 400px;
-        /* KRİTİK: Mobil cihazlarda kartı ortala */
+        max-width: 400px; /* Mobil Atölye Kartları Max Genişliği Küçültüldü */
         margin: 0 auto; 
     }
     .atolye-item h3 {
-        /* KRİTİK: Başlık metnini ortala */
         text-align: center; 
     }
     .atolye-item p {
-        /* KRİTİK: Paragraf metnini ortala */
         text-align: center;
     }
 
     
-    /* KRİTİK DÜZELTME: Kokteyl Menüleri */
+    /* Kokteyl Menüleri */
     .menu-grid {
         gap: 20px;
-        /* Bu kural, 768px altında tek sütun zorlar */
         grid-template-columns: 1fr !important;
         padding: 0 10px; 
     }
@@ -587,12 +569,11 @@ a {
 /* --- YENİ VE ESTETİK FOOTER STİLLERİ (SON VE MODERN) --- */
 
 footer {
-    background-color: #1a1a1a; /* Koyu arka plan */
+    background-color: #1a1a1a;
     color: #f0f0f0; 
-    /* KRİTİK DÜZELTME: Dikey boşluk azaltıldı. */
     padding: 40px 20px; 
     text-align: center;
-    border-top: 3px solid #795548; /* Kahverengi ayırıcı çizgi */
+    border-top: 3px solid #795548;
     position: relative;
 }
 
@@ -602,7 +583,6 @@ footer {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    /* Elemanlar arası boşluk (footer-contact-new ile copyright) */
     gap: 15px; 
 }
 
@@ -622,7 +602,6 @@ footer {
     opacity: 0.8; 
     order: 2; 
     margin-top: 0;
-    /* KRİTİK DÜZELTME: Altındaki logoya olan boşluk ayarlandı */
     margin-bottom: 15px; 
 }
 
@@ -630,12 +609,11 @@ footer {
 .footer-logo {
     order: 3; 
     position: static; 
-    margin-top: 0; /* Boşluk artık copyright margin-bottom'dan gelir */
+    margin-top: 0;
     margin-bottom: 0; 
 }
 
 .footer-logo img {
-    /* KRİTİK DÜZELTME: Logo boyutu (Mobil) */
     height: 100px; 
     width: auto;
     border-radius: 4px;
@@ -646,7 +624,7 @@ footer {
     align-items: center;
     color: #1a1a1a; 
     background-color: #B4C699; 
-    padding: 8px 15px; /* Buton padding'i biraz azaltıldı */
+    padding: 8px 15px;
     border-radius: 50px; 
     font-weight: 700;
     font-size: 0.9em;
@@ -677,7 +655,6 @@ footer {
     }
     
     .footer-logo img {
-        /* KRİTİK DÜZELTME: Masaüstünde 130px'e çıkarıldı */
         height: 130px; 
     }
     
@@ -686,30 +663,27 @@ footer {
         margin: 0;
     }
     .copyright {
-        /* Masaüstünde logo ile arasındaki boşluk tekrar ayarlandı */
         margin-bottom: 20px; 
     }
 }
 
 /* ========================================= */
-/* MODAL VE FORM STİLLERİ (Korundu) */
+/* MODAL VE FORM STİLLERİ */
 /* ========================================= */
 .modal-form-overlay {
-    /* Modal Kapsayıcı */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: none; /* Varsayılan olarak gizli */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
 .modal-form-container {
-    /* Modal İçerik Kutusu */
     background: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -717,7 +691,7 @@ footer {
     max-width: 90%;
     width: 800px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu çıksın */
+    overflow-y: auto;
     max-height: 90vh; 
 }
 
@@ -757,14 +731,13 @@ footer {
     justify-content: space-between;
     text-align: left; 
     background-color: #fff;
-    padding: 0; /* Modal içinde padding'i modal-form-container karşıladı */
+    padding: 0;
     border-radius: 0;
     box-shadow: none;
     border: none;
 }
 
 .form-group {
-    /* İki sütunlu düzen */
     width: calc(50% - 10px); 
     margin-bottom: 15px;
     display: flex;
@@ -816,7 +789,7 @@ footer {
 /* Kokteyl Seçimi (Checkbox) Listesi */
 .checkbox-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 sütunlu düzen */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px 20px;
     margin-top: 10px;
     padding: 10px;
@@ -836,19 +809,19 @@ footer {
 .checkbox-list input[type="checkbox"] {
     margin-right: 8px;
     transform: scale(1.1);
-    accent-color: #B4C699; /* Yeşil checkbox rengi */
+    accent-color: #B4C699;
 }
 
 /* Mobil için Modal Düzenlemesi */
 @media (max-width: 600px) {
     .form-group {
-        width: 100%; /* Mobil cihazlarda tüm form alanları tam genişlikte */
+        width: 100%;
     }
     .modal-form-container {
         padding: 20px;
         margin: 10px;
     }
     .checkbox-list {
-        grid-template-columns: 1fr; /* Mobil cihazda tek sütun */
+        grid-template-columns: 1fr;
     }
 }
