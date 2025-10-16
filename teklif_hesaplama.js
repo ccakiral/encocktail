@@ -17,58 +17,58 @@ const URUN_FIYATLARI = {
     // Fiyatlar Litre bazlıdır (BUZ hariç). (Örn: 25 TL/Litre)
     // --- ENCOCKTAIL (Zorunlu Satışlar - Miks Malzemeler) ---
     // 1. Ev Yapımı Likörler (Yüksek Değerli, Niş Ürünler)
-    "PORTAKAL_LIKORU":    { fiyat: 25, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "LIKORLER" }, 
-    "KAHVE_LIKORU":       { fiyat: 25, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "LIKORLER" }, 
+    "PORTAKAL_LIKORU":     { fiyat: 25, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "LIKORLER" }, 
+    "KAHVE_LIKORU":        { fiyat: 25, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "LIKORLER" }, 
 
     // 2. Özel Bazlar, Püreler ve Şuruplar (Miks Kalitesi İçin Kritik)
     "KAHVE_SOGUK_DEMLEME":{ fiyat: 15, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, 
-    "SUPER_JUICE_LIME":   { fiyat: 10, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, 
-    "LIMON_SUYU":         { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" },
-    "CRANBERRY_SUYU":     { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, 
-    "LIMONATA_SUYU":      { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, // YENİ
-    "COOL_LIME_SUYU":     { fiyat: 10, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, // YENİ
+    "SUPER_JUICE_LIME":    { fiyat: 10, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, 
+    "LIMON_SUYU":          { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" },
+    "CRANBERRY_SUYU":      { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, 
+    "LIMONATA_SUYU":       { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, // YENİ
+    "COOL_LIME_SUYU":      { fiyat: 10, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, // YENİ
     "BERRY_HIBISCUS_SUYU":{ fiyat: 12, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_BAZ" }, // YENİ
 
-    "SEKER_SURUBU":       { fiyat: 5,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
-    "TONIK_SURUBU":       { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
+    "SEKER_SURUBU":        { fiyat: 5,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
+    "TONIK_SURUBU":        { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
     "ELDERFLOWER_SURUBU": { fiyat: 15, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
-    "BAL_SURUBU":         { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
-    "AHUDUDU_SURUBU":     { fiyat: 12, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
+    "BAL_SURUBU":          { fiyat: 8,  birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
+    "AHUDUDU_SURUBU":      { fiyat: 12, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "SURUPLAR" },
 
     // SOSLAR (GÜNCELLENDİ)
-    "HIBISKUS_SOSU":      { fiyat: 12, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // HIBISKUS_BAZ'dan GÜNCELLENDİ
-    "KUZUKULAGI_SOSU":    { fiyat: 15, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" },
-    "MANGO_SOSU":         { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // MANGO_PURESI'den GÜNCELLENDİ
-    "ORMANMEYVE_SOSU":    { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" },
-    "MANGO_MULE_SOSU":    { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // YENİ
+    "HIBISKUS_SOSU":       { fiyat: 12, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // HIBISKUS_BAZ'dan GÜNCELLENDİ
+    "KUZUKULAGI_SOSU":     { fiyat: 15, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" },
+    "MANGO_SOSU":          { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // MANGO_PURESI'den GÜNCELLENDİ
+    "ORMANMEYVE_SOSU":     { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" },
+    "MANGO_MULE_SOSU":     { fiyat: 18, birim: "Litre", satisKati: 0.5, tedarikci: "ENCOCKTAIL", grup: "OZEL_SOS" }, // YENİ
     
     // 3. Garnitür ve Özel Katkılar (Adet Bazlı)
     "PORTAKAL_DILIMI": { fiyat: 0.25, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" },
-    "LIME_DILIMI":     { fiyat: 0.20, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" },
-    "NANE_DALI":       { fiyat: 0.50, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" },
-    "LIMON_DILIMI":    { fiyat: 0.20, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
-    "BIBER_DILIMI":    { fiyat: 0.25, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
-    "FESLEGEN":        { fiyat: 0.50, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
-    "BERRY":           { fiyat: 0.25, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
+    "LIME_DILIMI":      { fiyat: 0.20, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" },
+    "NANE_DALI":        { fiyat: 0.50, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" },
+    "LIMON_DILIMI":     { fiyat: 0.20, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
+    "BIBER_DILIMI":     { fiyat: 0.25, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
+    "FESLEGEN":         { fiyat: 0.50, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
+    "BERRY":            { fiyat: 0.25, birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "GARNITUR" }, // YENİ
 
-    "TATLANDIRICI":    { fiyat: 0.5,  birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "KATKI" }, 
-    "KOPUK":           { fiyat: 0.5,  birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "KATKI" }, 
+    "TATLANDIRICI":     { fiyat: 0.5,  birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "KATKI" }, 
+    "KOPUK":            { fiyat: 0.5,  birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "KATKI" }, 
     
     // --- MÜŞTERİ TEDARİĞİ (Ana Alkollü İçecekler) ---
     // ... Alkollü içecekler aynı kaldı ...
-    "CIN":       { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "VOTKA":     { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "ROM":       { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "VISKI":     { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "TEKILA":    { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "BOURBON":   { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
-    "APEROL":    { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" }, 
-    "RAKI":      { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "CIN":        { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "VOTKA":      { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "ROM":        { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "VISKI":      { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "TEKILA":     { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "BOURBON":    { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
+    "APEROL":     { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" }, 
+    "RAKI":       { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
     "KIRMIZI_VERMUT": { fiyat: 30, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 30, grup: "ALKOLLER" },
-    "CAMPARI":   { fiyat: 40, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 40, grup: "ALKOLLER" }, 
+    "CAMPARI":    { fiyat: 40, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 40, grup: "ALKOLLER" }, 
     "KOPUKLU_SARAP": { fiyat: 50, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 50, grup: "ALKOLLER" }, 
 
-    "BUZ":       { fiyat: 1,  birim: "Kg",    satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 1, grup: "DIGER" }, // Kg bazlı fiyat    
+    "BUZ":        { fiyat: 1,  birim: "Kg",    satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 1, grup: "DIGER" }, // Kg bazlı fiyat    
     "SODA_TONIK_SU": { fiyat: 2, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 2, grup: "DIGER" }, 
     "ZENCEFILLI_GAZOZ": { fiyat: 5, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 5, grup: "DIGER" }, // YENİ
 };
@@ -76,14 +76,14 @@ const URUN_FIYATLARI = {
 // C. ALKOLLERİN ŞİŞE HACMİ VE MARKA BİLGİLERİ (cL bazında)
 const ALKOLLER_SISE_HACIMLERI = {
     // ... Aynı Kaldı ...
-    "CIN":     { hacim_cl: 100, marka: "Bombay, Gordon's, Beefeater" },
-    "VOTKA":   { hacim_cl: 100, marka: "Absolut, Smirnoff" },
-    "ROM":     { hacim_cl: 70, marka: "Bacardi, Captain Morgan" },
-    "VISKI":   { hacim_cl: 70, marka: "Jack Daniel's, Johnnie Walker" },
-    "TEKILA":  { hacim_cl: 70, marka: "Olmeca, Jose Cuervo" },
+    "CIN":      { hacim_cl: 100, marka: "Bombay, Gordon's, Beefeater" },
+    "VOTKA":    { hacim_cl: 100, marka: "Absolut, Smirnoff" },
+    "ROM":      { hacim_cl: 70, marka: "Bacardi, Captain Morgan" },
+    "VISKI":    { hacim_cl: 70, marka: "Jack Daniel's, Johnnie Walker" },
+    "TEKILA":   { hacim_cl: 70, marka: "Olmeca, Jose Cuervo" },
     "BOURBON": { hacim_cl: 70, marka: "Jim Beam, Wild Turkey" },
-    "APEROL":  { hacim_cl: 100, marka: "Aperol" }, 
-    "RAKI":    { hacim_cl: 70, marka: "Yeni Rakı, Efe" },
+    "APEROL":   { hacim_cl: 100, marka: "Aperol" }, 
+    "RAKI":      { hacim_cl: 70, marka: "Yeni Rakı, Efe" },
     "KIRMIZI_VERMUT": { hacim_cl: 100, marka: "Martini Rosso" },
     "CAMPARI": { hacim_cl: 100, marka: "Campari" },
     "KOPUKLU_SARAP": { hacim_cl: 75, marka: "Prosecco, Şampanya" },
@@ -94,30 +94,30 @@ const ALKOLLER_SISE_HACIMLERI = {
 // Not: Sıvılar Santilitre (cL), Buz Gram (g), Garnitür/Katkı Adet (Adet) cinsindendir.
 const RECELLER = {
     // NİHAİ KLASİK KOKTEYLLER
-    "MOJITO":            { ROM: 4.5, SUPER_JUICE_LIME: 3, SEKER_SURUBU: 2, NANE_DALI: 5, SODA_TONIK_SU: 6, BUZ: 250 },
-    "WHISKEY_SOUR":      { BOURBON: 6, LIMON_SUYU: 3, SEKER_SURUBU: 1.5, BUZ: 100, KOPUK: 1 },
-    "MARGARITA":         { TEKILA: 5, PORTAKAL_LIKORU: 2.5, SUPER_JUICE_LIME: 2.5, BUZ: 100, LIME_DILIMI: 1 },
-    "GIN_TONIC":         { CIN: 6, TONIK_SURUBU: 2, SODA_TONIK_SU: 12, LIME_DILIMI: 2, BUZ: 250 },
-    "OLD_FASHIONED":     { BOURBON: 6, SEKER_SURUBU: 1, TATLANDIRICI: 2, BUZ: 100, PORTAKAL_DILIMI: 1 },
-    "NEGRONI":           { CIN: 3, KIRMIZI_VERMUT: 3, CAMPARI: 3, PORTAKAL_DILIMI: 1, BUZ: 150 },
-    "ESPRESSO_MARTINI":  { VOTKA: 5, KAHVE_LIKORU: 3, KAHVE_SOGUK_DEMLEME: 3, SEKER_SURUBU: 1, BUZ: 100, KOPUK: 1 },
-    "APEROL_SPRITZ":     { KOPUKLU_SARAP: 9, APEROL: 6, SODA_TONIK_SU: 3, PORTAKAL_DILIMI: 1, BUZ: 200 },
-    "HUGO_SPRITZ":       { ELDERFLOWER_SURUBU: 2, KOPUKLU_SARAP: 10, SODA_TONIK_SU: 5, NANE_DALI: 5, BUZ: 200 },
-    "FRENCH_75":         { CIN: 3, LIMON_SUYU: 1.5, SEKER_SURUBU: 1, KOPUKLU_SARAP: 9, LIME_DILIMI: 1, BUZ: 50 },
-    "COSMOPOLITAN":      { VOTKA: 4.5, PORTAKAL_LIKORU: 1.5, CRANBERRY_SUYU: 4.5, SUPER_JUICE_LIME: 1.5, BUZ: 100 },
-    "CLOVER_CLUB":       { CIN: 4.5, AHUDUDU_SURUBU: 1.5, SUPER_JUICE_LIME: 2.25, BUZ: 100, KOPUK: 1, NANE_DALI: 1 },
+    "MOJITO":             { ROM: 4.5, SUPER_JUICE_LIME: 3, SEKER_SURUBU: 2, NANE_DALI: 5, SODA_TONIK_SU: 6, BUZ: 250 },
+    "WHISKEY_SOUR":       { BOURBON: 6, LIMON_SUYU: 3, SEKER_SURUBU: 1.5, BUZ: 100, KOPUK: 1 },
+    "MARGARITA":          { TEKILA: 5, PORTAKAL_LIKORU: 2.5, SUPER_JUICE_LIME: 2.5, BUZ: 100, LIME_DILIMI: 1 },
+    "GIN_TONIC":          { CIN: 6, TONIK_SURUBU: 2, SODA_TONIK_SU: 12, LIME_DILIMI: 2, BUZ: 250 },
+    "OLD_FASHIONED":      { BOURBON: 6, SEKER_SURUBU: 1, TATLANDIRICI: 2, BUZ: 100, PORTAKAL_DILIMI: 1 },
+    "NEGRONI":            { CIN: 3, KIRMIZI_VERMUT: 3, CAMPARI: 3, PORTAKAL_DILIMI: 1, BUZ: 150 },
+    "ESPRESSO_MARTINI":   { VOTKA: 5, KAHVE_LIKORU: 3, KAHVE_SOGUK_DEMLEME: 3, SEKER_SURUBU: 1, BUZ: 100, KOPUK: 1 },
+    "APEROL_SPRITZ":      { KOPUKLU_SARAP: 9, APEROL: 6, SODA_TONIK_SU: 3, PORTAKAL_DILIMI: 1, BUZ: 200 },
+    "HUGO_SPRITZ":        { ELDERFLOWER_SURUBU: 2, KOPUKLU_SARAP: 10, SODA_TONIK_SU: 5, NANE_DALI: 5, BUZ: 200 },
+    "FRENCH_75":          { CIN: 3, LIMON_SUYU: 1.5, SEKER_SURUBU: 1, KOPUKLU_SARAP: 9, LIME_DILIMI: 1, BUZ: 50 },
+    "COSMOPOLITAN":       { VOTKA: 4.5, PORTAKAL_LIKORU: 1.5, CRANBERRY_SUYU: 4.5, SUPER_JUICE_LIME: 1.5, BUZ: 100 },
+    "CLOVER_CLUB":        { CIN: 4.5, AHUDUDU_SURUBU: 1.5, SUPER_JUICE_LIME: 2.25, BUZ: 100, KOPUK: 1, NANE_DALI: 1 },
 
     // İMZA/HOUSE KOKTEYLLER (GÜNCELLENDİ)
-    "GREEN SHADE":       { CIN: 5, KUZUKULAGI_SOSU: 7.5, BUZ: 200, KOPUK: 1, LIME_DILIMI: 1},
-    "THE_BERRY_PATCH":   { VOTKA: 5, ORMANMEYVE_SOSU: 7.5, BUZ: 200, FESLEGEN: 1, BERRY: 3,}, // Yeni malzemeler eklendi
-    "HIBISCUS_ISLE":     { ROM: 5, HIBISKUS_SOSU: 7.5, BUZ: 200, NANE_DALI: 1, LIME_DILIMI: 1 }, // HIBISKUS_SOSU ve vol. güncellendi
-    "THE_SPICY_SUNSET":  { VOTKA: 5, MANGO_SOSU: 7.5, BUZ: 200, BIBER_DILIMI: 1}, // MANGO_SOSU ve BIBER_DILIMI eklendi
+    "GREEN SHADE":        { CIN: 5, KUZUKULAGI_SOSU: 7.5, BUZ: 200, KOPUK: 1, LIME_DILIMI: 1},
+    "THE_BERRY_PATCH":    { VOTKA: 5, ORMANMEYVE_SOSU: 7.5, BUZ: 200, FESLEGEN: 1, BERRY: 3,}, // Yeni malzemeler eklendi
+    "HIBISCUS_ISLE":      { ROM: 5, HIBISKUS_SOSU: 7.5, BUZ: 200, NANE_DALI: 1, LIME_DILIMI: 1 }, // HIBISKUS_SOSU ve vol. güncellendi
+    "THE_SPICY_SUNSET":   { VOTKA: 5, MANGO_SOSU: 7.5, BUZ: 200, BIBER_DILIMI: 1}, // MANGO_SOSU ve BIBER_DILIMI eklendi
 
     // ALKOLSÜZ KOKTEYLLER (TAMAMEN YENİ TARİFLER)
-    "LEMONADE":          { LIMONATA_SUYU: 15, LIMON_DILIMI: 1, BUZ: 250 },
-    "COOL_LIME":         { COOL_LIME_SUYU: 15, LIME_DILIMI: 1, NANE_DALI: 1, BUZ: 250 },
-    "BERRY_HIBISCUS":    { BERRY_HIBISCUS_SUYU: 15, BERRY: 3, NANE_DALI: 1, BUZ: 250 },
-    "MANGO_MULE":        { MANGO_MULE_SOSU: 9, ZENCEFILLI_GAZOZ: 6, LIMON_DILIMI: 1, BUZ: 250 }
+    "LEMONADE":           { LIMONATA_SUYU: 15, LIMON_DILIMI: 1, BUZ: 250 },
+    "COOL_LIME":          { COOL_LIME_SUYU: 15, LIME_DILIMI: 1, NANE_DALI: 1, BUZ: 250 },
+    "BERRY_HIBISCUS":     { BERRY_HIBISCUS_SUYU: 15, BERRY: 3, NANE_DALI: 1, BUZ: 250 },
+    "MANGO_MULE":         { MANGO_MULE_SOSU: 9, ZENCEFILLI_GAZOZ: 6, LIMON_DILIMI: 1, BUZ: 250 }
 };
 
 // E. ELEMENTLERİ AL
@@ -229,14 +229,18 @@ function hesaplaVeGoster(e) {
         if (malzeme === "BUZ") {
             // Buz: Gram (g) -> Kilogram (Kg) (Fiyat birimi)
             // (g * Adet) / 1000 = Gerekli Kilogram (Kg)
-            gerekliMiktarHesapBiriminde = gerekliMiktarHesapBiriminde / 1000;
+            if (gerekliMiktarHesapBiriminde > 0) {
+              gerekliMiktarHesapBiriminde = gerekliMiktarHesapBiriminde / 1000;
+            }
         } else if (bilgi.birim === "Adet") {
             // Adet bazlı malzemeler: Zaten Adet olarak kalır.
             // gerekliMiktarHesapBiriminde zaten toplam adettir.
         } else {
             // Sıvılar (Alkol, Şurup vb.): Santilitre (cL) -> Litre (L) (Fiyat birimi)
             // (cL * Adet) / 100 = Gerekli Litre (L)
-            gerekliMiktarHesapBiriminde = gerekliMiktarHesapBiriminde / 100;
+            if (gerekliMiktarHesapBiriminde > 0) {
+              gerekliMiktarHesapBiriminde = gerekliMiktarHesapBiriminde / 100;
+            }
         }
 
         // Buz için %10 güvenlik marjı ekle (gerekliMiktarHesapBiriminde artık Kg cinsinden)
@@ -374,7 +378,7 @@ function veriGonder() {
     // 3. Veriyi Gönder
     GonderGoogleSheets(kayitVerisi)
     .finally(() => {
-        // Hata olsa da olmasa da butonu düzelt
+        // Yönlendirme gerçekleşmezse (HATA durumunda), butonu düzelt
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
     });
@@ -393,10 +397,9 @@ function GonderGoogleSheets(veri) {
         body: new URLSearchParams(veri).toString()
     })
     .then(response => {
-        // GAS "no-cors" modunda çalıştığı için yanıtı okuyamayız.
-        // Başarılı kabul edip yönlendiriyoruz.
-        alert("Teklifiniz başarıyla kaydedildi!");
-        // İsteğe bağlı: window.location.href = "tesekkurler.html";
+        // [DÜZELTME UYGULANDI]: Başarılı kabul edip tesekkurler.html sayfasına yönlendir.
+        window.location.href = "tesekkurler.html"; 
+        // Yönlendirme olduğu için butonu geri açmaya gerek kalmayacaktır.
         return response;
     })
     .catch(error => {
@@ -413,8 +416,3 @@ submitButton.addEventListener('click', veriGonder);
 
 // Sayfa yüklendiğinde listeyi RECELLER'dan dinamik olarak oluştur
 document.addEventListener('DOMContentLoaded', kokteylCheckboxlariOlustur);
-
-// Input değişikliklerinde de anlık hesaplama yapmak isterseniz bu event'i ekleyebilirsiniz
-// misafirSayisiInput.addEventListener('input', hesaplaVeGoster);
-// servisSaatiInput.addEventListener('input', hesaplaVeGoster);
-// document.getElementById('kokteylSecimiKapsayici').addEventListener('change', hesaplaVeGoster);
