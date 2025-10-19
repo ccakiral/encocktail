@@ -489,6 +489,30 @@ footer {
     margin-right: 8px;
 }
 
+/* ========================================= */
+/* MOBİL DÜZENLEME (767px ve altı) */
+/* ========================================= */
+@media (max-width: 767px) {
+    /* **ETKİNLİK PAKETLERİ VE ATÖLYE DETAYLARI ALT ALTA İÇİN EKLENDİ** */
+    .paket-card {
+        width: 100%; /* Kartları tam genişlik yap */
+        max-width: none; /* Max genişliği kaldır */
+        margin-bottom: 20px; /* Altına boşluk ekle */
+    }
+    
+    .atolye-item {
+        width: 100%; /* Atölye detaylarını tam genişlik yap */
+        max-width: none; /* Max genişliği kaldır */
+        margin-bottom: 20px; /* Altına boşluk ekle */
+    }
+    
+    /* İhtiyaç duyulursa gap'i düşürebiliriz, ama alt alta olduğu için çok fark etmez */
+    .paket-container, .atolye-detay {
+        gap: 0; /* Gap'i sıfırla, alt alta görünümde işe yaramaz */
+        flex-direction: column; /* Her ihtimale karşı alt alta zorla */
+    }
+}
+
 
 /* ========================================= */
 /* MASAÜSTÜ DÜZENLEME (768px ve üzeri) */
@@ -511,35 +535,34 @@ footer {
     .copyright {
         margin-bottom: 20px; 
     }
-}
-
-/* ========================================= */
-/* KART İÇİ TEKLİF AL BUTONU (YENİ YER: EN ALT) */
-/* ========================================= */
-
-.paket-card .cta-button.paket-teklif-button {
-    /* Butonu ortala */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px; /* Minimum info ile arasına boşluk */
     
-    /* Boyut ve görünüm */
-    width: 70%; 
-    max-width: 200px; 
-    text-align: center; 
-    padding: 10px 15px; /* Biraz daha büyütüldü */
-    font-size: 1em; 
+    /* ========================================= */
+    /* KART İÇİ TEKLİF AL BUTONU (YENİ YER: EN ALT) */
+    /* ========================================= */
+    .paket-card .cta-button.paket-teklif-button {
+        /* Butonu ortala */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px; /* Minimum info ile arasına boşluk */
+        
+        /* Boyut ve görünüm */
+        width: 70%; 
+        max-width: 200px; 
+        text-align: center; 
+        padding: 10px 15px; /* Biraz daha büyütüldü */
+        font-size: 1em; 
 
-    /* Renkler */
-    color: #fff !important; 
-    background-color: #795548; /* Kahverengi vurgu */
-    font-weight: 700;
-    border-radius: 50px; /* Daha yuvarlak buton */
-    transition: background-color 0.3s, transform 0.3s;
-}
+        /* Renkler */
+        color: #fff !important; 
+        background-color: #795548; /* Kahverengi vurgu */
+        font-weight: 700;
+        border-radius: 50px; /* Daha yuvarlak buton */
+        transition: background-color 0.3s, transform 0.3s;
+    }
 
-.paket-card .cta-button.paket-teklif-button:hover {
-    background-color: #5D4037; /* Kahverenginin koyusu */
-    transform: scale(1.05);
+    .paket-card .cta-button.paket-teklif-button:hover {
+        background-color: #5D4037; /* Kahverenginin koyusu */
+        transform: scale(1.05);
+    }
 }
