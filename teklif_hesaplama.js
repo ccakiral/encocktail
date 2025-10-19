@@ -126,6 +126,7 @@ const servisSaatiInput = document.getElementById('servisSaati');
 const hesaplaButton = document.getElementById('calculateButton');
 const submitButton = document.getElementById('submitButton');
 const musteriIletisimInput = document.getElementById('musteriIletisim'); 
+const telefonNumarasiInput = document.getElementById('telefonNumarasi'); // <-- YENİ
 const kokteylSecimiKapsayici = document.getElementById('kokteylSecimiKapsayici'); 
 
 // F. YARDIMCI FONKSİYONLAR
@@ -348,18 +349,20 @@ function veriGonder() {
 
     // 2. Form verilerini topla
     const musteriIletisim = musteriIletisimInput.value;
+    const telefonNumarasi = telefonNumarasiInput.value; // <-- YENİ
     const misafirSayisi = parseInt(misafirSayisiInput.value);
     const servisSaati = parseInt(servisSaatiInput.value);
     const kokteylSecimi = Array.from(document.querySelectorAll('input[name="kokteyl"]:checked')).map(el => el.value);
 
-    if (!musteriIletisim) {
-        alert("Lütfen Müşteri/İletişim Bilgisi alanını doldurun.");
+    if (!musteriIletisim || !telefonNumarasi) { // <-- KONTROL GÜNCELLENDİ
+        alert("Lütfen Müşteri/İletişim Bilgisi ve Telefon Numarası alanlarını doldurun.");
         return;
     }
 
     // Fiyatları data-set'ten al
     const kayitVerisi = {
         musteriIletisim: musteriIletisim,
+        telefonNumarasi: telefonNumarasi, // <-- YENİ
         misafirSayisi: misafirSayisi,
         servisSaati: servisSaati,
         kokteylSecimi: kokteylSecimi.join(', '), 
