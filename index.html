@@ -121,8 +121,11 @@
                 <p>Düğün öncesi eğlencesi, kurumsal ekip etkinlikleri, özel kutlamalar veya doğum günleri için mükemmel bir seçenek. Sizin belirlediğiniz mekanda, konsepte ve katılımcı sayısına göre tamamen kişiselleştirilmiş bir atölye içeriği hazırlıyoruz. Kokteyl kültürünü eğlenceli ve uygulamalı bir şekilde keşfedin!</p>
             </div>
             
-            <p class="atolye-uyari">Paket içeriği, kokteyl reçeteleri ve süre gibi tüm detaylar isteğinize göre özelleştirilebilir.</p>
         </div>
+        
+        <a href="atolye_teklif.html" class="cta-button paket-teklif-button atolye-bottom-cta">Atölye Teklifi Al</a>
+        
+        <p class="atolye-uyari">Paket içeriği, kokteyl reçeteleri ve süre gibi tüm detaylar isteğinize göre özelleştirilebilir.</p>
     </section>
 
     <footer>
@@ -170,6 +173,31 @@
             color: #000;
             margin: 0;
         }
+
+        /* YENİ EKLENEN BUTON İÇİN STİL DÜZENLEMESİ */
+        /* Butonun ortalanması ve diğerlerine benzemesi için gerekli olan tüm stil tekrar tanımlandı */
+        .section-atolyeler .atolye-bottom-cta {
+            /* Stil.css'deki .paket-card .cta-button.paket-teklif-button bloğunun aynısı uygulandı */
+            display: block;
+            margin: 30px auto 15px; /* Üstüne ve altına boşluk */
+            max-width: 200px; /* Maksimum genişlik ayarlandı */
+            width: 70%; 
+            
+            /* Stil.css'den gelen buton görünümü için zorlamalar */
+            color: #fff !important; 
+            background-color: #795548; /* Kahverengi vurgu */
+            font-weight: 700;
+            border-radius: 50px; /* Yuvarlak kenar */
+            text-align: center;
+            padding: 10px 15px; 
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .section-atolyeler .atolye-bottom-cta:hover {
+            background-color: #5D4037; /* Kahverenginin koyusu */
+            transform: scale(1.05);
+        }
+        
     </style>
     
     <script>
