@@ -1,6 +1,6 @@
 /* Genel Ayarlar */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Ana sayfa fontu */
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
@@ -24,21 +24,11 @@ body {
 header {
     text-align: center;
     margin-bottom: 30px;
-    /* Çizgi kaldırıldı: border-bottom: 2px solid #eaeaea; */
     padding-bottom: 20px;
 }
 
-/* YENİ LOGO STİLİ */
-.logo {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 h1 {
+    font-family: 'Playfair Display', serif; /* Ana sayfa fontu */
     color: #7c0029; /* Marka Rengi */
     font-weight: 700;
     font-size: 1.8em;
@@ -46,6 +36,7 @@ h1 {
 }
 
 h2 {
+    font-family: 'Playfair Display', serif; /* Ana sayfa fontu */
     color: #4A4A4A;
     font-size: 1.5em;
     margin-top: 25px;
@@ -127,7 +118,8 @@ textarea:focus {
     width: auto;
 }
 
-.calculate-button {
+/* BUTON STİLLERİ GÜNCELLENDİ */
+#calculateButton, #submitButton, .submit-button {
     background-color: #7c0029; /* Marka Rengi */
     color: white;
     padding: 15px 30px;
@@ -141,25 +133,7 @@ textarea:focus {
     width: 100%;
 }
 
-.calculate-button:hover {
-    background-color: #a02046;
-}
-
-.submit-button {
-    background-color: #7c0029;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-    width: 100%;
-}
-
-.submit-button:hover {
+#calculateButton:hover, #submitButton:hover, .submit-button:hover {
     background-color: #a02046;
 }
 
@@ -251,7 +225,7 @@ textarea:focus {
     border-top: 3px solid #7c0029;
     font-weight: 700;
     font-size: 1.1em;
-    background-color: #fff0f0;
+    background-color: #F8F4F4; /* Ana sayfadaki sıcak renklere uyum sağlandı */
     color: #7c0029;
 }
 
@@ -269,9 +243,10 @@ textarea:focus {
 }
 
 .supply-list li {
-    background-color: #f7f7f7;
+    background-color: #fcfcfc;
     padding: 12px 15px;
-    border-left: 4px solid #B4C699;
+    /* Marka rengi kullanıldı */
+    border-left: 4px solid #7c0029; 
     margin-bottom: 8px;
     border-radius: 4px;
     font-size: 0.95em;

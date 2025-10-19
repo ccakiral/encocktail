@@ -4,82 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENCOCKTAIL Kokteyl Atölyesi Teklif Formu</title>
-    <link rel="stylesheet" href="teklif_hesaplama.css">
-    <style>
-        /* Atölye Paketine Özel Renkler (Yeşil Vurgu) */
-        .container header h1,
-        .container header p,
-        .container h2,
-        .container .submit-button {
-            color: #4A4A4A;
-        }
-        
-        .container h2 {
-            border-bottom: 2px solid #B4C699; /* Yeşil vurgu */
-        }
-
-        .container .submit-button {
-            background-color: #B4C699; /* Yeşil buton */
-            color: #4A4A4A; 
-            font-weight: 700;
-        }
-
-        .container .submit-button:hover {
-            background-color: #9DB483; /* Hafif koyu yeşil */
-            color: #4A4A4A;
-        }
-        
-        /* Textarea tam genişlikte */
-        .form-group textarea {
-            width: 100%;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="teklif_hesaplama.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
 <body>
 
 <div class="container">
     <header>
-        <img src="ENcocktailLogoBeyaz.jpg" alt="ENCOCKTAIL Logo" class="logo">
-        <h1>ENCOCKTAIL Kokteyl Atölyesi</h1>
-        <p>Size özel atölye içeriğini planlamak için detayları paylaşın.</p>
+        <h1>ENCOCKTAIL Kokteyl Atölyesi Teklif Formu</h1>
     </header>
 
-    <form id="atolyeForm">
+    <form id="atolyeForm"> 
         <h2>1. İletişim Bilgileri</h2>
 
         <div class="form-group-container">
             <div class="form-group half-width">
-                <label for="musteriAdSoyad">Adınız ve Soyadınız / Firma Adı:</label>
-                <input type="text" id="musteriAdSoyad" name="Ad_Soyad_Firma" placeholder="Ad Soyad veya Firma Adı" required>
+                <label for="musteriAdSoyad">Ad Soyad / Firma Adı:</label>
+                <input type="text" id="musteriAdSoyad" name="Ad_Soyad_Firma" placeholder="Örn: Ayşe Yılmaz veya X Şirketi" required>
             </div>
-            
-            <div class="form-group half-width"> 
-                <label for="telefon">Telefon Numaranız:</label>
-                <input type="tel" id="telefon" name="Telefon" placeholder="05xx xxx xx xx" required>
+            <div class="form-group half-width">
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" name="Telefon" placeholder="Örn: 5xx xxx xx xx" required>
             </div>
         </div>
 
-        <div class="form-group"> 
-            <label for="email">E-posta Adresiniz:</label>
-            <input type="email" id="email" name="Email" placeholder="ornek@mail.com" required>
+        <div class="form-group">
+            <label for="email">E-posta:</label>
+            <input type="email" id="email" name="Email" placeholder="Örn: adiniz@ornek.com" required>
         </div>
-
-        <hr>
 
         <h2>2. Atölye Detayları</h2>
 
         <div class="form-group-container">
-            <div class="form-group half-width"> 
-                <label for="tarih">Etkinlik Tarihi (Tahmini):</label>
+            <div class="form-group half-width">
+                <label for="tarih">Etkinlik Tarihi:</label>
                 <input type="date" id="tarih" name="Etkinlik_Tarihi" required>
             </div>
-            
-            <div class="form-group half-width"> 
-                <label for="katilimciSayisi">Katılımcı Sayısı:</label>
-                <input type="number" id="katilimciSayisi" name="Katilimci_Sayisi" value="1" required>
+            <div class="form-group half-width">
+                <label for="katilimciSayisi">Tahmini Katılımcı Sayısı (Min. 1):</label>
+                <input type="number" id="katilimciSayisi" name="Katilimci_Sayisi" value="1" min="1" required>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label for="mekan">Atölyenin Yapılacağı Mekan (Adres veya Bölge):</label>
             <input type="text" id="mekan" name="Mekan" placeholder="Örn: X Restaurantı, Beşiktaş/İstanbul, Kendi Ofisimiz vb." required>
@@ -100,10 +66,13 @@
             </select>
         </div>
 
-        <button type="submit" class="submit-button">TEKLİF İÇİN BİLGİLERİ GÖNDER</button>
-        <p class="note" style="text-align: center; margin-top: 15px;">Bu form, kesin fiyat teklifi yerine detaylı planlama ve fiyatlandırma için ön bilgi toplar.</p>
-
+        <button type="submit" class="submit-button">TEKLİF TALEBİNİ GÖNDER</button> 
     </form>
+    
+    <div class="note" style="margin-top: 25px;">
+        <p>Talebiniz bize ulaştıktan sonra, size özel fiyat teklifinizi ve detaylı atölye içeriğimizi en kısa sürede ileteceğiz.</p>
+    </div>
+
 </div>
 
 <script src="atolye_teklif.js"></script>
