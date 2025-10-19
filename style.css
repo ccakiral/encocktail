@@ -388,14 +388,6 @@ a {
     cursor: pointer; 
 }
 
-/* YENİ EKLEME: ATÖLYE GÖRSELLERİNİ BAR GÖRSELLERİ İLE AYNI BOYUTA GETİRME */
-/* Not: Bu stilin çalışması için atölye resimlerinizin HTML'de '.atolye-gorsel-item' sınıfına sahip bir kapsayıcı içinde olduğunu varsaydık. */
-.atolye-gorsel-item img {
-    width: 100%;
-    height: 300px; /* Bar resimleri ile aynı yükseklik (300px) */
-    object-fit: cover; /* En boy oranını koruyarak kutuyu doldurur */
-}
-
 .lightbox-trigger {
     display: block;
     text-decoration: none; 
