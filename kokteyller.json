@@ -1,5 +1,5 @@
 {
-  "keyifli-menu": [
+  "klasik-kokteyller": [
     {
       "ad": "Mojito",
       "aciklama": "Rom, Super Juice Lime, Şeker Şurubu, Soda ve Taze Nane",
@@ -73,7 +73,7 @@
       "gorsel_buyuk": "cloverclub.jpg"
     }
   ],
-  "ozel-menu": [
+  "imza-kokteyller": [
     {
       "ad": "Green Shade",
       "aciklama": "Cin, Kuzukulağı Sosu, Köpük ve Lime Dilimi ile yeşil bir deneyim.",
@@ -99,7 +99,7 @@
       "gorsel_buyuk": "spicysunset.jpg"
     }
   ],
-  "alkolsuz-menu": [
+  "mokteyller": [
     {
       "ad": "Lemonade",
       "aciklama": "Ev yapımı Limonata Suyu ve Limon Dilimi ile ferahlık.",

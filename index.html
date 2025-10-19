@@ -153,29 +153,52 @@
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js"></script>
     <script src="script.js"></script>
     
+    <style>
+        #kokteyller-bar .menu-category-divider {
+            /* Grid sisteminde tam genişlik kaplamasını sağlar */
+            grid-column: 1 / -1; 
+            width: 100%;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #333; /* Hafif bir ayırıcı çizgi */
+            text-align: left;
+        }
+        #kokteyller-bar .menu-category-divider h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #000;
+            margin: 0;
+        }
+    </style>
+    
     <script>
         // Galeri yükleme fonksiyonu
         function yukleVeGaleriBaslat() {
-            const menuConfigs = [
-                { id: '#kokteyller-bar', galleryName: 'bar-tumu' } 
+            // Kategorileri ve HTML'de gözükecek başlıklarını tanımlıyoruz
+            const menuCategories = [
+                { key: 'klasik-kokteyller', title: 'Klasik Kokteyller' },
+                { key: 'imza-kokteyller', title: 'İmza Kokteyller' },
+                { key: 'mokteyller', key: 'mokteyller', title: 'Mokteyller (Alkolsüz)' } 
             ];
-            
+
             $.getJSON('kokteyller.json')
                 .done(function(data) {
                     
-                    const allCocktailsForGallery = [].concat(
-                        data['keyifli-menu'] || [], 
-                        data['ozel-menu'] || [], 
-                        data['seckin-menu'] || []
-                    );
+                    const $container = $('#kokteyller-bar').find('.menu-grid'); 
+                    $container.empty(); 
                     
-                    // GALERİYİ VE MENU GÖRÜNÜMÜNÜ DOLDUR (Form mantığı temizlendi)
-                    menuConfigs.forEach(config => {
-                        const $container = $(config.id).find('.menu-grid'); 
-                        $container.empty(); 
+                    let htmlContent = '';
+                    // Tüm galeriyi tek bir galeri olarak başlatmak için tüm elementler toplanacak.
+                    const allLinks = [];
+                    
+                    // Kategorileri sırayla işleyip, araya başlıkları ekliyoruz
+                    menuCategories.forEach(category => {
+                        const cocktails = data[category.key] || []; 
                         
-                        const cocktails = allCocktailsForGallery; 
-                        let htmlContent = '';
+                        // KATEGORİ BAŞLIĞINI EKLE
+                        htmlContent += `<div class="menu-category-divider"><h3>${category.title}</h3></div>`; 
+                        
                         const uniqueGalleryTitles = new Set(); 
 
                         cocktails.forEach(cocktail => {
@@ -189,28 +212,29 @@
                                         data-featherlight="image" 
                                         data-title="${cocktail.ad}" 
                                         data-description="${cocktail.aciklama.replace(/\n/g, '<br>')}" 
-                                        data-featherlight-gallery="${config.galleryName}">
+                                        data-featherlight-gallery="bar-tumu">
                                             <img src="${cocktail.gorsel_thumb}" alt="${cocktail.ad}">
                                         </a>
                                         <h4>${cocktail.ad}</h4>
                                         <p>${cocktail.aciklama.replace(/\n/g, '<br>')}</p>
                                     </div>
                                 `;
+                                allLinks.push({ gorsel_buyuk: cocktail.gorsel_buyuk, ad: cocktail.ad, aciklama: cocktail.aciklama });
                             }
                         });
-                        $container.html(htmlContent); 
                     });
+                    
+                    $container.html(htmlContent); 
 
-                    menuConfigs.forEach(menu => {
-                        const $links = $(menu.id).find('a.lightbox-trigger');
-                        $links.attr('data-featherlight-filter', 'a[data-featherlight-gallery=\"' + menu.galleryName + '\"]');
-                        $links.featherlightGallery({
-                            previousIcon: '&#9664;',     
-                            nextIcon: '&#9654;',         
-                            closeIcon: 'X',              
-                            galleryFadeIn: 300,
-                            galleryFadeOut: 300
-                        });
+                    // Galeri başlatma kısmı: Tüm lightbox trigger elementlerini seçer
+                    const $links = $container.find('a.lightbox-trigger');
+                    $links.attr('data-featherlight-filter', 'a[data-featherlight-gallery=\"bar-tumu\"]');
+                    $links.featherlightGallery({
+                        previousIcon: '&#9664;',     
+                        nextIcon: '&#9654;',         
+                        closeIcon: 'X',              
+                        galleryFadeIn: 300,
+                        galleryFadeOut: 300
                     });
 
                 })
