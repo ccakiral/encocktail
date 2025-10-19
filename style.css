@@ -493,7 +493,12 @@ footer {
 /* MOBİL DÜZENLEME (767px ve altı) */
 /* ========================================= */
 @media (max-width: 767px) {
-    /* **ETKİNLİK PAKETLERİ VE ATÖLYE DETAYLARI ALT ALTA İÇİN EKLENDİ** */
+    /* **YENİ EKLEME: ENCOCKTAIL (H1) BAŞLIĞINI KÜÇÜLTME** */
+    .hero-content h1 {
+        font-size: 3em; /* 4em'den 3em'e düşürüldü */
+    }
+    
+    /* ETKİNLİK PAKETLERİ VE ATÖLYE DETAYLARI ALT ALTA İÇİN EKLENDİ */
     .paket-card {
         width: 100%; /* Kartları tam genişlik yap */
         max-width: none; /* Max genişliği kaldır */
