@@ -124,6 +124,9 @@
             <img src="atolye_periyodik.jpg" alt="Periyodik Açık Atölye Örneği" class="hizmet-gorseli active">
             <img src="atolye_private.jpg" alt="Size Özel Kapalı Atölye Örneği" class="hizmet-gorseli">
             <img src="atolye_group.jpg" alt="Kurumsal Grup Atölyesi" class="hizmet-gorseli">
+            <img src="atolye_group_2.jpg" alt="Eğlenceli Atölye Anı" class="hizmet-gorseli">
+            <img src="atolye_detail_1.jpg" alt="Kokteyl Hazırlama Detayı" class="hizmet-gorseli">
+            <img src="atolye_detail_2.jpg" alt="Atölye Sunumu" class="hizmet-gorseli">
         </div>
         <div class="atolye-detay">
             
@@ -327,31 +330,31 @@
     
     <script>
         // --- Bar Görsel Carousel Fonksiyonu ---
-        let barSlideIndex = 0; // İsim karıştırmamak için değişken adı güncellendi
+        let barSlideIndex = 0; 
         const barSlides = document.querySelectorAll('.hizmet-gorselleri-bar .hizmet-gorseli');
         
         function showBarSlides() {
-          barSlides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
+          barSlides.forEach(slide => slide.classList.remove('active')); 
           barSlideIndex++;
           if (barSlideIndex > barSlides.length) {barSlideIndex = 1} 
           if (barSlides[barSlideIndex - 1]) {
-             barSlides[barSlideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
+             barSlides[barSlideIndex - 1].classList.add('active'); 
           }
-          setTimeout(showBarSlides, 4000); // Her 4 saniyede bir değiştir
+          setTimeout(showBarSlides, 4000); 
         }
 
-        // --- YENİ EKLENEN ATÖLYE Görsel Carousel Fonksiyonu ---
+        // --- ATÖLYE Görsel Carousel Fonksiyonu ---
         let atolyeSlideIndex = 0;
         const atolyeSlides = document.querySelectorAll('.hizmet-gorselleri-atolye-carousel .hizmet-gorseli');
         
         function showAtolyeSlides() {
-          atolyeSlides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
+          atolyeSlides.forEach(slide => slide.classList.remove('active')); 
           atolyeSlideIndex++;
           if (atolyeSlideIndex > atolyeSlides.length) {atolyeSlideIndex = 1} 
           if (atolyeSlides[atolyeSlideIndex - 1]) {
-             atolyeSlides[atolyeSlideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
+             atolyeSlides[atolyeSlideIndex - 1].classList.add('active'); 
           }
-          setTimeout(showAtolyeSlides, 4000); // Her 4 saniyede bir değiştir
+          setTimeout(showAtolyeSlides, 4000); 
         }
 
         
