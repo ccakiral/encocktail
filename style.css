@@ -490,6 +490,38 @@ footer {
 }
 
 /* ========================================= */
+/* KART İÇİ TEKLİF AL BUTONU (TÜM EKRANLAR) - Bu blok artık medya sorgusu dışında! */
+/* ========================================= */
+
+.paket-card .cta-button.paket-teklif-button {
+    /* Butonu ortala */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px; /* Minimum info ile arasına boşluk */
+    
+    /* Boyut ve görünüm */
+    width: 70%; 
+    max-width: 200px; 
+    text-align: center; 
+    padding: 10px 15px; 
+    font-size: 1em; 
+
+    /* Renkler - Burası mobil butonun bozulmasına neden oluyordu! */
+    color: #fff !important; 
+    background-color: #795548; /* Kahverengi vurgu */
+    font-weight: 700;
+    border-radius: 50px; /* Yuvarlak buton */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.paket-card .cta-button.paket-teklif-button:hover {
+    background-color: #5D4037; /* Kahverenginin koyusu */
+    transform: scale(1.05);
+}
+
+
+/* ========================================= */
 /* MOBİL DÜZENLEME (767px ve altı) */
 /* ========================================= */
 @media (max-width: 767px) {
@@ -541,33 +573,5 @@ footer {
         margin-bottom: 20px; 
     }
     
-    /* ========================================= */
-    /* KART İÇİ TEKLİF AL BUTONU (YENİ YER: EN ALT) */
-    /* ========================================= */
-    .paket-card .cta-button.paket-teklif-button {
-        /* Butonu ortala */
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px; /* Minimum info ile arasına boşluk */
-        
-        /* Boyut ve görünüm */
-        width: 70%; 
-        max-width: 200px; 
-        text-align: center; 
-        padding: 10px 15px; /* Biraz daha büyütüldü */
-        font-size: 1em; 
-
-        /* Renkler */
-        color: #fff !important; 
-        background-color: #795548; /* Kahverengi vurgu */
-        font-weight: 700;
-        border-radius: 50px; /* Daha yuvarlak buton */
-        transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .paket-card .cta-button.paket-teklif-button:hover {
-        background-color: #5D4037; /* Kahverenginin koyusu */
-        transform: scale(1.05);
-    }
+    /* Not: Kart butonu stili yukarı taşındığı için bu medya sorgusu içinden kaldırıldı. */
 }
