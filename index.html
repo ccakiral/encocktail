@@ -48,6 +48,7 @@
 
     <section id="paketler" class="section-paketler">
         <h2>Etkinlik Paketlerimiz</h2>
+        
         <div class="paket-container">
             
             <div class="paket-card seckin" data-paket="bar">
@@ -90,6 +91,16 @@
     </section>
 
     <section id="kokteyller-bar" class="section-kokteyller">
+        
+        <div class="hizmet-gorselleri-container hizmet-gorselleri-bar">
+            <img src="bar_setup_1.jpg" alt="Mobil Bar Kurulum Örneği 1" class="hizmet-gorseli active">
+            <img src="bar_setup_2.jpg" alt="Mobil Bar Kurulum Örneği 2" class="hizmet-gorseli">
+            <img src="bar_setup_3.jpg" alt="Mobil Bar Kurulum Örneği 3" class="hizmet-gorseli">
+            <img src="bar_setup_4.jpg" alt="Mobil Bar Kurulum Örneği 4" class="hizmet-gorseli">
+            <img src="bar_setup_5.jpg" alt="Mobil Bar Kurulum Örneği 5" class="hizmet-gorseli">
+            <img src="bar_setup_6.jpg" alt="Mobil Bar Kurulum Örneği 6" class="hizmet-gorseli">
+        </div>
+        
         <div class="menu-title-container">
             <h2 class="kokteyl-baslik">Kokteyl Bar Menüsü</h2>
             <div class="menu-header-controls">
@@ -108,6 +119,18 @@
                 
             </div>
         </div>
+
+        <div class="hizmet-gorselleri-container hizmet-gorselleri-atolye">
+            <div class="atolye-gorsel-item">
+                <img src="atolye_periyodik.jpg" alt="Periyodik Açık Atölye" class="hizmet-gorseli">
+                <p class="gorsel-aciklama">Periyodik Açık Atölye Örneği</p>
+            </div>
+            <div class="atolye-gorsel-item">
+                <img src="atolye_private.jpg" alt="Size Özel Kapalı Atölye" class="hizmet-gorseli">
+                <p class="gorsel-aciklama">Size Özel (Private) Atölye Örneği</p>
+            </div>
+        </div>
+        
         <div class="atolye-detay">
             
             <div class="atolye-item">
@@ -157,6 +180,7 @@
     <script src="script.js"></script>
     
     <style>
+        /* Bu stil bloğunun tamamı index.html içerisindeki mevcut stilleri tamamlayacak şekilde eklenmiştir. */
         #kokteyller-bar .menu-category-divider {
             /* Grid sisteminde tam genişlik kaplamasını sağlar */
             grid-column: 1 / -1; 
@@ -174,34 +198,140 @@
             margin: 0;
         }
 
-        /* YENİ EKLENEN BUTON İÇİN STİL DÜZENLEMESİ */
-        /* Butonun ortalanması ve diğerlerine benzemesi için gerekli olan tüm stil tekrar tanımlandı */
+        /* ATÖLYE ALT BUTON STİLİ */
         .section-atolyeler .atolye-bottom-cta {
-            /* Stil.css'deki .paket-card .cta-button.paket-teklif-button bloğunun aynısı uygulandı */
             display: block;
-            margin: 30px auto 15px; /* Üstüne ve altına boşluk */
-            max-width: 200px; /* Maksimum genişlik ayarlandı */
+            margin: 30px auto 15px; 
+            max-width: 200px; 
             width: 70%; 
-            
-            /* Stil.css'den gelen buton görünümü için zorlamalar */
             color: #fff !important; 
-            background-color: #795548; /* Kahverengi vurgu */
+            background-color: #795548; 
             font-weight: 700;
-            border-radius: 50px; /* Yuvarlak kenar */
+            border-radius: 50px; 
             text-align: center;
             padding: 10px 15px; 
             transition: background-color 0.3s, transform 0.3s;
         }
         
         .section-atolyeler .atolye-bottom-cta:hover {
-            background-color: #5D4037; /* Kahverenginin koyusu */
+            background-color: #5D4037; 
             transform: scale(1.05);
+        }
+        
+        /* ========================================= */
+        /* YENİ GÖRSEL DÜZENLEMELERİ İÇİN STİLLER */
+        /* ========================================= */
+        
+        .hizmet-gorselleri-container {
+            max-width: 1000px; 
+            margin: 0 auto 40px; 
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .hizmet-gorseli {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* BAR CAROUSEL STİLLERİ */
+        .hizmet-gorselleri-bar {
+            height: 400px; 
+        }
+        .hizmet-gorselleri-bar .hizmet-gorseli {
+            display: none; 
+            height: 400px; 
+            animation: fadein 1s;
+        }
+        .hizmet-gorselleri-bar .hizmet-gorseli.active {
+            display: block; 
+        }
+        
+        /* ATÖLYE YAN YANA STİLLERİ */
+        .hizmet-gorselleri-atolye {
+            display: flex;
+            gap: 20px;
+            box-shadow: none; 
+            margin-bottom: 60px;
+            padding: 0 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .atolye-gorsel-item {
+            flex: 1;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .atolye-gorsel-item img {
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .gorsel-aciklama {
+            font-size: 0.9em;
+            color: #795548;
+            padding: 10px 5px;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        /* MOBİL DÜZENLEMELER */
+        @media (max-width: 767px) {
+            .hizmet-gorselleri-container {
+                margin-bottom: 20px;
+                padding: 0 10px; 
+                box-shadow: none; 
+                border-radius: 0;
+                height: 250px; 
+            }
+            .hizmet-gorselleri-bar .hizmet-gorseli {
+                height: 250px;
+            }
+            .hizmet-gorselleri-atolye {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 10px;
+            }
+            .atolye-gorsel-item img {
+                height: 200px; 
+            }
+        }
+        
+        @keyframes fadein {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
         }
         
     </style>
     
     <script>
-        // Galeri yükleme fonksiyonu
+        // --- Eklenen Bar Görsel Carousel Fonksiyonu ---
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hizmet-gorselleri-bar .hizmet-gorseli');
+        
+        function showSlides() {
+          slides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1} 
+          if (slides[slideIndex - 1]) {
+             slides[slideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
+          }
+          setTimeout(showSlides, 4000); // Her 4 saniyede bir değiştir
+        }
+
+        
+        // Galeri yükleme fonksiyonu (Önceki Adımlardan)
         function yukleVeGaleriBaslat() {
             // Kategorileri ve HTML'de gözükecek başlıklarını tanımlıyoruz
             const menuCategories = [
@@ -217,7 +347,6 @@
                     $container.empty(); 
                     
                     let htmlContent = '';
-                    // Tüm galeriyi tek bir galeri olarak başlatmak için tüm elementler toplanacak.
                     const allLinks = [];
                     
                     // Kategorileri sırayla işleyip, araya başlıkları ekliyoruz
@@ -274,32 +403,28 @@
         // --- Sayfa Yüklendiğinde Başlat ---
         $(document).ready(function() {
             yukleVeGaleriBaslat(); 
+            showSlides(); // Carousel'ı başlat
             
             // YENİ EKLEME: PAKET KARTLARA TIKLANINCA İLGİLİ BÖLÜME GİTME
             $('.paket-card').on('click', function(e) {
-                // Tıklanan öğenin Teklif Al butonu veya butona ait bir alt öğe olup olmadığını kontrol et
-                // Bu sayede butonun kendi linki bozulmaz
                 if ($(e.target).closest('.paket-teklif-button').length) {
                     return; 
                 }
 
                 let targetId = '';
-                // data-paket özelliğini kullanarak hedefi belirle
                 if ($(this).data('paket') === 'bar') { 
-                    targetId = '#kokteyller-bar'; // Kokteyl Bar menüsü ID'si
+                    targetId = '#kokteyller-bar'; 
                 } else if ($(this).data('paket') === 'atolye') { 
-                    targetId = '#atolyeler'; // Atölye detayları ID'si
+                    targetId = '#atolyeler'; 
                 }
                 
-                // Hedef varsa kaydırma yap
                 if (targetId) {
-                    e.preventDefault(); // Diğer olası varsayılan olayları engelle
+                    e.preventDefault(); 
                     $('html, body').animate({
                         scrollTop: $(targetId).offset().top
-                    }, 800); // Yumuşak kaydırma
+                    }, 800); 
                 }
             });
-            // YENİ EKLEME SONU
         });
     </script>
 </body>
