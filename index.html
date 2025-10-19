@@ -246,6 +246,32 @@
         // --- Sayfa Yüklendiğinde Başlat ---
         $(document).ready(function() {
             yukleVeGaleriBaslat(); 
+            
+            // YENİ EKLEME: PAKET KARTLARA TIKLANINCA İLGİLİ BÖLÜME GİTME
+            $('.paket-card').on('click', function(e) {
+                // Tıklanan öğenin Teklif Al butonu veya butona ait bir alt öğe olup olmadığını kontrol et
+                // Bu sayede butonun kendi linki bozulmaz
+                if ($(e.target).closest('.paket-teklif-button').length) {
+                    return; 
+                }
+
+                let targetId = '';
+                // data-paket özelliğini kullanarak hedefi belirle
+                if ($(this).data('paket') === 'bar') { 
+                    targetId = '#kokteyller-bar'; // Kokteyl Bar menüsü ID'si
+                } else if ($(this).data('paket') === 'atolye') { 
+                    targetId = '#atolyeler'; // Atölye detayları ID'si
+                }
+                
+                // Hedef varsa kaydırma yap
+                if (targetId) {
+                    e.preventDefault(); // Diğer olası varsayılan olayları engelle
+                    $('html, body').animate({
+                        scrollTop: $(targetId).offset().top
+                    }, 800); // Yumuşak kaydırma
+                }
+            });
+            // YENİ EKLEME SONU
         });
     </script>
 </body>
