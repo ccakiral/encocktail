@@ -120,17 +120,11 @@
             </div>
         </div>
 
-        <div class="hizmet-gorselleri-container hizmet-gorselleri-atolye">
-            <div class="atolye-gorsel-item">
-                <img src="atolye_periyodik.jpg" alt="Periyodik Açık Atölye" class="hizmet-gorseli">
-                <p class="gorsel-aciklama">Periyodik Açık Atölye Örneği</p>
-            </div>
-            <div class="atolye-gorsel-item">
-                <img src="atolye_private.jpg" alt="Size Özel Kapalı Atölye" class="hizmet-gorseli">
-                <p class="gorsel-aciklama">Size Özel (Private) Atölye Örneği</p>
-            </div>
+        <div class="hizmet-gorselleri-container hizmet-gorselleri-atolye-carousel">
+            <img src="atolye_periyodik.jpg" alt="Periyodik Açık Atölye Örneği" class="hizmet-gorseli active">
+            <img src="atolye_private.jpg" alt="Size Özel Kapalı Atölye Örneği" class="hizmet-gorseli">
+            <img src="atolye_group.jpg" alt="Kurumsal Grup Atölyesi" class="hizmet-gorseli">
         </div>
-        
         <div class="atolye-detay">
             
             <div class="atolye-item">
@@ -250,8 +244,22 @@
         .hizmet-gorselleri-bar .hizmet-gorseli.active {
             display: block; 
         }
+
+        /* YENİ EKLENEN ATÖLYE CAROUSEL STİLLERİ */
+        .hizmet-gorselleri-atolye-carousel {
+            height: 400px; 
+            margin-bottom: 60px; /* Atölye detaylarından önce boşluk */
+        }
+        .hizmet-gorselleri-atolye-carousel .hizmet-gorseli {
+            display: none; 
+            height: 400px; 
+            animation: fadein 1s;
+        }
+        .hizmet-gorselleri-atolye-carousel .hizmet-gorseli.active {
+            display: block; 
+        }
         
-        /* ATÖLYE YAN YANA STİLLERİ */
+        /* ATÖLYE YAN YANA STİLLERİ - (ÖNCEKİ ADIMDAN KALMA, ARTIK KULLANILMAYACAK) */
         .hizmet-gorselleri-atolye {
             display: flex;
             gap: 20px;
@@ -293,9 +301,11 @@
                 padding: 0 10px; 
                 box-shadow: none; 
                 border-radius: 0;
-                height: 250px; 
             }
-            .hizmet-gorselleri-bar .hizmet-gorseli {
+            .hizmet-gorselleri-bar, .hizmet-gorselleri-atolye-carousel {
+                 height: 250px; 
+            }
+            .hizmet-gorselleri-bar .hizmet-gorseli, .hizmet-gorselleri-atolye-carousel .hizmet-gorseli {
                 height: 250px;
             }
             .hizmet-gorselleri-atolye {
@@ -316,18 +326,32 @@
     </style>
     
     <script>
-        // --- Eklenen Bar Görsel Carousel Fonksiyonu ---
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.hizmet-gorselleri-bar .hizmet-gorseli');
+        // --- Bar Görsel Carousel Fonksiyonu ---
+        let barSlideIndex = 0; // İsim karıştırmamak için değişken adı güncellendi
+        const barSlides = document.querySelectorAll('.hizmet-gorselleri-bar .hizmet-gorseli');
         
-        function showSlides() {
-          slides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1} 
-          if (slides[slideIndex - 1]) {
-             slides[slideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
+        function showBarSlides() {
+          barSlides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
+          barSlideIndex++;
+          if (barSlideIndex > barSlides.length) {barSlideIndex = 1} 
+          if (barSlides[barSlideIndex - 1]) {
+             barSlides[barSlideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
           }
-          setTimeout(showSlides, 4000); // Her 4 saniyede bir değiştir
+          setTimeout(showBarSlides, 4000); // Her 4 saniyede bir değiştir
+        }
+
+        // --- YENİ EKLENEN ATÖLYE Görsel Carousel Fonksiyonu ---
+        let atolyeSlideIndex = 0;
+        const atolyeSlides = document.querySelectorAll('.hizmet-gorselleri-atolye-carousel .hizmet-gorseli');
+        
+        function showAtolyeSlides() {
+          atolyeSlides.forEach(slide => slide.classList.remove('active')); // Tüm aktifleri kaldır
+          atolyeSlideIndex++;
+          if (atolyeSlideIndex > atolyeSlides.length) {atolyeSlideIndex = 1} 
+          if (atolyeSlides[atolyeSlideIndex - 1]) {
+             atolyeSlides[atolyeSlideIndex - 1].classList.add('active'); // Yeni aktif slaytı göster
+          }
+          setTimeout(showAtolyeSlides, 4000); // Her 4 saniyede bir değiştir
         }
 
         
@@ -403,7 +427,10 @@
         // --- Sayfa Yüklendiğinde Başlat ---
         $(document).ready(function() {
             yukleVeGaleriBaslat(); 
-            showSlides(); // Carousel'ı başlat
+            showBarSlides(); // Bar Carousel'ı başlat
+            if (atolyeSlides.length > 0) {
+                 showAtolyeSlides(); // Atölye Carousel'ı başlat
+            }
             
             // YENİ EKLEME: PAKET KARTLARA TIKLANINCA İLGİLİ BÖLÜME GİTME
             $('.paket-card').on('click', function(e) {
