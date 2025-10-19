@@ -55,7 +55,6 @@ const URUN_FIYATLARI = {
     "KOPUK":            { fiyat: 0.5,  birim: "Adet", satisKati: 1, tedarikci: "ENCOCKTAIL", grup: "KATKI" }, 
     
     // --- MÜŞTERİ TEDARİĞİ (Ana Alkollü İçecekler) ---
-    // ... Alkollü içecekler aynı kaldı ...
     "CIN":        { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
     "VOTKA":      { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
     "ROM":        { fiyat: 38, birim: "Litre", satisKati: 1, tedarikci: "MUSTERI", opsiyonFiyat: 38, grup: "ALKOLLER" },
@@ -75,7 +74,6 @@ const URUN_FIYATLARI = {
 
 // C. ALKOLLERİN ŞİŞE HACMİ VE MARKA BİLGİLERİ (cL bazında)
 const ALKOLLER_SISE_HACIMLERI = {
-    // ... Aynı Kaldı ...
     "CIN":      { hacim_cl: 100, marka: "Bombay, Gordon's, Beefeater" },
     "VOTKA":    { hacim_cl: 100, marka: "Absolut, Smirnoff" },
     "ROM":      { hacim_cl: 70, marka: "Bacardi, Captain Morgan" },
@@ -90,10 +88,10 @@ const ALKOLLER_SISE_HACIMLERI = {
 };
 
 
-// D. KOKTEYL REÇETELERİ (GÖNDERDİĞİNİZ NİHAİ TARİFLER İLE GÜNCELLENDİ)
+// D. KOKTEYL REÇETELERİ
 // Not: Sıvılar Santilitre (cL), Buz Gram (g), Garnitür/Katkı Adet (Adet) cinsindendir.
 const RECELLER = {
-    // NİHAİ KLASİK KOKTEYLLER
+    // NİHAİ KLASİK KOKTELLER
     "MOJITO":             { ROM: 4.5, SUPER_JUICE_LIME: 3, SEKER_SURUBU: 2, NANE_DALI: 5, SODA_TONIK_SU: 6, BUZ: 250 },
     "WHISKEY_SOUR":       { BOURBON: 6, LIMON_SUYU: 3, SEKER_SURUBU: 1.5, BUZ: 100, KOPUK: 1 },
     "MARGARITA":          { TEKILA: 5, PORTAKAL_LIKORU: 2.5, SUPER_JUICE_LIME: 2.5, BUZ: 100, LIME_DILIMI: 1 },
@@ -107,13 +105,13 @@ const RECELLER = {
     "COSMOPOLITAN":       { VOTKA: 4.5, PORTAKAL_LIKORU: 1.5, CRANBERRY_SUYU: 4.5, SUPER_JUICE_LIME: 1.5, BUZ: 100 },
     "CLOVER_CLUB":        { CIN: 4.5, AHUDUDU_SURUBU: 1.5, SUPER_JUICE_LIME: 2.25, BUZ: 100, KOPUK: 1, NANE_DALI: 1 },
 
-    // İMZA/HOUSE KOKTEYLLER (GÜNCELLENDİ)
+    // İMZA/HOUSE KOKTELLER
     "GREEN SHADE":        { CIN: 5, KUZUKULAGI_SOSU: 7.5, BUZ: 200, KOPUK: 1, LIME_DILIMI: 1},
-    "THE_BERRY_PATCH":    { VOTKA: 5, ORMANMEYVE_SOSU: 7.5, BUZ: 200, FESLEGEN: 1, BERRY: 3,}, // Yeni malzemeler eklendi
-    "HIBISCUS_ISLE":      { ROM: 5, HIBISKUS_SOSU: 7.5, BUZ: 200, NANE_DALI: 1, LIME_DILIMI: 1 }, // HIBISKUS_SOSU ve vol. güncellendi
-    "THE_SPICY_SUNSET":   { VOTKA: 5, MANGO_SOSU: 7.5, BUZ: 200, BIBER_DILIMI: 1}, // MANGO_SOSU ve BIBER_DILIMI eklendi
+    "THE_BERRY_PATCH":    { VOTKA: 5, ORMANMEYVE_SOSU: 7.5, BUZ: 200, FESLEGEN: 1, BERRY: 3,}, 
+    "HIBISCUS_ISLE":      { ROM: 5, HIBISKUS_SOSU: 7.5, BUZ: 200, NANE_DALI: 1, LIME_DILIMI: 1 }, 
+    "THE_SPICY_SUNSET":   { VOTKA: 5, MANGO_SOSU: 7.5, BUZ: 200, BIBER_DILIMI: 1}, 
 
-    // ALKOLSÜZ KOKTEYLLER (TAMAMEN YENİ TARİFLER)
+    // ALKOLSÜZ KOKTELLER
     "LEMONADE":           { LIMONATA_SUYU: 15, LIMON_DILIMI: 1, BUZ: 250 },
     "COOL_LIME":          { COOL_LIME_SUYU: 15, LIME_DILIMI: 1, NANE_DALI: 1, BUZ: 250 },
     "BERRY_HIBISCUS":     { BERRY_HIBISCUS_SUYU: 15, BERRY: 3, NANE_DALI: 1, BUZ: 250 },
@@ -124,10 +122,11 @@ const RECELLER = {
 const misafirSayisiInput = document.getElementById('misafirSayisi');
 const servisSaatiInput = document.getElementById('servisSaati');
 const hesaplaButton = document.getElementById('calculateButton');
-const submitButton = document.getElementById('submitButton');
+const submitButton = document.getElementById('submitButton'); 
 const musteriIletisimInput = document.getElementById('musteriIletisim'); 
-const telefonNumarasiInput = document.getElementById('telefonNumarasi'); // <-- YENİ
+const telefonNumarasiInput = document.getElementById('telefonNumarasi'); 
 const kokteylSecimiKapsayici = document.getElementById('kokteylSecimiKapsayici'); 
+// submitButtonKapsayici artık HTML'de kullanılmadığı için referansı kaldırıldı.
 
 // F. YARDIMCI FONKSİYONLAR
 function formatCurrency(amount) {
@@ -136,7 +135,7 @@ function formatCurrency(amount) {
 
 // G. KOKTEYL CHECKBOX'LARINI DİNAMİK OLARAK OLUŞTUR
 function kokteylCheckboxlariOlustur() {
-    kokteylSecimiKapsayici.innerHTML = ''; // İçeriği temizle
+    kokteylSecimiKapsayici.innerHTML = ''; 
 
     const kokteyller = Object.keys(RECELLER);
     kokteyller.forEach((kokteyl) => {
@@ -145,13 +144,13 @@ function kokteylCheckboxlariOlustur() {
         
         const input = document.createElement('input');
         input.type = 'checkbox';
-        input.id = kokteyl.toLowerCase().replace(/ /g, '_'); // ID, küçük harf ve alt çizgi
+        input.id = kokteyl.toLowerCase().replace(/ /g, '_'); 
         input.name = 'kokteyl';
-        input.value = kokteyl; // Reçete anahtarı
+        input.value = kokteyl; 
         
         const label = document.createElement('label');
         label.htmlFor = input.id;
-        label.textContent = kokteyl.replace(/_/g, ' '); // Görünen isim
+        label.textContent = kokteyl.replace(/_/g, ' '); 
 
         div.appendChild(input);
         div.appendChild(label);
@@ -308,6 +307,20 @@ function hesaplaVeGoster(e) {
     submitButton.dataset.hizmetFiyat = toplamHizmetMaliyeti.toFixed(2);
     submitButton.dataset.opsiyonelFiyat = opsiyonelTedarikMaliyeti.toFixed(2);
     submitButton.dataset.kokteylAdedi = tahminiKokteylAdedi;
+    
+    // Hesaplama başarılıysa gönder butonunu göster
+    if (submitButton.style.display === 'none') {
+        submitButton.style.display = 'block'; // Butonu görünür yap
+    }
+
+    // Hesaplama bitince Teklif Özeti'ne kaydır
+    const teklifOzetiElementi = document.getElementById('teklifOzeti');
+    if (teklifOzetiElementi) {
+        teklifOzetiElementi.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'      
+        });
+    }
 }
 
 // I. TEDARİK LİSTELERİNİ GÖSTERME FONKSİYONU
@@ -344,17 +357,18 @@ function veriGonder() {
     // 1. Hesaplama yapılmış mı kontrol et
     if (document.getElementById('toplamFiyat').textContent === '$0.00') {
         alert("Lütfen teklifi önce hesaplayın.");
+        // Bu alert normalde görünmemeli çünkü buton gizli. Yine de güvenlik için tutuldu.
         return;
     }
 
     // 2. Form verilerini topla
     const musteriIletisim = musteriIletisimInput.value;
-    const telefonNumarasi = telefonNumarasiInput.value; // <-- YENİ
+    const telefonNumarasi = telefonNumarasiInput.value; 
     const misafirSayisi = parseInt(misafirSayisiInput.value);
     const servisSaati = parseInt(servisSaatiInput.value);
     const kokteylSecimi = Array.from(document.querySelectorAll('input[name="kokteyl"]:checked')).map(el => el.value);
 
-    if (!musteriIletisim || !telefonNumarasi) { // <-- KONTROL GÜNCELLENDİ
+    if (!musteriIletisim || !telefonNumarasi) { 
         alert("Lütfen Müşteri/İletişim Bilgisi ve Telefon Numarası alanlarını doldurun.");
         return;
     }
@@ -362,7 +376,7 @@ function veriGonder() {
     // Fiyatları data-set'ten al
     const kayitVerisi = {
         musteriIletisim: musteriIletisim,
-        telefonNumarasi: telefonNumarasi, // <-- YENİ
+        telefonNumarasi: telefonNumarasi, 
         misafirSayisi: misafirSayisi,
         servisSaati: servisSaati,
         kokteylSecimi: kokteylSecimi.join(', '), 
@@ -400,9 +414,8 @@ function GonderGoogleSheets(veri) {
         body: new URLSearchParams(veri).toString()
     })
     .then(response => {
-        // [DÜZELTME UYGULANDI]: Başarılı kabul edip tesekkurler.html sayfasına yönlendir.
+        // Başarılı kabul edip tesekkurler.html sayfasına yönlendir.
         window.location.href = "tesekkurler.html"; 
-        // Yönlendirme olduğu için butonu geri açmaya gerek kalmayacaktır.
         return response;
     })
     .catch(error => {
