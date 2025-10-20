@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encocktail - Kokteyl Bar</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
@@ -25,7 +25,7 @@
             
             <div>
                 <a href="#paketler" class="cta-button">Hizmetleri Gör</a>
-                </div>
+            </div>
         </div>
     </header>
 
@@ -178,8 +178,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js"></script>
-    <script src="script.js"></script>
-    
     <style>
         /* Bu stil bloğunun tamamı index.html içerisindeki mevcut stilleri tamamlayacak şekilde eklenmiştir. */
         #kokteyller-bar .menu-category-divider {
@@ -362,15 +360,18 @@
         }
 
         
-        // Galeri yükleme fonksiyonu (Önceki Adımlardan)
+        // Galeri yükleme fonksiyonu (Kokteylleri kokteyller.json'dan yükler)
         function yukleVeGaleriBaslat() {
             // Kategorileri ve HTML'de gözükecek başlıklarını tanımlıyoruz
             const menuCategories = [
                 { key: 'klasik-kokteyller', title: 'Klasik Kokteyller' },
                 { key: 'imza-kokteyller', title: 'İmza Kokteyller' },
-                { key: 'mokteyller', key: 'mokteyller', title: 'Mokteyller (Alkolsüz)' } 
+                { key: 'mokteyller', title: 'Mokteyller (Alkolsüz)' } 
             ];
 
+            // **********************************************
+            // Hata: Eğer kokteyller.json dosyası aynı dizinde yoksa bu kod çalışmaz!
+            // **********************************************
             $.getJSON('kokteyller.json')
                 .done(function(data) {
                     
@@ -378,7 +379,6 @@
                     $container.empty(); 
                     
                     let htmlContent = '';
-                    const allLinks = [];
                     
                     // Kategorileri sırayla işleyip, araya başlıkları ekliyoruz
                     menuCategories.forEach(category => {
@@ -403,11 +403,10 @@
                                         data-featherlight-gallery="bar-tumu">
                                             <img src="${cocktail.gorsel_thumb}" alt="${cocktail.ad}">
                                         </a>
-                                        <h4>${cockteyl.ad}</h4>
+                                        <h4>${cocktail.ad}</h4>
                                         <p>${cocktail.aciklama.replace(/\n/g, '<br>')}</p>
                                     </div>
                                 `;
-                                allLinks.push({ gorsel_buyuk: cocktail.gorsel_buyuk, ad: cocktail.ad, aciklama: cocktail.aciklama });
                             }
                         });
                     });
@@ -428,18 +427,20 @@
                 })
                 .fail(function() {
                     console.error("Hata: kokteyller.json dosyası yüklenemedi veya hatalı.");
+                    // Hata durumunda kullanıcıya görünür bir mesaj ekleme
+                    $('#kokteyller-bar').find('.menu-grid').html('<p style="grid-column: 1 / -1; text-align: center; color: red; font-size: 1.2em;">Kokteyl menüsü yüklenirken bir hata oluştu. Lütfen "kokteyller.json" dosyasının doğru yerde olduğundan emin olun.</p>');
                 });
         }
 
         // --- Sayfa Yüklendiğinde Başlat ---
         $(document).ready(function() {
-            yukleVeGaleriBaslat(); 
+            yukleVeGaleriBaslat(); // KOKTEYLLERİ YÜKLEYEN FONKSİYON
             showBarSlides(); // Bar Carousel'ı başlat
             if (atolyeSlides.length > 0) {
                  showAtolyeSlides(); // Atölye Carousel'ı başlat
             }
             
-            // YENİ EKLEME: PAKET KARTLARA TIKLANINCA İLGİLİ BÖLÜME GİTME
+            // PAKET KARTLARA TIKLANINCA İLGİLİ BÖLÜME GİTME
             $('.paket-card').on('click', function(e) {
                 if ($(e.target).closest('.paket-teklif-button').length) {
                     return; 

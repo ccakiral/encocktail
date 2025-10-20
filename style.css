@@ -40,7 +40,7 @@ a {
 
 /* Header ve Hero Bölümü */
 .hero-section {
-    /* background: url('hero.jpg') no-repeat center center/cover; <-- BU SATIR KALDIRILDI */
+    /* **DÜZELTME:** Arka plan resmi tanımı KALDIRILDI */
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -51,19 +51,20 @@ a {
     overflow: hidden; /* Video taşmasını engeller */
 }
 
-/* YENİ EKLENEN VİDEO STİLİ */
+/* **DÜZELTME:** VİDEO STİLİ - Dikey videoyu yataya tam oturtur */
 .hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* Dikey videoyu yataya genişletmek için min-width/min-height ve object-fit: cover kullanılır */
+    /* Video'nun her zaman tam ekran kaplamasını sağlar */
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
+    /* Merkezi konumlandırma */
     transform: translate(-50%, -50%);
     z-index: 1; /* Overlay'in altında kalır */
-    object-fit: cover; /* Bu, dikey videoyu yatay alana tam sığdırmak için kırpar */
+    object-fit: cover; /* Dikey videoyu yataya zorlayarak ekranı doldurur ve kenarlardan kırpar */
 }
 
 
@@ -159,7 +160,7 @@ a {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap; 
-    max-width: 950px; /* **PAKET KARTLARI GENİŞLİĞİ KÜÇÜLTÜLDÜ** */
+    max-width: 950px; 
     margin: 0 auto;
 }
 
@@ -182,7 +183,7 @@ a {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* İçeriklerin dikeyde eşit yayılması için eklendi */
+    justify-content: space-between; 
 }
 
 /* Hover stili kartın kendisine uygulandı */
@@ -265,7 +266,7 @@ a {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #eee;
-    margin-bottom: 15px; /* Buton ile araya boşluk eklendi */
+    margin-bottom: 15px; 
 }
 
 /* Kokteyller Bölümü */
@@ -508,7 +509,7 @@ footer {
 }
 
 /* ========================================= */
-/* KART İÇİ TEKLİF AL BUTONU (TÜM EKRANLAR) - Bu blok artık medya sorgusu dışında! */
+/* KART İÇİ TEKLİF AL BUTONU (TÜM EKRANLAR) */
 /* ========================================= */
 
 .paket-card .cta-button.paket-teklif-button {
@@ -516,7 +517,7 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px; /* Minimum info ile arasına boşluk */
+    margin-top: 15px; 
     
     /* Boyut ve görünüm */
     width: 70%; 
@@ -525,16 +526,16 @@ footer {
     padding: 10px 15px; 
     font-size: 1em; 
 
-    /* Renkler - Burası mobil butonun bozulmasına neden oluyordu! */
+    /* Renkler */
     color: #fff !important; 
-    background-color: #795548; /* Kahverengi vurgu */
+    background-color: #795548; 
     font-weight: 700;
-    border-radius: 50px; /* Yuvarlak buton */
+    border-radius: 50px; 
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .paket-card .cta-button.paket-teklif-button:hover {
-    background-color: #5D4037; /* Kahverenginin koyusu */
+    background-color: #5D4037; 
     transform: scale(1.05);
 }
 
@@ -543,28 +544,27 @@ footer {
 /* MOBİL DÜZENLEME (767px ve altı) */
 /* ========================================= */
 @media (max-width: 767px) {
-    /* **YENİ EKLEME: ENCOCKTAIL (H1) BAŞLIĞINI KÜÇÜLTME** */
+    /* BAŞLIK KÜÇÜLTME */
     .hero-content h1 {
-        font-size: 3em; /* 4em'den 3em'e düşürüldü */
+        font-size: 3em; 
     }
     
-    /* ETKİNLİK PAKETLERİ VE ATÖLYE DETAYLARI ALT ALTA İÇİN EKLENDİ */
+    /* PAKETLER ALT ALTA */
     .paket-card {
-        width: 100%; /* Kartları tam genişlik yap */
-        max-width: none; /* Max genişliği kaldır */
-        margin-bottom: 20px; /* Altına boşluk ekle */
+        width: 100%; 
+        max-width: none; 
+        margin-bottom: 20px; 
     }
     
     .atolye-item {
-        width: 100%; /* Atölye detaylarını tam genişlik yap */
-        max-width: none; /* Max genişliği kaldır */
-        margin-bottom: 20px; /* Altına boşluk ekle */
+        width: 100%; 
+        max-width: none; 
+        margin-bottom: 20px; 
     }
     
-    /* İhtiyaç duyulursa gap'i düşürebiliriz, ama alt alta olduğu için çok fark etmez */
     .paket-container, .atolye-detay {
-        gap: 0; /* Gap'i sıfırla, alt alta görünümde işe yaramaz */
-        flex-direction: column; /* Her ihtimale karşı alt alta zorla */
+        gap: 0; 
+        flex-direction: column; 
     }
 }
 
@@ -583,13 +583,10 @@ footer {
         height: 130px; 
     }
     
-    /* Masaüstünde de sıralama korunur: İletişim, Telif, Logo */
     .copyright, .footer-contact-new, .footer-logo {
         margin: 0;
     }
     .copyright {
         margin-bottom: 20px; 
     }
-    
-    /* Not: Kart butonu stili yukarı taşındığı için bu medya sorgusu içinden kaldırıldı. */
 }
