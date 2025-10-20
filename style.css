@@ -1,11 +1,55 @@
-/* Genel Stil ve Fontlar */
+/* ========================================= */
+/* YENİ EKLENEN NAVİGASYON MENÜSÜ */
+/* ========================================= */
+
+.main-nav {
+    background-color: rgba(255, 255, 255, 0.95); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 40px;
+    position: sticky; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; 
+    gap: 30px;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #4A4A4A; 
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: #795548; 
+    border-bottom: 2px solid #B4C699; 
+}
+
+
+/* ========================================= */
+/* GENEL STİL VE FONTLAR */
+/* ========================================= */
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #333; /* Koyu gri metin */
+    color: #333; 
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f7f5f0; /* Açık bej arka plan */
+    background-color: #f7f5f0; 
 }
 
 h1, h2, h3 {
@@ -26,7 +70,7 @@ h2::after {
     content: '';
     width: 80px;
     height: 3px;
-    background-color: #B4C699; /* Yeşil vurgu rengi */
+    background-color: #B4C699; 
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -35,12 +79,11 @@ h2::after {
 
 a {
     text-decoration: none;
-    color: #795548; /* Kahverengi vurgu */
+    color: #795548; 
 }
 
 /* Header ve Hero Bölümü */
 .hero-section {
-    /* **DÜZELTME:** Arka plan resmi tanımı KALDIRILDI */
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -48,23 +91,25 @@ a {
     text-align: center;
     color: #fff;
     position: relative;
-    overflow: hidden; /* Video taşmasını engeller */
+    overflow: hidden; 
 }
 
-/* **DÜZELTME:** VİDEO STİLİ - Dikey videoyu yataya tam oturtur */
+/* Navigasyonun altına kaydır */
+.hero-section {
+    height: calc(70vh - 55px); 
+}
+
 .hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* Video'nun her zaman tam ekran kaplamasını sağlar */
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
-    /* Merkezi konumlandırma */
     transform: translate(-50%, -50%);
-    z-index: 1; /* Overlay'in altında kalır */
-    object-fit: cover; /* Dikey videoyu yataya zorlayarak ekranı doldurur ve kenarlardan kırpar */
+    z-index: 1; 
+    object-fit: cover; 
 }
 
 
@@ -75,7 +120,7 @@ a {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 5; /* Video (1) ve içerik (10) arasında kalır */
+    z-index: 5; 
 }
 
 .hero-content {
@@ -106,7 +151,7 @@ a {
     background-color: #9DB483;
 }
 
-/* YENİ BÖLÜM: NEDEN BİZ */
+/* Neden Biz Bölümü */
 .section-why-us {
     padding: 80px 20px;
     background-color: #f0ede8;
@@ -154,7 +199,6 @@ a {
     background-color: #fff;
 }
 
-/* PAKET KAPSAYICISININ GENİŞLİĞİ AYARLANDI */
 .paket-container {
     display: flex;
     justify-content: center;
@@ -164,7 +208,6 @@ a {
     margin: 0 auto;
 }
 
-/* KART STİLLERİ */
 .paket-card {
     background-color: #fcfcfc;
     border: 1px solid #eee;
@@ -174,11 +217,9 @@ a {
     transition: transform 0.3s;
     position: relative; 
     box-sizing: border-box; 
-    
     cursor: pointer;
     width: calc(50% - 15px);
     max-width: 450px;
-    
     height: 100%;
     text-align: center;
     display: flex;
@@ -186,14 +227,11 @@ a {
     justify-content: space-between; 
 }
 
-/* Hover stili kartın kendisine uygulandı */
 .paket-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* YENİ STİL: PAKET KARTLARINA ÖZEL VURGU RENKLERİ VE İKON */
 .paket-header {
     margin-bottom: 10px; 
 }
@@ -202,13 +240,11 @@ a {
     margin-bottom: 5px;
 }
 
-/* İKON STİLİ */
 .paket-header i {
     font-size: 1.5em;
     margin-right: 10px;
 }
 
-/* KOKTEYL BAR - Premium (Altın/Vurgu) */
 .paket-card.seckin {
     border: 3px solid #FFD700; 
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
@@ -220,7 +256,6 @@ a {
     color: #FFD700;
 }
 
-/* KOKTEYL ATÖLYESİ STİLİ */
 .paket-card.atolye {
     border: 3px solid #B4C699;
     background-color: #fcf8f5; 
@@ -248,7 +283,6 @@ a {
     font-size: 0.95em;
 }
 
-/* UL içerisindeki madde işaretleri (ikon eklendi) */
 .paket-card ul li::before {
     content: "\f00c";
     font-family: "Font Awesome 6 Free";
@@ -269,69 +303,17 @@ a {
     margin-bottom: 15px; 
 }
 
-/* Kokteyller Bölümü */
+/* ========================================= */
+/* KOKTEYL BAR VE ATÖLYE SAYFASI STİLLERİ (Eksik Kısım) */
+/* ========================================= */
+
 .section-kokteyller {
     padding: 80px 20px 20px;
 }
-
-/* YENİ ATÖLYE DETAY BÖLÜMÜ */
 .section-atolyeler {
     padding: 80px 0;
     background-color: #f7f5f0;
     text-align: center;
-}
-
-.atolye-detay {
-    max-width: 950px; 
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.atolye-item {
-    flex: 1;
-    width: calc(50% - 15px);
-    max-width: 450px; 
-    text-align: left;
-    background: white;
-    padding: 25px; 
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-}
-
-.atolye-item h3 {
-    font-size: 1.5em;
-    color: #795548;
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #B4C699;
-    padding-bottom: 10px;
-}
-
-.atolye-item h3 i {
-    color: #B4C699;
-    margin-right: 10px;
-}
-
-.atolye-item p {
-    color: #555;
-    flex-grow: 1;
-}
-
-.atolye-uyari {
-    font-style: italic;
-    color: #888;
-    margin-top: 20px;
-    font-size: 0.95em;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
 }
 
 /* BAŞLIK VE BUTONLAR KAPSAYICISI (FLEX) */
@@ -344,23 +326,6 @@ a {
     padding: 0 20px; 
     margin-bottom: 30px; 
     flex-wrap: wrap; 
-}
-
-/* Başlık */
-.section-kokteyller .kokteyl-baslik,
-.section-atolyeler .kokteyl-baslik {
-    margin: 0 auto;
-    padding-bottom: 10px;
-    font-size: 2.5em; 
-    text-align: center;
-}
-
-
-/* Başlık altındaki çizginin ortalanması */
-.section-kokteyller .kokteyl-baslik::after,
-.section-atolyeler .kokteyl-baslik::after {
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .menu-intro {
@@ -420,7 +385,6 @@ a {
     margin: 15px 0 5px;
 }
 
-/* Açıklamayı üste yasla */
 .cocktail-item p {
     font-size: 0.9em;
     color: #777;
@@ -430,8 +394,120 @@ a {
     flex-grow: 1;
 }
 
-/* Footer */
+/* KATEGORİ AYIRICILARI (ÇOK ÖNEMLİ) */
+#kokteyller-bar .menu-category-divider {
+    grid-column: 1 / -1; 
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #333; 
+    text-align: left;
+}
+#kokteyller-bar .menu-category-divider h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #000;
+    margin: 0;
+}
 
+
+/* ATÖLYE DETAY KISMI */
+.atolye-detay {
+    max-width: 950px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.atolye-item {
+    flex: 1;
+    width: calc(50% - 15px);
+    max-width: 450px; 
+    text-align: left;
+    background: white;
+    padding: 25px; 
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.atolye-item h3 {
+    font-size: 1.5em;
+    color: #795548;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #B4C699;
+    padding-bottom: 10px;
+}
+
+.atolye-item h3 i {
+    color: #B4C699;
+    margin-right: 10px;
+}
+
+.atolye-item p {
+    color: #555;
+    flex-grow: 1;
+}
+
+.atolye-uyari {
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+    font-size: 0.95em;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* ========================================= */
+/* GÖRSEL CAROUSEL STİLLERİ (ÇOK ÖNEMLİ) */
+/* ========================================= */
+.hizmet-gorselleri-container {
+    max-width: 1000px; 
+    margin: 0 auto 40px; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.hizmet-gorseli {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* BAR VE ATÖLYE CAROUSEL BOYUTLARI */
+.hizmet-gorselleri-bar, 
+.hizmet-gorselleri-atolye-carousel {
+    height: 400px; 
+}
+.hizmet-gorselleri-bar .hizmet-gorseli, 
+.hizmet-gorselleri-atolye-carousel .hizmet-gorseli {
+    display: none; 
+    height: 400px; 
+    animation: fadein 1s;
+}
+.hizmet-gorselleri-bar .hizmet-gorseli.active, 
+.hizmet-gorselleri-atolye-carousel .hizmet-gorseli.active {
+    display: block; 
+}
+
+@keyframes fadein {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+
+/* Footer */
 footer {
     background-color: #1a1a1a;
     color: #f0f0f0; 
@@ -450,7 +526,6 @@ footer {
     gap: 15px; 
 }
 
-/* İletişim Butonları: En üstte (order: 1) */
 .footer-contact-new {
     display: flex;
     gap: 15px;
@@ -459,8 +534,6 @@ footer {
     order: 1;
 }
 
-
-/* Telif Hakkı: Ortada (order: 2) */
 .copyright {
     font-size: 0.95em;
     opacity: 0.8; 
@@ -469,7 +542,6 @@ footer {
     margin-bottom: 15px; 
 }
 
-/* LOGO STİLİ: En altta (order: 3) */
 .footer-logo {
     order: 3; 
     position: static; 
@@ -508,25 +580,17 @@ footer {
     margin-right: 8px;
 }
 
-/* ========================================= */
 /* KART İÇİ TEKLİF AL BUTONU (TÜM EKRANLAR) */
-/* ========================================= */
-
 .paket-card .cta-button.paket-teklif-button {
-    /* Butonu ortala */
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px; 
-    
-    /* Boyut ve görünüm */
     width: 70%; 
     max-width: 200px; 
     text-align: center; 
     padding: 10px 15px; 
     font-size: 1em; 
-
-    /* Renkler */
     color: #fff !important; 
     background-color: #795548; 
     font-weight: 700;
@@ -539,17 +603,46 @@ footer {
     transform: scale(1.05);
 }
 
+/* ATÖLYE ALT BUTON STİLİ (EKSİK KISIM) */
+.section-atolyeler .atolye-bottom-cta {
+    display: block;
+    margin: 30px auto 15px; 
+    max-width: 200px; 
+    width: 70%; 
+    color: #fff !important; 
+    background-color: #795548; 
+    font-weight: 700;
+    border-radius: 50px; 
+    text-align: center;
+    padding: 10px 15px; 
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.section-atolyeler .atolye-bottom-cta:hover {
+    background-color: #5D4037; 
+    transform: scale(1.05);
+}
 
 /* ========================================= */
 /* MOBİL DÜZENLEME (767px ve altı) */
 /* ========================================= */
 @media (max-width: 767px) {
-    /* BAŞLIK KÜÇÜLTME */
+    /* Navigasyon düzeltme */
+    .main-nav {
+        padding: 10px 20px;
+    }
+    .nav-links {
+        justify-content: space-around; 
+        gap: 15px;
+    }
+    .hero-section {
+        height: calc(70vh - 45px); 
+    }
+    
     .hero-content h1 {
         font-size: 3em; 
     }
     
-    /* PAKETLER ALT ALTA */
     .paket-card {
         width: 100%; 
         max-width: none; 
@@ -565,6 +658,20 @@ footer {
     .paket-container, .atolye-detay {
         gap: 0; 
         flex-direction: column; 
+    }
+    
+    /* GÖRSEL DÜZELTMELER */
+    .hizmet-gorselleri-container {
+        margin-bottom: 20px;
+        padding: 0 10px; 
+        box-shadow: none; 
+        border-radius: 0;
+    }
+    .hizmet-gorselleri-bar, .hizmet-gorselleri-atolye-carousel {
+         height: 250px; 
+    }
+    .hizmet-gorselleri-bar .hizmet-gorseli, .hizmet-gorselleri-atolye-carousel .hizmet-gorseli {
+        height: 250px;
     }
 }
 
@@ -588,5 +695,70 @@ footer {
     }
     .copyright {
         margin-bottom: 20px; 
+    }
+}
+/* ========================================= */
+/* TEKLİF VE ANA SAYFA BUTON KAPSAYICISI */
+/* ========================================= */
+.bottom-cta-container {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    margin: 40px auto 60px; 
+    max-width: 550px; 
+    padding: 0 20px;
+}
+
+.bottom-cta-container .cta-button {
+    padding: 12px 25px;
+    border-radius: 50px; 
+    font-weight: 700;
+    transition: all 0.3s;
+    text-align: center;
+    width: 50%;
+}
+
+.bottom-cta-container .primary-button {
+    /* Ana Teklif Butonu (Koyu Vurgu) */
+    background-color: #795548; /* Kahverengi */
+    color: #fff;
+    border: 2px solid #795548;
+}
+
+.bottom-cta-container .primary-button:hover {
+    background-color: #5D4037; 
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-cta-container .secondary-button {
+    /* Ana Sayfa Butonu (Daha Hafif) */
+    background-color: transparent;
+    color: #795548;
+    border: 2px solid #B4C699;
+}
+
+.bottom-cta-container .secondary-button:hover {
+    background-color: #B4C699;
+    color: #4A4A4A;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(180, 198, 153, 0.3);
+}
+
+/* ESKİ NAVİGASYON STİLLERİNİ TEMİZLEME */
+/* Ana sayfada navigasyon kalktığı için hero-section yüksekliğini geri al */
+.hero-section {
+    height: 70vh !important;
+}
+
+/* Ek olarak, mobil uyum için responsive ayar (Eğer mevcut style.css'te yoksa) */
+@media (max-width: 600px) {
+    .bottom-cta-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .bottom-cta-container .cta-button {
+        width: 100%;
+        max-width: none;
     }
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encocktail - Kokteyl Atölyesi Detayları</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+    <header class="section-header-detail">
+        <h1 style="text-align: center; font-size: 3em; color: #4A4A4A; margin-top: 50px;">Kokteyl Atölyeleri</h1>
+        <p style="text-align: center; color: #795548; font-size: 1.2em; margin-bottom: 50px;">Barmenlik sanatını eğlenceli ve uygulamalı bir şekilde keşfedin.</p>
+    </header>
+
+    <section id="atolyeler" class="section-atolyeler" style="padding-top: 0;">
+
+        <div class="menu-title-container">
+            <h2 class="kokteyl-baslik">Kokteyl Atölyesi Detayları</h2>
+        </div>
+
+        <div class="hizmet-gorselleri-container hizmet-gorselleri-atolye-carousel">
+            <img src="atolye_periyodik.jpg" alt="Periyodik Açık Atölye Örneği" class="hizmet-gorseli active">
+            <img src="atolye_private.jpg" alt="Size Özel Kapalı Atölye Örneği" class="hizmet-gorseli">
+            <img src="atolye_group.jpg" alt="Kurumsal Grup Atölyesi" class="hizmet-gorseli">
+            <img src="atolye_group_2.jpg" alt="Eğlenceli Atölye Anı" class="hizmet-gorseli">
+            <img src="atolye_detail_1.jpg" alt="Kokteyl Hazırlama Detayı" class="hizmet-gorseli">
+            <img src="atolye_detail_2.jpg" alt="Atölye Sunumu" class="hizmet-gorseli">
+        </div>
+
+        <div class="atolye-detay">
+            
+            <div class="atolye-item">
+                <h3><i class="fas fa-calendar-alt"></i> Periyodik Açık Atölyeler</h3>
+                <p>Belirli tarihlerde, farklı temalarla herkesin katılımına açık olarak düzenlediğimiz atölyelerdir. Hem bireysel hem de küçük gruplar için harika bir deneyim sunar. Güncel program ve yer bilgisi için bizimle iletişime geçebilirsiniz.</p>
+            </div>
+            
+            <div class="atolye-item">
+                <h3><i class="fas fa-map-marker-alt"></i> Size Özel Mekan Atölyeleri</h3>
+                <p>Düğün öncesi eğlencesi, kurumsal ekip etkinlikleri, özel kutlamalar veya doğum günleri için mükemmel bir seçenek. Sizin belirlediğiniz mekanda, konsepte ve katılımcı sayısına göre tamamen kişiselleştirilmiş bir atölye içeriği hazırlıyoruz. Kokteyl kültürünü eğlenceli ve uygulamalı bir şekilde keşfedin!</p>
+            </div>
+            
+        </div>
+        
+        <div class="bottom-cta-container">
+            <a href="index.html" class="cta-button secondary-button">Ana Sayfa</a>
+            <a href="atolye_teklif.html" class="cta-button primary-button">Atölye Teklifi Al</a>
+        </div>
+        
+        <p class="atolye-uyari">Paket içeriği, kokteyl reçeteleri ve süre gibi tüm detaylar isteğinize göre özelleştirilebilir.</p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-new">
+                <a href="mailto:encocktail@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>encocktail@gmail.com</span>
+                </a>
+                <a href="https://www.instagram.com/encocktail/" target="_blank" class="contact-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>@encocktail</span>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2025 ENcocktail. Tüm Hakları Saklıdır.</p>
+            <div class="footer-logo">
+                <img src="ENcocktailLogo.jpg" alt="ENcocktail Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        // --- ATÖLYE Görsel Carousel Fonksiyonu (Index.html'den taşındı) ---
+        let atolyeSlideIndex = 0;
+        const atolyeSlides = document.querySelectorAll('.hizmet-gorselleri-atolye-carousel .hizmet-gorseli');
+        
+        function showAtolyeSlides() {
+          atolyeSlides.forEach(slide => slide.classList.remove('active')); 
+          atolyeSlideIndex++;
+          if (atolyeSlideIndex > atolyeSlides.length) {atolyeSlideIndex = 1} 
+          if (atolyeSlides[atolyeSlideIndex - 1]) {
+             atolyeSlides[atolyeSlideIndex - 1].classList.add('active'); 
+          }
+          setTimeout(showAtolyeSlides, 4000); 
+        }
+
+        // --- Sayfa Yüklendiğinde Başlat ---
+        $(document).ready(function() {
+            if (atolyeSlides.length > 0) {
+                 showAtolyeSlides(); // Atölye Carousel'ı başlat
+            }
+        });
+    </script>
+</body>
+</html>
