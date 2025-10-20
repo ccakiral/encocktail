@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encocktail - Kokteyl Bar</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
@@ -14,6 +14,10 @@
 <body>
 
     <header class="hero-section">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="kokteyl_video.mp4" type="video/mp4">
+        </video>
+        
         <div class="overlay"></div>
         <div class="hero-content">
             <h1>ENCOCKTAIL</h1>
@@ -399,7 +403,7 @@
                                         data-featherlight-gallery="bar-tumu">
                                             <img src="${cocktail.gorsel_thumb}" alt="${cocktail.ad}">
                                         </a>
-                                        <h4>${cocktail.ad}</h4>
+                                        <h4>${cockteyl.ad}</h4>
                                         <p>${cocktail.aciklama.replace(/\n/g, '<br>')}</p>
                                     </div>
                                 `;

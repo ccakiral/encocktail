@@ -40,7 +40,7 @@ a {
 
 /* Header ve Hero Bölümü */
 .hero-section {
-    background: url('hero.jpg') no-repeat center center/cover;
+    /* background: url('hero.jpg') no-repeat center center/cover; <-- BU SATIR KALDIRILDI */
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -48,7 +48,24 @@ a {
     text-align: center;
     color: #fff;
     position: relative;
+    overflow: hidden; /* Video taşmasını engeller */
 }
+
+/* YENİ EKLENEN VİDEO STİLİ */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Dikey videoyu yataya genişletmek için min-width/min-height ve object-fit: cover kullanılır */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Overlay'in altında kalır */
+    object-fit: cover; /* Bu, dikey videoyu yatay alana tam sığdırmak için kırpar */
+}
+
 
 .overlay {
     position: absolute;
@@ -57,6 +74,7 @@ a {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
+    z-index: 5; /* Video (1) ve içerik (10) arasında kalır */
 }
 
 .hero-content {
