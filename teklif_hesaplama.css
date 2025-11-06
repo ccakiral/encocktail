@@ -36,163 +36,205 @@ h1 {
 }
 
 h2 {
-    font-family: 'Playfair Display', serif; /* Ana sayfa fontu */
+    font-family: 'Playfair Display', serif; /* Ana sayfa font */
     color: #4A4A4A;
-    font-size: 1.5em;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #eee; /* Bölüm alt çizgileri kalıyor */
-}
-
-/* Form Stil */
-.form-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group.half-width {
-    width: 48%; /* İki yan yana sütun için */
-}
-
-.form-group-container {
-    display: flex;
-    gap: 4%;
-    flex-wrap: wrap;
-}
-
-label {
     font-weight: 600;
-    margin-bottom: 8px;
-    color: #4A4A4A;
+    font-size: 1.4em;
+    border-bottom: 2px solid #7c0029;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1em;
-    box-sizing: border-box;
+h3 {
+    color: #7c0029;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Form Grupları */
+.form-group {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input, .form-group select {
     width: 100%;
-    transition: border-color 0.3s;
-}
-
-textarea {
-    resize: vertical;
-    width: 100%; /* Tam genişlik kuralı */
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #7c0029;
-    outline: none;
-    box-shadow: 0 0 5px rgba(124, 0, 41, 0.2);
-}
-
-.checkbox-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 20px;
-    margin-top: 10px;
     padding: 10px;
-    border: 1px solid #eee;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Yarı Genişlik (Mobil için tam genişlik) */
+.half-width {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    #inputForm .form-group.half-width {
+        display: inline-block;
+        width: calc(50% - 10px);
+        margin-right: 20px;
+    }
+    #inputForm .form-group.half-width:nth-child(even) {
+        margin-right: 0;
+    }
+}
+
+
+/* Kokteyl Seçim Alanı */
+#kokteylSecimiKapsayici {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    max-height: 200px; /* Sabit yükseklik */
+    overflow-y: auto; /* Scroll çubuğu */
     background-color: #f9f9f9;
-    border-radius: 8px;
 }
 
 .checkbox-item {
     display: flex;
     align-items: center;
+    width: calc(50% - 10px); /* 2 sütun */
 }
 
 .checkbox-item input[type="checkbox"] {
-    margin-right: 10px;
     width: auto;
+    margin-right: 8px;
+    /* Custom checkbox styling is complex, keeping default for simplicity */
 }
 
-/* BUTON STİLLERİ GÜNCELLENDİ */
-#calculateButton, #submitButton, .submit-button {
-    background-color: #7c0029; /* Marka Rengi */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 700;
+.checkbox-item label {
+    margin-bottom: 0;
+    font-weight: 400;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-    width: 100%;
+    font-size: 0.9em;
 }
 
-#calculateButton:hover, #submitButton:hover, .submit-button:hover {
-    background-color: #a02046;
-}
-
-/* Teklif Özeti ve Sonuçlar */
-.teklif-ozeti {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #fff8f8;
-    border-radius: 10px;
-    border: 1px solid #f0e0e0;
-}
-
-.fiyat-gosterim {
-    padding: 15px;
+/* YENİ: Ekstra Seçim Gridi */
+.ekstra-secim-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+    border-radius: 6px;
+    background-color: #f9f9f9;
     margin-bottom: 20px;
 }
 
-.fiyat-gosterim > div {
+.ekstra-secim-grid .checkbox-item {
+    width: 100%; /* Ekstralar başlangıçta tam sütun */
+    padding: 5px 0;
+    align-items: flex-start; /* Label ve checkbox'ın üste hizalanması */
+}
+/* Uzak Mesafe gösterimi için özel stil */
+#uzakMesafeMaliyetGosterim {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed #eee;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    width: 100%;
+    font-weight: 600;
 }
 
-.fiyat-gosterim > div:last-of-type {
-    border-bottom: none;
+
+@media (min-width: 768px) {
+    .ekstra-secim-grid .checkbox-item {
+        width: calc(50% - 10px); /* Desktopta 2 sütun */
+    }
+    #uzakMesafeMaliyetGosterim {
+         width: calc(50% - 10px);
+         border-bottom: none;
+    }
 }
 
-.fiyat-gosterim hr {
-    border: 0;
+
+/* Butonlar */
+.calculate-button {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    background-color: #7c0029; /* Marka Rengi */
+    color: #fff;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.calculate-button:hover {
+    background-color: #a0224a;
+}
+
+.submit-button {
+    background-color: #4CAF50; /* Yeşil */
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Teklif Özeti ve Sonuç Alanları */
+#teklifOzeti {
+    margin-top: 40px;
+    padding-top: 20px;
     border-top: 2px solid #7c0029;
-    margin: 10px 0;
 }
 
-.toplam {
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #7c0029;
-    padding-top: 10px;
-}
-
-.buyuk-fiyat {
-    font-size: 1.3em;
-    color: #d9534f;
+hr {
+    border: 0;
+    border-top: 1px solid #eaeaea;
+    margin: 20px 0;
 }
 
 .note {
-    font-style: italic;
-    color: #666;
-    margin-top: 15px;
-    padding: 10px;
-    border-left: 3px solid #7c0029;
-    background-color: #fcfcfc;
+    background-color: #fff9e6;
+    border-left: 5px solid #ffcc00;
+    padding: 10px 15px;
+    margin: 15px 0;
+    color: #6a5e4d;
+    border-radius: 4px;
+    font-size: 0.95em;
 }
 
-/* Tedarik Tablosu/Listesi */
+.note-small {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* Fiyat Tablosu/Listesi */
 .result-table {
     width: 100%;
     border-collapse: collapse;
@@ -200,7 +242,7 @@ textarea:focus {
 }
 
 .result-table th, .result-table td {
-    padding: 12px 15px;
+    padding: 12px 8px; /* Padding azaltıldı */
     text-align: left;
     border-bottom: 1px solid #eee;
 }
@@ -211,16 +253,17 @@ textarea:focus {
     font-weight: 600;
 }
 
-.result-table td {
-    color: #555;
-}
-
 .price {
     font-weight: 600;
     color: #000;
     text-align: right;
 }
 
+.result-table tfoot td:last-child {
+    text-align: right;
+}
+
+/* YENİ: Toplam Satırları 3 sütunlu yapıldı */
 .total-row td {
     border-top: 3px solid #7c0029;
     font-weight: 700;
@@ -230,46 +273,54 @@ textarea:focus {
 }
 
 /* Tedarik Listesi */
-.supply-section {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eaeaea;
-}
-
+/* Liste Görünümü */
 .supply-list {
     list-style: none;
     padding: 0;
-    margin-top: 15px;
+    margin: 15px 0;
 }
 
 .supply-list li {
-    background-color: #fcfcfc;
-    padding: 12px 15px;
-    /* Marka rengi kullanıldı */
-    border-left: 4px solid #7c0029; 
-    margin-bottom: 8px;
-    border-radius: 4px;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
     font-size: 0.95em;
-    display: flex;
-    justify-content: space-between;
+    line-height: 1.4;
 }
 
-.supply-list li strong {
-    color: #7c0029;
+.supply-list li:last-child {
+    border-bottom: none;
 }
 
-/* Responsive Düzenlemeler */
-@media (max-width: 768px) {
-    .form-group-container {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .form-group.half-width {
-        width: 100%;
-    }
+/* --- Müşteri Tedarik Listesi (Hizalama Düzeltmesi) --- */
+#musteriTedarikListesi li {
+    display: flex; /* Öğeleri yan yana hizala */
+    justify-content: space-between; /* İsim sola, miktar sağa gitsin */
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0e0e0; /* Hafif bir ayırıcı ekle */
+}
 
-    .checkbox-list {
-        grid-template-columns: 1fr;
-    }
+/* İsim (Sol Kısım) */
+#musteriTedarikListesi li .item-name {
+    flex-grow: 1; /* Sol kısım mümkün olduğunca genişlesin */
+    font-weight: 500;
+    color: #333;
+    padding-right: 15px; /* Miktar ile arasında boşluk bırak */
+}
+
+/* Miktar ve Birim (Sağ Kısım) */
+#musteriTedarikListesi li .item-quantity {
+    /* Burası Miktar (9.0 Litre) ve ek bilgiyi kapsayacak */
+    text-align: right;
+    font-weight: 600;
+    white-space: nowrap; /* Miktar ve birim alt satıra inmesin */
+}
+
+/* Ek Bilgi (Örnek Markalar) */
+#musteriTedarikListesi li .note-small {
+    display: block; /* Markayı miktar ve birimin hemen altına al */
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #888;
+    margin-top: 2px;
 }

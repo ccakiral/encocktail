@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENCOCKTAIL Mobil Bar Teklif Hesaplama</title>
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍹</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍹</text></svg>">
     <link rel="stylesheet" href="teklif_hesaplama.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -37,6 +39,10 @@
             <input type="number" min="3" id="servisSaati" value="3" required>
         </div>
 
+        <div class="form-group half-width"> 
+            <label for="uzakMesafeKM">Uzak Mesafe (Gidiş-Dönüş KM) (Bornova baz alınmıştır):</label>
+            <input type="number" id="uzakMesafeKM" value="0" min="0" placeholder="0" required>
+        </div>
         <h2>2. Kokteyl Menüsü Seçimi</h2>
         
         <div class="note">
@@ -47,38 +53,44 @@
             <p>Menü yükleniyor...</p>
         </div>
 
+        <div id="ekstraHizmetler" class="form-group">
+            <h2>3. Ekstra Hizmet Seçimi</h2>
+            <div class="note">
+                <p>Uzak Mesafe Ulaşım maliyeti (KM x 10 TL) otomatik olarak hesaplanmıştır.</p>
+            </div>
+            <div id="ekstraSecimiKapsayici" class="ekstra-secim-grid">
+                </div>
+        </div>
         <button id="calculateButton" class="calculate-button">TEKLİF HESAPLA</button>
     </section>
 
     <section id="teklifOzeti" style="display: block;">
-        <h2>3. Teklif Özeti (TL)</h2>
+        <h2>4. Teklif Özeti (TL)</h2>
 
         <div class="result-box">
             <table class="result-table">
                 <thead>
                     <tr>
                         <th>Maliyet Kalemi</th>
-                        <th class="price">Fiyat (TL)</th>
+                        <th>Miktar/Birim</th> <th class="price">Fiyat (TL)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="ekstraMaliyetBody">
+                    </tbody>
+                <tfoot>
                     <tr>
-                        <td>Hizmet Bedeli (Min 3 Saat + Ek Saat Ücreti + Ek Kokteyl Ücreti)</td>
-                        <td class="price" id="hizmetFiyat">₺0.00</td>
-                    </tr>
-                    <tr>
-                        <td>Miks Malzeme Maliyeti (ENCOCKTAIL Tedarik)</td>
+                        <td colspan="2">Miks Malzeme Maliyeti (ENCOCKTAIL Tedarik)</td>
                         <td class="price" id="miksFiyat">₺0.00</td>
                     </tr>
                     <tr>
-                        <td>Opsiyonel Tedarik Maliyeti (Müşteri Tedarik: Alkol, Buz, Soda tahmini maliyeti)</td>
+                        <td colspan="2">Opsiyonel Tedarik Maliyeti (Müşteri Tedarik: Alkol, Buz, Soda tahmini maliyeti)</td>
                         <td class="price" id="opsiyonelFiyat">₺0.00</td>
                     </tr>
                     <tr class="total-row">
-                        <td>TOPLAM FİYAT (Tedarik Dahil)</td>
+                        <td colspan="2">GENEL TOPLAM FİYAT (Tedarik Dahil)</td>
                         <td class="price" id="toplamFiyat">₺0.00</td>
                     </tr>
-                </tbody>
+                </tfoot>
             </table>
         </div>
 
