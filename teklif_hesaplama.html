@@ -28,53 +28,55 @@
         </div>
         
         <div class="form-group half-width"> 
-            <label for="misafirSayisi">Misafir Sayısı (Min 10):</label>
-            <input type="number" id="misafirSayisi" value="50" min="10" required>
+            <label for="misafirSayisi">Tahmini Misafir Sayısı (Min 10):</label>
+            <input type="number" min="10" id="misafirSayisi" value="50" required>
         </div>
         
-        <div class="form-group">
+        <div class="form-group half-width">
             <label for="servisSaati">Servis Süresi (Saat) (Min 3):</label>
-            <input type="number" id="servisSaati" value="4" min="3" required>
+            <input type="number" min="3" id="servisSaati" value="3" required>
         </div>
 
-        <div class="form-group">
-            <label>2. Kokteyl Seçimi (Maks. 4 Çeşit)</label>
-            <div id="kokteylSecimiKapsayici" class="cocktail-selection checkbox-grid"> 
-                </div>
+        <h2>2. Kokteyl Menüsü Seçimi</h2>
+        
+        <div class="note">
+            <p>Maksimum 4 çeşit kokteyl seçilebilir (3 çeşitten fazlası ek ücrete tabidir).</p>
         </div>
         
-        <button id="calculateButton">TEKLİFİ HESAPLA</button>
-        </section>
+        <div id="kokteylSecimiKapsayici" class="kokteyl-checkboxes">
+            <p>Menü yükleniyor...</p>
+        </div>
 
-    ---
+        <button id="calculateButton" class="calculate-button">TEKLİF HESAPLA</button>
+    </section>
 
-    <section id="teklifOzeti" class="supply-section"> 
-        <h2>💸 TEKLİF ÖZETİ</h2>
+    <section id="teklifOzeti" style="display: block;">
+        <h2>3. Teklif Özeti (TL)</h2>
 
-        <div class="result-table">
-            <table>
+        <div class="result-box">
+            <table class="result-table">
                 <thead>
                     <tr>
-                        <th>Kalem</th>
-                        <th class="price">Fiyat</th>
+                        <th>Maliyet Kalemi</th>
+                        <th class="price">Fiyat (TL)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Hizmet (Barmen, Kurulum, Süre)</td>
-                        <td class="price" id="hizmetFiyat">$0.00</td>
+                        <td>Hizmet Bedeli (Min 3 Saat + Ek Saat Ücreti + Ek Kokteyl Ücreti)</td>
+                        <td class="price" id="hizmetFiyat">₺0.00</td>
                     </tr>
                     <tr>
-                        <td>**Miks Malzeme (ENCOCKTAIL - Zorunlu)**</td>
-                        <td class="price" id="miksFiyat">$0.00</td>
+                        <td>Miks Malzeme Maliyeti (ENCOCKTAIL Tedarik)</td>
+                        <td class="price" id="miksFiyat">₺0.00</td>
                     </tr>
                     <tr>
-                        <td>Opsiyonel Tedarik (Müşteri Alkollü İçecek Bedeli)</td>
-                        <td class="price" id="opsiyonelFiyat">$0.00</td>
+                        <td>Opsiyonel Tedarik Maliyeti (Müşteri Tedarik: Alkol, Buz, Soda tahmini maliyeti)</td>
+                        <td class="price" id="opsiyonelFiyat">₺0.00</td>
                     </tr>
                     <tr class="total-row">
-                        <td>TOPLAM TEKLİF:</td>
-                        <td class="price" id="toplamFiyat">$0.00</td>
+                        <td>TOPLAM FİYAT (Tedarik Dahil)</td>
+                        <td class="price" id="toplamFiyat">₺0.00</td>
                     </tr>
                 </tbody>
             </table>
@@ -85,7 +87,7 @@
         <h3>Özet Bilgiler</h3>
         <div class="note">
             <p>Tahmini Kokteyl Adedi: <strong id="kokteylAdedi">0</strong> adet</p>
-            <p>Kokteyl Başına Ortalama Maliyet: <strong id="ortalamaMaliyet">$0.00</strong></p>
+            <p>Kokteyl Başına Ortalama Maliyet: <strong id="ortalamaMaliyet">₺0.00</strong></p>
         </div>
 
         ---
@@ -102,14 +104,13 @@
         <ul id="musteriTedarikListesi" class="supply-list">
             <li>Lütfen misafir sayınıza göre gerekli alkol, buz ve su miktarını hesaplamak için yukarıdaki alanları doldurunuz.</li>
         </ul>
-        <p class="note">Bu listedeki alkol, buz ve soda gibi ürünlerin tedariği Müşteriye aittir. Yukarıdaki "Opsiyonel Tedarik" fiyatı, tahmini tedarik maliyetinizi gösterir.</p>
+        <p class="note">Bu listedeki alkol, buz ve soda gibi ürünlerin tedariği Müşteriye aittir. Yukarıdaki "Opsiyonel Tedarik" fiyatı, tahmini tedarik maliyetinizi görmeniz için hesaplanmıştır.</p>
 
+        <button id="submitButton" class="submit-button" style="display: none;">TEKLİFİ KAYDET VE İLET</button>
     </section>
-    
-    <button id="submitButton" class="kaydet-gonder-btn" style="display: none;">TEKLİFİ KAYDET VE GÖNDER</button> 
+
 </div>
 
-<script src="teklif_hesaplama.js"></script>
-
+<script src="teklif_hesaplama.js"></script> 
 </body>
 </html>
