@@ -1,5 +1,5 @@
 // Google Apps Script URL'si buraya sabitlendi!
-const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzrZHqPoB6p8gOqhpVbzqN4LjVw_5D-zEIWwZKC2YTbLOZxPNFZ6x0VDSTjvfN9lcQH/exec";
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwDUeanc0DglhkoDhbo2igm2N0rI43GM9q3q57-hRkyqZGbCm6EW6w-pwRMROI1xBuu/exec";
 
 // A. SABİT HİZMET VE FİYAT KURALLARI
 const SABITLER = {
@@ -21,7 +21,7 @@ const EKSTRA_HIZMETLER = {
         carpimFaktoru: "misafirSayisi"
     },
     "KURU_BUZLU_SUNUM": {
-        isim: "Kuru Buzlu/Özel Sunum Efekti",
+        isim: "Kuru Buzlu Sunum",
         fiyat: 5000, // TL
         birim: "Sabit",
         carpimFaktoru: "sabit"
@@ -33,13 +33,13 @@ const EKSTRA_HIZMETLER = {
         carpimFaktoru: "misafirSayisi"
     },
     "OZEL_BARDAK_BASKI": {
-        isim: "Bardaklara Özel Baskı/Etiket",
+        isim: "Bardaklara Özel Etiket",
         fiyat: 5, // TL
         birim: "Bardak",
         carpimFaktoru: "kokteylAdedi" // Hesaplanan toplam kokteyl adedi ile çarpılacak
     },
     "MOBILE_BAR_KIRALAMA": {
-        isim: "Ekstra Mobile Bar Tezgahı Kiralama",
+        isim: "Mobile Bar Tezgahı Kiralama",
         fiyat: 5000, // TL
         birim: "Sabit",
         carpimFaktoru: "sabit"
@@ -50,14 +50,7 @@ const EKSTRA_HIZMETLER = {
         birim: "Sabit",
         carpimFaktoru: "sabit"
     },
-    // Bu ekstra, diğerleri gibi seçilmeyecek, KM input'u üzerinden otomatik hesaplanıp gösterilecek.
-    "UZAK_MESAFE": { 
-        isim: "Uzak Mesafe Ulaşım (Bornova Bazlı)",
-        fiyat: 10, // TL/KM
-        birim: "KM",
-        carpimFaktoru: "uzakMesafeKM",
-        otomatikHesaplanan: true
-    }
+    // Uzak Mesafe kaldırıldı
 };
 
 
@@ -132,15 +125,14 @@ const ALKOLLER_SISE_HACIMLERI = {
     "KOPUKLU_SARAP": { hacim_cl: 75, marka: "Prosecco, Şampanya" },
     
     "DIGER_TEDARIK": {
-        "BUZ": { birim: "Kg", marka: "buzzizmir" },
-        "SODA_TONIK_SU": { birim: "Litre", marka: "Uludağ, Freşa, Özkaynak, Kızılay, Sarıkız" },
+        "BUZ": { birim: "Kg", marka: "Buzzizmir" },
+        "SODA_TONIK_SU": { birim: "Litre", marka: "Uludağ, Kızılay, Sarıkız" },
         "ZENCEFILLI_GAZOZ": { birim: "Litre", marka: "Beyoğlu" }
     }
 };
 
 
 // D. KOKTEYL REÇETELERİ
-// Not: Sıvılar Santilitre (cL), Buz Gram (g), Garnitür/Katkı Adet (Adet) cinsindendir.
 const RECELLER = {
     "MOJITO":             { ROM: 4.5, SUPER_JUICE_LIME: 3, SEKER_SURUBU: 2, NANE_DALI: 5, SODA_TONIK_SU: 6, BUZ: 250 },
     "WHISKEY_SOUR":       { BOURBON: 6, LIMON_SUYU: 3, SEKER_SURUBU: 1.5, BUZ: 100, KOPUK: 1 },
@@ -148,7 +140,7 @@ const RECELLER = {
     "GIN_TONIC":          { CIN: 6, TONIK_SURUBU: 2, SODA_TONIK_SU: 12, LIME_DILIMI: 2, BUZ: 250 },
     "OLD_FASHIONED":      { BOURBON: 6, SEKER_SURUBU: 1, TATLANDIRICI: 2, BUZ: 100, PORTAKAL_DILIMI: 1 },
     "NEGRONI":            { CIN: 3, KIRMIZI_VERMUT: 3, CAMPARI: 3, PORTAKAL_DILIMI: 1, BUZ: 150 },
-    "ESPRESSO_MARTINI":   { VOTKA: 5, KAHVE_LIKORU: 3, KAHVE_SOGUK_DEMLEME: 3, SEKER_SURUBU: 1, BUZ: 100, KOPUK: 1 },
+    "ESPRESSO_MARTINI":   { VOTKA: 5, KAHVE_LIKORU: 3, KAHVE_SOGUK_DEMLEME: 3, SEKER_SURUBU: 1, BUZ: 100 },
     "APEROL_SPRITZ":      { KOPUKLU_SARAP: 9, APEROL: 6, SODA_TONIK_SU: 3, PORTAKAL_DILIMI: 1, BUZ: 200 },
     "HUGO_SPRITZ":        { ELDERFLOWER_SURUBU: 2, KOPUKLU_SARAP: 10, SODA_TONIK_SU: 5, NANE_DALI: 5, BUZ: 200 },
     "FRENCH_75":          { CIN: 3, LIMON_SUYU: 1.5, SEKER_SURUBU: 1, KOPUKLU_SARAP: 9, LIME_DILIMI: 1, BUZ: 50 },
@@ -167,11 +159,13 @@ const RECELLER = {
 // E. ELEMENTLERİ AL
 const misafirSayisiInput = document.getElementById('misafirSayisi');
 const servisSaatiInput = document.getElementById('servisSaati');
-const uzakMesafeKMInput = document.getElementById('uzakMesafeKM'); 
 const hesaplaButton = document.getElementById('calculateButton');
 const submitButton = document.getElementById('submitButton'); 
 const musteriIletisimInput = document.getElementById('musteriIletisim'); 
 const telefonNumarasiInput = document.getElementById('telefonNumarasi'); 
+const etkinlikTarihiInput = document.getElementById('etkinlikTarihi'); 
+const etkinlikAdresiInput = document.getElementById('etkinlikAdresi'); 
+const etkinlikTuruInput = document.getElementById('etkinlikTuru'); 
 const kokteylSecimiKapsayici = document.getElementById('kokteylSecimiKapsayici'); 
 const ekstraSecimiKapsayici = document.getElementById('ekstraSecimiKapsayici'); 
 
@@ -181,7 +175,7 @@ function formatCurrency(amount) {
     return `₺${amount.toFixed(2)}`;
 }
 
-// G. KOKTEYL CHECKBOX'LARINI DİNAMİK OLARAK OLUŞTUR
+// G. KOKTEYL CHECKBOX'LARINI DİNAMİK OLARAK OLUŞTUR 
 function kokteylCheckboxlariOlustur() {
     kokteylSecimiKapsayici.innerHTML = ''; 
     const kokteyller = Object.keys(RECELLER);
@@ -197,6 +191,7 @@ function kokteylCheckboxlariOlustur() {
         
         const label = document.createElement('label');
         label.htmlFor = input.id;
+        // İsimleri temizle ve kullanıcıya göster
         label.textContent = kokteyl.replace(/_/g, ' '); 
 
         div.appendChild(input);
@@ -208,19 +203,7 @@ function kokteylCheckboxlariOlustur() {
 // YENİ: EKSTRA CHECKBOX'LARINI DİNAMİK OLARAK OLUŞTUR
 function ekstraCheckboxlariOlustur() {
     ekstraSecimiKapsayici.innerHTML = '';
-
-    // Uzak Mesafe maliyetini göstermek için bir alan oluştur (checkbox değil, otomatik hesaplanıyor)
-    const uzakMesafeGosterim = document.createElement('div');
-    uzakMesafeGosterim.classList.add('checkbox-item'); 
-    uzakMesafeGosterim.id = 'uzakMesafeMaliyetGosterim';
-    uzakMesafeGosterim.innerHTML = `
-        <label>Uzak Mesafe Ulaşım (KM Başı ₺${EKSTRA_HIZMETLER.UZAK_MESAFE.fiyat}):</label>
-        <strong id="uzakMesafeMaliyeti" style="margin-left: auto;">₺0.00</strong>
-    `;
-    ekstraSecimiKapsayici.appendChild(uzakMesafeGosterim);
-
-    // Diğer Seçilebilir Ekstralar (Checkbox)
-    const ekstralar = Object.keys(EKSTRA_HIZMETLER).filter(key => !EKSTRA_HIZMETLER[key].otomatikHesaplanan);
+    const ekstralar = Object.keys(EKSTRA_HIZMETLER); 
 
     ekstralar.forEach((ekstraKey) => {
         const ekstra = EKSTRA_HIZMETLER[ekstraKey];
@@ -244,7 +227,7 @@ function ekstraCheckboxlariOlustur() {
 
         const label = document.createElement('label');
         label.htmlFor = input.id;
-        label.innerHTML = ekstra.isim + fiyatEtiketi;
+        label.innerHTML = ekstra.isim ;
 
         div.appendChild(input);
         div.appendChild(label);
@@ -258,7 +241,6 @@ function teklifiHesapla(shouldScroll = false) {
     // 1. Veri Alımı ve Doğrulama
     const misafirSayisi = parseInt(misafirSayisiInput.value);
     const servisSaati = parseInt(servisSaatiInput.value);
-    const uzakMesafeKM = parseInt(uzakMesafeKMInput.value) || 0; 
     
     const seciliKokteylElementleri = document.querySelectorAll('input[name="kokteyl"]:checked');
     const kokteylSecimi = Array.from(seciliKokteylElementleri).map(el => el.value);
@@ -268,10 +250,10 @@ function teklifiHesapla(shouldScroll = false) {
     // Geçerlilik kontrolü (hesaplama yapılmazsa veya hatalıysa sıfırla)
     if (isNaN(misafirSayisi) || misafirSayisi < 10 || isNaN(servisSaati) || servisSaati < SABITLER.MINIMUM_SAAT || kokteylSecimi.length === 0) {
         // Hatalı durumda sıfırla ve çık
-        document.getElementById('toplamFiyat').textContent = formatCurrency(0);
-        listeleriGoster([], []);
-        ekstraMaliyetTablosunuGoster([], SABITLER.MINIMUM_UCRET, 0, 0); 
-        document.getElementById('uzakMesafeMaliyeti').textContent = formatCurrency(0);
+        document.getElementById('toplamEncocktailMaliyet').textContent = formatCurrency(0);
+        document.getElementById('toplamMusteriMaliyet').textContent = formatCurrency(0);
+        document.getElementById('genelToplamFiyat').textContent = formatCurrency(0);
+        listeleriGoster([], []); 
         if (shouldScroll) {
             alert("Lütfen tüm zorunlu alanları (Min. Misafir: 10, Min. Saat: 3) doldurun ve en az bir kokteyl seçimi yapın.");
         }
@@ -299,21 +281,6 @@ function teklifiHesapla(shouldScroll = false) {
     let ekstraMaliyeti = 0;
     let ekstraMaliyetListesi = [];
 
-    // Uzak Mesafe (Otomatik Hesaplanan)
-    const uzakMesafeBilgi = EKSTRA_HIZMETLER.UZAK_MESAFE;
-    const uzakMesafeMaliyeti = uzakMesafeKM * uzakMesafeBilgi.fiyat;
-    ekstraMaliyeti += uzakMesafeMaliyeti;
-    ekstraMaliyetListesi.push({
-        isim: uzakMesafeBilgi.isim,
-        miktar: uzakMesafeKM,
-        birim: uzakMesafeBilgi.birim,
-        fiyat: uzakMesafeMaliyeti,
-        tip: 'KM'
-    });
-    // Uzak Mesafe maliyetini ekstra listeleme alanında göster
-    document.getElementById('uzakMesafeMaliyeti').textContent = formatCurrency(uzakMesafeMaliyeti);
-
-
     // Diğer Seçili Ekstralar (Checkbox)
     ekstraSecimi.forEach(ekstraKey => {
         const ekstraBilgi = EKSTRA_HIZMETLER[ekstraKey];
@@ -327,8 +294,6 @@ function teklifiHesapla(shouldScroll = false) {
         }
 
         const maliyet = carpan * ekstraBilgi.fiyat;
-        ekstraMaliyeti += maliyet;
-
         ekstraMaliyetListesi.push({
             isim: ekstraBilgi.isim,
             miktar: carpan,
@@ -336,6 +301,7 @@ function teklifiHesapla(shouldScroll = false) {
             fiyat: maliyet,
             tip: ekstraBilgi.carpimFaktoru
         });
+        ekstraMaliyeti += maliyet;
     });
 
     // 4. MİKS ve OPSİYONEL MALİYET HESAPLAMASI
@@ -343,7 +309,7 @@ function teklifiHesapla(shouldScroll = false) {
     kokteylSecimi.forEach(kokteyl => {
         const recete = RECELLER[kokteyl];
         if (recete) {
-            // Ortalama alarak ekle (Önceki JS'deki mantık)
+            // Ortalama alarak ekle
             for (const malzeme in recete) {
                 const miktar = recete[malzeme] / kokteylSecimi.length; 
                 toplamMalzemeIhtiyaci[malzeme] = (toplamMalzemeIhtiyaci[malzeme] || 0) + miktar;
@@ -352,7 +318,7 @@ function teklifiHesapla(shouldScroll = false) {
     });
 
     let miksMaliyeti = 0;
-    let opsiyonelTedarikMaliyeti = 0;
+    let opsiyonelTedarikMaliyeti = 0; // Müşteri Tedarik Maliyeti
     let encocktailTedarikListesi = [];
     let musteriTedarikListesi = [];
     
@@ -386,11 +352,20 @@ function teklifiHesapla(shouldScroll = false) {
             encocktailTedarikListesi.push({isim: malzeme.replace(/_/g, ' '), miktar: satinAlinacakMiktar, birim: bilgi.birim});
         } else if (bilgi.tedarikci === "MUSTERI") {
             opsiyonelTedarikMaliyeti += maliyet; 
+            
+            let gosterilenIsim = malzeme.replace(/_/g, ' ');
+
+            // İSTEK: SODA TONIK SU İFADESİNİ SADECE "SODA" (BÜYÜK HARFLE) OLARAK DEĞİŞTİR
+            if (malzeme === "SODA_TONIK_SU") {
+                gosterilenIsim = "SODA"; 
+            }
+            // --- BİTTİ ---
+
             if (ALKOLLER_SISE_HACIMLERI[malzeme] && ALKOLLER_SISE_HACIMLERI[malzeme].hacim_cl) {
                 const siseBilgisi = ALKOLLER_SISE_HACIMLERI[malzeme];
                 const gerekliSiseAdedi = Math.ceil((gerekliMiktarHesapBiriminde * 100) / siseBilgisi.hacim_cl);
                 musteriTedarikListesi.push({
-                    isim: malzeme.replace(/_/g, ' '),
+                    isim: gosterilenIsim,
                     miktar: gerekliSiseAdedi,
                     birim: "Şişe",
                     ekBilgi: `(${siseBilgisi.hacim_cl}cl, Örnek: ${siseBilgisi.marka})`
@@ -402,7 +377,7 @@ function teklifiHesapla(shouldScroll = false) {
                     ekBilgi = ` (Örnek: ${digerBilgi.marka})`;
                 }
                  musteriTedarikListesi.push({
-                    isim: malzeme.replace(/_/g, ' '),
+                    isim: gosterilenIsim,
                     miktar: satinAlinacakMiktar,
                     birim: bilgi.birim,
                     ekBilgi: ekBilgi
@@ -411,30 +386,27 @@ function teklifiHesapla(shouldScroll = false) {
         }
     }
 
-    
-    const toplamHizmetMaliyeti = temelHizmetUcreti + ekSaatUcreti + kokteylCesitUcreti + ekstraMaliyeti; 
-    const toplamFiyat = toplamHizmetMaliyeti + miksMaliyeti + opsiyonelTedarikMaliyeti;
-    const ortalamaMaliyet = toplamFiyat / tahminiKokteylAdedi;
+    // 5. YENİ TOPLAMLARIN HESAPLANMASI
+    const temelHizmetMaliyeti = temelHizmetUcreti + ekSaatUcreti + kokteylCesitUcreti + ekstraMaliyeti; 
+    const toplamEncocktailMaliyeti = temelHizmetMaliyeti + miksMaliyeti; // Hizmet + Ekstra + Miks Malzemeler
+    const toplamMusteriMaliyeti = opsiyonelTedarikMaliyeti; // Müşteriye Ait (Alkol, Buz, Soda)
+    const genelToplamFiyat = toplamEncocktailMaliyeti + toplamMusteriMaliyeti;
 
-
-    // 5. Sonuçları HTML'e Yansıt
-    document.getElementById('miksFiyat').textContent = formatCurrency(miksMaliyeti);
-    document.getElementById('opsiyonelFiyat').textContent = formatCurrency(opsiyonelTedarikMaliyeti);
-    document.getElementById('toplamFiyat').textContent = formatCurrency(toplamFiyat);
+    // 6. Sonuçları HTML'e Yansıt
+    document.getElementById('toplamEncocktailMaliyet').textContent = formatCurrency(toplamEncocktailMaliyeti);
+    document.getElementById('toplamMusteriMaliyet').textContent = formatCurrency(toplamMusteriMaliyeti);
+    document.getElementById('genelToplamFiyat').textContent = formatCurrency(genelToplamFiyat);
     document.getElementById('kokteylAdedi').textContent = tahminiKokteylAdedi;
-    document.getElementById('ortalamaMaliyet').textContent = formatCurrency(ortalamaMaliyet);
+    document.getElementById('ortalamaMaliyet').textContent = formatCurrency(genelToplamFiyat / tahminiKokteylAdedi);
 
     // Tedarik Listelerini Göster
     listeleriGoster(encocktailTedarikListesi, musteriTedarikListesi);
-    // Ekstra maliyet listesini göster
-    ekstraMaliyetTablosunuGoster(ekstraMaliyetListesi, temelHizmetUcreti, ekSaatUcreti, kokteylCesitUcreti);
-
 
     // Kayıt için verileri submit butonuna bağla
-    submitButton.dataset.toplamFiyat = toplamFiyat.toFixed(2);
+    submitButton.dataset.toplamFiyat = genelToplamFiyat.toFixed(2);
     submitButton.dataset.miksFiyat = miksMaliyeti.toFixed(2);
-    submitButton.dataset.hizmetFiyat = (temelHizmetUcreti + ekSaatUcreti + kokteylCesitUcreti).toFixed(2); // Temel Hizmet + Ek Saat + Ek Kokteyl Ücreti
-    submitButton.dataset.ekstraFiyat = ekstraMaliyeti.toFixed(2); // Ekstralar ve KM dahil
+    submitButton.dataset.hizmetFiyat = (temelHizmetUcreti + ekSaatUcreti + kokteylCesitUcreti).toFixed(2); 
+    submitButton.dataset.ekstraFiyat = ekstraMaliyeti.toFixed(2); 
     submitButton.dataset.opsiyonelFiyat = opsiyonelTedarikMaliyeti.toFixed(2);
     submitButton.dataset.kokteylAdedi = tahminiKokteylAdedi;
     
@@ -451,23 +423,11 @@ function teklifiHesapla(shouldScroll = false) {
     }
 }
 
-// I. TEDARİK LİSTELERİNİ GÖSTERME FONKSİYONU
+// I. TEDARİK LİSTELERİNİ GÖSTERME FONKSİYONU (Sadece Müşteri Listesi kaldı)
 function listeleriGoster(encocktailListe, musteriListe) {
-    const encocktailKapsayici = document.getElementById('encocktailTedarikListesi');
     const musteriKapsayici = document.getElementById('musteriTedarikListesi');
 
-    // ENCOCKTAIL Listesi (Miks Malzemeler)
-    encocktailKapsayici.innerHTML = '';
-    const encocktailUl = document.createElement('ul');
-    encocktailListe.forEach(item => {
-        const li = document.createElement('li');
-        const miktarGosterim = item.miktar.toFixed(item.birim === 'Adet' ? 0 : 1);
-        li.innerHTML = `${item.isim}: <strong>${miktarGosterim} ${item.birim}</strong>`;
-        encocktailUl.appendChild(li);
-    });
-    encocktailKapsayici.appendChild(encocktailUl);
-
-    // MÜŞTERİ Listesi (Alkol, Buz, Soda) - HİZALAMA DÜZELTMESİ UYGULANMIŞTIR
+    // MÜŞTERİ Listesi (Alkol, Buz, Soda)
     musteriKapsayici.innerHTML = '';
     const musteriUl = document.createElement('ul');
     musteriListe.forEach(item => {
@@ -497,103 +457,16 @@ function listeleriGoster(encocktailListe, musteriListe) {
     }
 }
 
-// J. EKSTRA MALİYET TABLOSUNU GÖSTERME FONKSİYONU (BAŞLIK HİZALAMASI GÜNCELLENDİ)
+// J. EKSTRA MALİYET TABLOSUNU GÖSTERME FONKSİYONU (Kullanıcı isteğiyle gizlendi)
 function ekstraMaliyetTablosunuGoster(ekstraMaliyetListesi, temelHizmetUcreti, ekSaatUcreti, kokteylCesitUcreti) {
-    const ekstraMaliyetBody = document.getElementById('ekstraMaliyetBody');
-    ekstraMaliyetBody.innerHTML = '';
-
-    // 1. Temel Hizmet Ücreti (Min 3 Saat Sabit Ücret)
-    let trTemel = document.createElement('tr');
-    trTemel.innerHTML = `
-        <td>Temel Hizmet Ücreti (${SABITLER.MINIMUM_SAAT} Saat Servis)</td>
-        <td>Sabit</td>
-        <td class="price">${formatCurrency(temelHizmetUcreti)}</td>
-    `;
-    ekstraMaliyetBody.appendChild(trTemel);
-
-    // 2. Ek Saat Ücreti
-    if (ekSaatUcreti > 0) {
-        let ekSaatSayisi = ekSaatUcreti / SABITLER.EK_SAAT_UCRET;
-        let trEkSaat = document.createElement('tr');
-        trEkSaat.innerHTML = `
-            <td>Ek Saat Hizmet Ücreti</td>
-            <td>${ekSaatSayisi} Saat</td>
-            <td class="price">${formatCurrency(ekSaatUcreti)}</td>
-        `;
-        ekstraMaliyetBody.appendChild(trEkSaat);
-    }
-
-    // 3. Ek Kokteyl Çeşidi Ücreti
-    if (kokteylCesitUcreti > 0) {
-        let ekCesitSayisi = kokteylCesitUcreti / SABITLER.EK_KOKTEYL_UCRET;
-        let trEkCesit = document.createElement('tr');
-        trEkCesit.innerHTML = `
-            <td>Ek Kokteyl Çeşidi Ücreti</td>
-            <td>${ekCesitSayisi} Çeşit</td>
-            <td class="price">${formatCurrency(kokteylCesitUcreti)}</td>
-        `;
-        ekstraMaliyetBody.appendChild(trEkCesit);
-    }
-
-    // 4. Ekstra Hizmetler ve KM
-    if (ekstraMaliyetListesi.length > 0) {
-        // Ekstra Hizmetler Başlığı (Artık SOLA YASLI)
-        let ekstraBaslik = document.createElement('tr');
-        // text-align: center; -> text-align: left; olarak değiştirildi
-        ekstraBaslik.innerHTML = `<td colspan="3" style="text-align: left; font-weight: 600; background-color: #f0f0f0;">Seçilen Ekstra Hizmetler ve Ulaşım</td>`; 
-        ekstraMaliyetBody.appendChild(ekstraBaslik);
-
-        // Uzak Mesafeyi en üste al
-        const uzakMesafeItem = ekstraMaliyetListesi.find(item => item.tip === 'KM');
-        if (uzakMesafeItem) {
-             const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${uzakMesafeItem.isim}</td>
-                <td>${uzakMesafeItem.miktar} KM</td>
-                <td class="price">${formatCurrency(uzakMesafeItem.fiyat)}</td>
-            `;
-            ekstraMaliyetBody.appendChild(tr);
-        }
-
-        // Diğer Ekstralar
-        ekstraMaliyetListesi.filter(item => item.tip !== 'KM').forEach(item => {
-            const tr = document.createElement('tr');
-            
-            let miktarBirimMetin = "";
-            if (item.tip === 'sabit') {
-                miktarBirimMetin = "Sabit Ücret";
-            } else if (item.tip === 'misafirSayisi') {
-                miktarBirimMetin = `${item.miktar} Kişi`;
-            } else if (item.tip === 'kokteylAdedi') {
-                miktarBirimMetin = `${item.miktar} Bardak (Tahmini)`;
-            }
-            
-            tr.innerHTML = `
-                <td>${item.isim}</td>
-                <td>${miktarBirimMetin}</td>
-                <td class="price">${formatCurrency(item.fiyat)}</td>
-            `;
-            ekstraMaliyetBody.appendChild(tr);
-        });
-    }
-    
-    // Toplam Hizmet satırı
-    const tumEkstralarinToplamFiyati = ekstraMaliyetListesi.reduce((sum, item) => sum + item.fiyat, 0);
-    let totalHizmet = temelHizmetUcreti + ekSaatUcreti + kokteylCesitUcreti + tumEkstralarinToplamFiyati;
-    let totalRow = document.createElement('tr');
-    totalRow.classList.add('total-row');
-    totalRow.innerHTML = `
-        <td colspan="2">TOPLAM HİZMET ve EKSTRA MALİYETİ</td>
-        <td class="price">${formatCurrency(totalHizmet)}</td>
-    `;
-    ekstraMaliyetBody.appendChild(totalRow);
+    // Bu bölüm, kullanıcı isteği üzerine boş bırakılmıştır.
 }
 
 
 // K. VERİ GÖNDERME FONKSİYONU
 function veriGonder() {
     // 1. Hesaplama yapılmış mı kontrol et
-    if (document.getElementById('toplamFiyat').textContent === '₺0.00') {
+    if (document.getElementById('genelToplamFiyat').textContent === '₺0.00') {
         alert("Lütfen teklifi önce hesaplayın.");
         return;
     }
@@ -601,39 +474,39 @@ function veriGonder() {
     // 2. Form verilerini topla
     const musteriIletisim = musteriIletisimInput.value;
     const telefonNumarasi = telefonNumarasiInput.value; 
+    const etkinlikTarihi = etkinlikTarihiInput.value; 
+    const etkinlikAdresi = etkinlikAdresiInput.value; 
+    const etkinlikTuru = etkinlikTuruInput.value; 
     const misafirSayisi = parseInt(misafirSayisiInput.value);
     const servisSaati = parseInt(servisSaatiInput.value);
-    const uzakMesafeKM = parseInt(uzakMesafeKMInput.value) || 0;
     
     const kokteylSecimi = Array.from(document.querySelectorAll('input[name="kokteyl"]:checked')).map(el => el.value);
-    
-    // Seçili ekstraları ve KM bilgisini topla
     const ekstraSecimi = Array.from(document.querySelectorAll('input[name="ekstra"]:checked')).map(el => EKSTRA_HIZMETLER[el.value].isim);
     
-    if (uzakMesafeKM > 0) {
-        const uzakMesafeMaliyeti = uzakMesafeKM * EKSTRA_HIZMETLER.UZAK_MESAFE.fiyat;
-        ekstraSecimi.push(`Uzak Mesafe Ulaşım (${uzakMesafeKM} KM - ${formatCurrency(uzakMesafeMaliyeti)})`);
-    }
-
-    if (!musteriIletisim || !telefonNumarasi) { 
-        alert("Lütfen Müşteri/İletişim Bilgisi ve Telefon Numarası alanlarını doldurun.");
+    // Zorunlu alan kontrolü güncellendi
+    if (!musteriIletisim || !telefonNumarasi || !etkinlikTarihi || !etkinlikAdresi || !etkinlikTuru) { 
+        alert("Lütfen tüm zorunlu iletişim ve etkinlik detay alanlarını doldurun.");
         return;
     }
 
     // Fiyatları data-set'ten al
+    // KRİTİK: VERİ SIRASI, GAS ARRAY DİZİLİMİYLE TAM EŞLEŞTİRİLDİ (Sütun 2'den 16'ya)
     const kayitVerisi = {
-        musteriIletisim: musteriIletisim,
-        telefonNumarasi: telefonNumarasi, 
-        misafirSayisi: misafirSayisi,
-        servisSaati: servisSaati,
-        kokteylSecimi: kokteylSecimi.join(', '), 
-        ekstraHizmetler: ekstraSecimi.join(' | '), 
-        hizmetFiyat: submitButton.dataset.hizmetFiyat, 
-        ekstraFiyat: submitButton.dataset.ekstraFiyat, 
-        miksFiyat: submitButton.dataset.miksFiyat,
-        opsiyonelFiyat: submitButton.dataset.opsiyonelFiyat,
-        toplamFiyat: submitButton.dataset.toplamFiyat,
-        tahminiKokteyl: submitButton.dataset.kokteylAdedi
+        musteriIletisim: musteriIletisim,       // 2. SÜTUN
+        telefonNumarasi: telefonNumarasi,       // 3. SÜTUN
+        etkinlikTarihi: etkinlikTarihi,         // 4. SÜTUN
+        etkinlikAdresi: etkinlikAdresi,         // 5. SÜTUN
+        etkinlikTuru: etkinlikTuru,             // 6. SÜTUN
+        misafirSayisi: misafirSayisi,           // 7. SÜTUN
+        servisSaati: servisSaati,               // 8. SÜTUN
+        kokteylSecimi: kokteylSecimi.join(', '),// 9. SÜTUN
+        ekstraHizmetler: ekstraSecimi.join(' | ') || 'Seçilmedi',// 10. SÜTUN
+        tahminiKokteyl: submitButton.dataset.kokteylAdedi, // 11. SÜTUN (**DÜZELTİLDİ**)
+        hizmetFiyat: submitButton.dataset.hizmetFiyat, // 12. SÜTUN
+        ekstraFiyat: submitButton.dataset.ekstraFiyat, // 13. SÜTUN
+        miksFiyat: submitButton.dataset.miksFiyat, // 14. SÜTUN
+        opsiyonelFiyat: submitButton.dataset.opsiyonelFiyat, // 15. SÜTUN
+        toplamFiyat: submitButton.dataset.toplamFiyat // 16. SÜTUN
     };
     
     // Butonu disable et ve yükleniyor yap
@@ -653,6 +526,7 @@ function veriGonder() {
 function GonderGoogleSheets(veri) {
     if (!veri) return Promise.reject("Veri boş.");
 
+    // no-cors modunda yanıtı kontrol edemeyiz, ancak yönlendirmeyi yapabiliriz.
     return fetch(GAS_WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors', 
@@ -661,9 +535,9 @@ function GonderGoogleSheets(veri) {
         },
         body: new URLSearchParams(veri).toString()
     })
-    .then(response => {
+    .then(() => {
+        // İstek gönderildikten sonra (başarılı veya başarısız), tarayıcıyı yönlendir
         window.location.href = "tesekkurler.html"; 
-        return response;
     })
     .catch(error => {
         console.error('Gönderme Hatası:', error);
@@ -679,6 +553,7 @@ submitButton.addEventListener('click', veriGonder);
 
 // Sayfa yüklendiğinde listeyi RECELLER'dan ve EKSTRALAR'dan dinamik olarak oluştur
 document.addEventListener('DOMContentLoaded', () => {
+    // BURASI KOKTEYL VE EKSTRA LİSTELERİNİ OLUŞTURUR
     kokteylCheckboxlariOlustur();
     ekstraCheckboxlariOlustur(); 
     // Sayfa yüklendiğinde ilk boş hesaplamayı yap (Kaydırma yok)
@@ -691,8 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
         checkbox.addEventListener('change', () => teklifiHesapla(false));
     });
 
-    // Sayı giriş alanlarına dinleyicileri dinamik olarak ekle
-    const allInputs = document.querySelectorAll('#misafirSayisi, #servisSaati, #uzakMesafeKM');
+    // Hesaplamayı etkileyen sayı giriş alanlarına dinleyicileri ekle
+    const allInputs = document.querySelectorAll('#misafirSayisi, #servisSaati');
     allInputs.forEach(input => {
         // Input değişiminde (değer girilince) sadece hesaplama yap (kaydırma yapma)
         input.addEventListener('change', () => teklifiHesapla(false));

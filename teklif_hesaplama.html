@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENCOCKTAIL Mobil Bar Teklif Hesaplama</title>
+    <title>ENCOCKTAIL Kokteyl Bar Teklif Hesaplama</title>
     <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍹</text></svg>">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍹</text></svg>">
     <link rel="stylesheet" href="teklif_hesaplama.css"> 
@@ -13,88 +13,112 @@
 
 <div class="container">
     <header>
-        <h1>ENCOCKTAIL Mobil Bar Teklif Hesaplama</h1>
+        <h1>ENCOCKTAIL Kokteyl Bar Teklif Hesaplama</h1>
     </header>
 
     <section id="inputForm">
         <h2>1. Etkinlik Bilgilerini Girin</h2>
 
-        <div class="form-group half-width"> 
-            <label for="musteriIletisim">Müşteri/İletişim Bilgisi:</label>
-            <input type="text" id="musteriIletisim" placeholder="Ad Soyad veya Firma Adı" required>
+        <div class="input-group">
+            <label for="musteriIletisim">İletişim Adı/Firma:</label>
+            <input type="text" id="musteriIletisim" required placeholder="Ad Soyad veya Firma Adı">
         </div>
-        
-        <div class="form-group half-width"> 
+        <div class="input-group">
             <label for="telefonNumarasi">Telefon Numarası:</label>
-            <input type="tel" id="telefonNumarasi" placeholder="(5XX) XXX XX XX" required>
+            <input type="tel" id="telefonNumarasi" required placeholder="5XX XXX XX XX">
+        </div>
+        <div class="input-group">
+            <label for="etkinlikTarihi">Etkinlik Tarihi:</label>
+            <input type="date" id="etkinlikTarihi" required>
+        </div>
+        <div class="input-group">
+            <label for="etkinlikAdresi">Etkinlik Adresi:</label>
+            <input type="text" id="etkinlikAdresi" required placeholder="Örn: İzmir, Çeşme">
+        </div>
+        <div class="input-group">
+            <label for="etkinlikTuru">Etkinlik Türü:</label>
+            <select id="etkinlikTuru" required>
+                <option value="">Seçiniz</option>
+                <option value="Düğün">Düğün</option>
+                <option value="Nişan">Nişan</option>
+                <option value="Kına">Kına</option>
+                <option value="Bekarlığa Veda">Bekarlığa Veda</option>
+                <option value="Doğum Günü">Doğum Günü</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Kurumsal Etkinlik">Kurumsal Etkinlik</option>
+                <option value="Diğer Özel Kutlama">Diğer Özel Kutlama</option>
+            </select>
         </div>
         
-        <div class="form-group half-width"> 
-            <label for="misafirSayisi">Tahmini Misafir Sayısı (Min 10):</label>
-            <input type="number" min="10" id="misafirSayisi" value="50" required>
-        </div>
-        
-        <div class="form-group half-width">
-            <label for="servisSaati">Servis Süresi (Saat) (Min 3):</label>
-            <input type="number" min="3" id="servisSaati" value="3" required>
-        </div>
+        <h2>2. Hizmet Detaylarını Seçin</h2>
 
-        <div class="form-group half-width"> 
-            <label for="uzakMesafeKM">Uzak Mesafe (Gidiş-Dönüş KM) (Bornova baz alınmıştır):</label>
-            <input type="number" id="uzakMesafeKM" value="0" min="0" placeholder="0" required>
-        </div>
-        <h2>2. Kokteyl Menüsü Seçimi</h2>
-        
-        <div class="note">
-            <p>Maksimum 4 çeşit kokteyl seçilebilir (3 çeşitten fazlası ek ücrete tabidir).</p>
+        <div class="input-group inline-group">
+            <label for="misafirSayisi">Misafir Sayısı (Min 10):</label>
+            <input type="number" id="misafirSayisi" min="10" value="50" required>
         </div>
         
-        <div id="kokteylSecimiKapsayici" class="kokteyl-checkboxes">
-            <p>Menü yükleniyor...</p>
+        <div class="input-group inline-group">
+            <label for="servisSaati">Servis Süresi (Min 3 Saat):</label>
+            <input type="number" id="servisSaati" min="3" value="3" required>
         </div>
-
-        <div id="ekstraHizmetler" class="form-group">
-            <h2>3. Ekstra Hizmet Seçimi</h2>
-            <div class="note">
-                <p>Uzak Mesafe Ulaşım maliyeti (KM x 10 TL) otomatik olarak hesaplanmıştır.</p>
-            </div>
-            <div id="ekstraSecimiKapsayici" class="ekstra-secim-grid">
+        
+        <div class="input-group checkbox-group">
+            <label>Kokteyl Çeşitleri (Min 1, Maks 4):</label>
+            <div id="kokteylSecimiKapsayici" class="checkbox-container">
                 </div>
         </div>
-        <button id="calculateButton" class="calculate-button">TEKLİF HESAPLA</button>
+        
+        <div class="input-group checkbox-group">
+            <label>Ekstra Hizmet Seçimi:</label>
+            <div id="ekstraSecimiKapsayici" class="checkbox-container">
+                </div>
+        </div>
+        
+        <button id="calculateButton" class="button primary">Teklifi Hesapla</button>
     </section>
 
-    <section id="teklifOzeti" style="display: block;">
+    <section id="teklifOzeti" class="teklif-ozeti">
         <h2>4. Teklif Özeti (TL)</h2>
 
-        <div class="result-box">
-            <table class="result-table">
+        <div class="summary-table">
+            <table>
                 <thead>
                     <tr>
-                        <th>Maliyet Kalemi</th>
-                        <th>Miktar/Birim</th> <th class="price">Fiyat (TL)</th>
+                        <th colspan="2">Açıklama</th>
+                        <th class="price-header">Maliyet (TL)</th>
                     </tr>
                 </thead>
-                <tbody id="ekstraMaliyetBody">
-                    </tbody>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td colspan="2" style="font-weight: 700; background-color: #ffe0e6; padding: 10px 0;">
+                            HİZMET VE MALZEME (ENCOCKTAIL)
+                            <span class="note-small">(Hizmet + Ekstra + Miks Malzemeler)</span>
+                        </td>
+                        <td class="price" id="toplamEncocktailMaliyet">₺0.00</td>
+                    </tr>
+                    
+                    <tr class="spacer-row">
+                        <td colspan="3" style="padding: 5px; border-bottom: 2px solid #ccc;"></td>
+                    </tr>
+
+                    <tr class="highlight-row optional-row">
+                        <td colspan="2" style="font-weight: 700; background-color: #e0f2ff; padding: 10px 0;">
+                            MÜŞTERİ TEDARİK TAHMİNİ (OPSİYONEL)
+                            <span class="note-small">(Alkol, Buz, SODA)</span>
+                        </td>
+                        <td class="price" id="toplamMusteriMaliyet">₺0.00</td>
+                    </tr>
+                </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="2">Miks Malzeme Maliyeti (ENCOCKTAIL Tedarik)</td>
-                        <td class="price" id="miksFiyat">₺0.00</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Opsiyonel Tedarik Maliyeti (Müşteri Tedarik: Alkol, Buz, Soda tahmini maliyeti)</td>
-                        <td class="price" id="opsiyonelFiyat">₺0.00</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td colspan="2">GENEL TOPLAM FİYAT (Tedarik Dahil)</td>
-                        <td class="price" id="toplamFiyat">₺0.00</td>
+                    <tr class="grand-total-row">
+                        <td colspan="2" style="font-weight: 700;">GENEL TOPLAM</td>
+                        <td class="price" id="genelToplamFiyat">₺0.00</td>
                     </tr>
                 </tfoot>
             </table>
         </div>
 
-        ---
+        <hr class="separator">
 
         <h3>Özet Bilgiler</h3>
         <div class="note">
@@ -102,27 +126,19 @@
             <p>Kokteyl Başına Ortalama Maliyet: <strong id="ortalamaMaliyet">₺0.00</strong></p>
         </div>
 
-        ---
+        <hr class="separator">
 
-        <h3>🍹 Zorunlu ENCOCKTAIL Miks Malzemeler</h3>
-        <div id="encocktailTedarikListesi" class="supply-list">
-            <p>Miks malzemeler, hesaplama sonrası burada detaylı olarak listelenecektir.</p>
-        </div>
-        <p class="note">Bu listedeki tüm miks malzemeler ENCOCKTAIL tarafından tedarik edilir ve fiyatlara dahildir.</p>
-        
-        ---
-
-        <h3>🥃 Müşteri Tedarik Listesi (Alkol, Buz, Soda)</h3>
+        <h3>🥃 Müşteri Tedarik Listesi (Alkol, Buz, SODA)</h3>
         <ul id="musteriTedarikListesi" class="supply-list">
             <li>Lütfen misafir sayınıza göre gerekli alkol, buz ve su miktarını hesaplamak için yukarıdaki alanları doldurunuz.</li>
         </ul>
-        <p class="note">Bu listedeki alkol, buz ve soda gibi ürünlerin tedariği Müşteriye aittir. Yukarıdaki "Opsiyonel Tedarik" fiyatı, tahmini tedarik maliyetinizi görmeniz için hesaplanmıştır.</p>
+        <p class="note">Bu listedeki alkol, buz ve SODA gibi ürünlerin tedariği Müşteriye aittir. Yukarıdaki "Müşteri Tedarik Tahmini" fiyatı, tahmini tedarik maliyetinizi gösterir.</p>
 
-        <button id="submitButton" class="submit-button" style="display: none;">TEKLİFİ KAYDET VE İLET</button>
+        <button id="submitButton" class="button submit" style="display: none;">Bu Teklifi Kaydet ve İlet</button>
     </section>
 
 </div>
 
-<script src="teklif_hesaplama.js"></script> 
+<script src="teklif_hesaplama.js"></script>
 </body>
 </html>
